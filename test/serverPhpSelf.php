@@ -12,6 +12,7 @@ for ($i=0;$i<count($ruta);$i++){
     $ruta[$i]."<br>";
 }
 
+
 $ruta = $_SERVER['REQUEST_URI'];
 echo "REQUEST_URI: ".$ruta;
 ?>

@@ -34,7 +34,7 @@ $listaProductos = $objAbmProducto->buscar(null);
               <td>'.$objProducto->getProNombre().'</td>
               <td>'.$objProducto->getProDetalle().'</td>
               <td>'.$objProducto->getProCantstock().'</td>
-              <td><a href="formActualizarUsuarios.php?idproducto='.$objProducto->getIdProducto().'">Agregar al carrito</a> 
+              <td><a href="agregarProductoAlCarrito.php?idproducto='.$objProducto->getIdProducto().'">Agregar al carrito</a> 
       </td>
               </tr>';
 	}

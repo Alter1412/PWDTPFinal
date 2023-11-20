@@ -23,12 +23,12 @@ $producto = $busquedaProducto[0];
 </head>
 <body>
 <p>Como hacer para que se sumen los precios?</p>
-    <form action="action/altaItemMenu.php" method="post">
+    <form action="action/agregarProductosCarrito.php" method="post">
 
-        Id Producto: <input type="text" name="idproducto" id="idproducto" value=<?php $datos['idproducto']?> readonly><br>
-        Nombre Producto: <input type="text" id="pronombre" name="pronombre" value=<?php $producto->getProNombre()?> readonly> <br>
-        Precio Producto: <input type="text" id="prodetalle" name="prodetalle" value=<?php $producto->getProDetalle()?> readonly> <br>
-        Stock: <input type="text" id="cicantidad" name="cicantidad" value=<?php $producto->getProCantstock()?> readonly> <br>
+        Id Producto: <input type="text" name="idproducto" id="idproducto" value='<?php echo $producto->getIdProducto();?>' readonly><br>
+        Nombre Producto: <input type="text" id="pronombre" name="pronombre" value='<?php echo $producto->getProNombre();?>' readonly> <br>
+        Precio Producto: <input type="text" id="prodetalle" name="prodetalle" value='<?php echo $producto->getProDetalle();?>' readonly> <br>
+        Stock: <input type="text" id="cicantidad" name="cicantidad" value='<?php echo $producto->getProCantstock();?>' readonly> <br>
         Cantidad a llevar: <input type="text" id="cicantidad" name="cicantidad" > <br>
         
        
