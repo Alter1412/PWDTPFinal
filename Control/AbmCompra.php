@@ -175,12 +175,12 @@ class AbmCompra{
     /**
      * Crea un carrito con su estado
      * $param contiene:
-     * $param['idcompra'],$param['cofecha'] y $param['idusuario']
+     * $param['idusuario']
      */
     public function crearCarrito($param){
         $resp = false;
-        $estadoCompra = new AbmCompraEstado();
-        if($this->alta($param)){
+       /* $estadoCompra = new AbmCompraEstado();
+         if($this->alta($param)){
             $compraUsuario = $this->buscar($param['idusuario']);
             $objCompra = $compraUsuario[count($compraUsuario)-1];//seecciona a ultima compra
             $array['idcompraestado'] = 0;
@@ -191,8 +191,21 @@ class AbmCompra{
             if($estadoCompra->alta($array)){
                 $resp = true;
             }
-        }
+        } */
+        
         return $resp;
+    }
+
+    /**
+     * Recibe un id de usuario y retorna un objeto compra que no posea un estado.
+     */
+    public function buscarCarrito($idUsuario){
+        $compra = new Compra();
+        $sql = "idusuario = ".$idUsuario. "AND 
+        NOT EXISTS (
+        SELECT * FROM compraestado WHERE compraestado.idcompra = compra.idcompra);";
+        $carrito = $compra->listar($sql);//devuelve 1 carrito sin relacion a compraestado
+        return $carrito;
     }
 
     /**
