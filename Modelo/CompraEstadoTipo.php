@@ -67,7 +67,7 @@ public function getMensajeOperacion(){
               $row = $base->Registro();
 
      
-              $this->setear($row['idcompraestadotipo'], $row['cetdescripcion'],$row['cetdetalles']);
+              $this->setear($row['idcompraestadotipo'], $row['cetdescripcion'],$row['cetdetalle']);
             }
           }
         } else {

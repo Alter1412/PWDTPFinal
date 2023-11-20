@@ -11,8 +11,16 @@ class AbmCompraEstado{
         $obj = null;
         if( array_key_exists('idcompraestado',$param) and array_key_exists('idcompra',$param)     
           and array_key_exists('idcompraestadotipo',$param) and array_key_exists('cefechaini',$param) and array_key_exists('cefechafin',$param)){
+        
+            $objCompra = new Compra();
+            $objCompra->setIdCompra($param['idcompra']);
+            $objCompra->cargar();
+            $objTipoEstado = new CompraEstadoTipo();
+            $objTipoEstado->setIdCompraEstadoTipo($param['idcompraestadotipo']);
+            $objTipoEstado->cargar();
+
             $obj = new CompraEstado();
-            $obj->setear($param['idcompraestado'], $param['idcompra'],$param['idcompraestadotipo'],$param['cefechaini'],$param['cefechafin']);
+            $obj->setear($param['idcompraestado'], $objCompra,$objTipoEstado,$param['cefechaini'],$param['cefechafin']);
         }
         return $obj;
     }

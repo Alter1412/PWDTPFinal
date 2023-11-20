@@ -144,11 +144,13 @@ $this->cefechafin = $cefechafin;
         $resp = false;
         $base = new BaseDatos();
         $sql = "UPDATE compraestado SET 
-        idcompra = '".$this->getObjCompra()->getIdCompra()."',
-        idcompraestadotipo = '".$this->getObjCompraEstadoTipo()->getIdCompraEstadoTipo()."',
-        cefechaini = ".$this->getCeFechaIni().",
-        cefechafin = " .$this->getCeFechaFin(). "
-        WHERE idcompraestado = '".$this->getIdCompraEstado()."'";
+        idcompra = ".$this->getObjCompra()->getIdCompra().",
+        idcompraestadotipo = ".$this->getObjCompraEstadoTipo()->getIdCompraEstadoTipo().",
+        cefechaini = '".$this->getCeFechaIni()."',
+        cefechafin = '" .$this->getCeFechaFin(). "'
+        WHERE idcompraestado = ".$this->getIdCompraEstado();
+
+        echo $sql."<br>";
     
       if ($base->Iniciar()) {
    
@@ -176,7 +178,7 @@ $this->cefechafin = $cefechafin;
       $base = new BaseDatos();
 
       $sql = "DELETE FROM compraestado WHERE idcompraestado = ".$this->getIdCompraEstado()."";
-
+      
       if ($base->Iniciar()) {
         if ($base->Ejecutar($sql)) {
           return true;

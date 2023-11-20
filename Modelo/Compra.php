@@ -178,10 +178,11 @@ class Compra extends BaseDatos{
     $base = new BaseDatos();
 
     $sql = "SELECT * FROM compra ";
-
+      
    if ($parametro != "") {
-     $sql .= " WHERE .$parametro";
+     $sql .= " WHERE $parametro";
     }
+    //echo $sql;
    $res = $base->Ejecutar($sql);
    if ($res > -1) {
      if ($res > 0) {

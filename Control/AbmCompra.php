@@ -156,7 +156,7 @@ class AbmCompra{
         if ($param <> NULL){
 
             if  (isset($param['idcompra']))
-                $where .= " and idcompra = '".$param['idcompra']."'";
+                $where .= " and idcompra = ".$param['idcompra'];
 
             if  (isset($param['cofecha']))
                 $where.= " and cofecha = '".$param['cofecha']."'";

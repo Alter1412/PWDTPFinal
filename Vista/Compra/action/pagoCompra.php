@@ -2,12 +2,17 @@
 include_once ("../../../configuracion.php");
 //pasa el carrito al estado iniciada
 $datos = data_submitted();//idCompra
-verEstructura($datos);
+//verEstructura($datos);
 $objCompra = new AbmCompra();
 $arayCompra = $objCompra->buscar($datos);//array
+//verEstructura($arayCompra);
 $compra = $arayCompra[0];//objCompra
+//verEstructura($compra);
+$fecha['idcompra'] = $compra->getIdCompra();
 $fecha['cofecha'] = date('Y-m-d H:i:s');
-$compraExitosa = $compra->modificar($fecha);
+$fecha['idusuario'] = $compra->getObjUsuario()->getIdUsuario();
+verEstructura($fecha);
+$compraExitosa = $objCompra->modificar($fecha);
 if($compraExitosa){
     $objEstado = new AbmCompraEstado();
     $param['idcompraestado'] = 0;
