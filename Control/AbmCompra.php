@@ -122,7 +122,7 @@ class AbmCompra{
      * @param array $param
      * @return boolean
      */
-    public function modificacion($param){
+    public function modificar($param){
         //echo "Estoy en modificacion";
         $resp = false;
 
