@@ -102,26 +102,25 @@ class Session
         return $usuario;
     }
 
-    /**devuelve el rol o un array con los roles del usuario logeado */
-    public function getRol()
-    {
-        $rol = null;
-        if ($this->validar()) {
-            $obj = new AbmUsuario();
-            $param['idusuario'] = $_SESSION['idusuario'];
-            $resultado = $obj->buscarRoles($param); //devuelve un array de roles
-            /*Verifica que el array tenga al menos UN rol*/
-            if (count($resultado) > 0) {
-                $rol = $resultado[0];
-            }
-            /* Si tiene mas de uno, sobreescribe el array
-         * y lo devuelve completo*/
-            if (count($resultado) > 1) {
-                $rol = $resultado;
-            }
+  /**devuelve el rol activo del usuario logeado */
+  public function getRol()
+  {
+      $rol = null;
+      if ($this->validar()){
+            $rol = $_SESSION['rol'];
         }
         return $rol;
-    }
+       
+  }
+
+  /**Devuelve todos los roles del usuario */
+  public function getListaRoles(){
+    $roles = null;
+      if ($this->validar()){
+            $roles = $_SESSION['colroles'];
+        }
+        return $roles;
+  }
 
     /**
      * Actualiza los roles de la session
