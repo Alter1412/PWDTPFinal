@@ -135,15 +135,11 @@ class Session
 
     /**
      * Actualiza los roles de la session
+     * $param['rol'] o un int
      */
-    function actualizarRol()
+    function actualizarRol($param)
     {
-        $roles = $this->getRol();
-        foreach ($roles as $rol) {
-            $listaRoles[] = $rol->getIdRol();
-        }
-        unset($_SESSION['rol']);
-        $_SESSION['rol'] = $listaRoles;
+        $_SESSION['rol'] = $param;
     }
 
     /**
