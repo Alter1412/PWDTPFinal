@@ -206,19 +206,19 @@ INSERT INTO menu (idmenu, menombre, medescripcion, idpadre, medeshabilitado) VAL
 (2, 'deposito', 'nav-bar-2', NULL, NULL),
 (3, 'cliente','nav-bar-2', NULL, NULL),
 
+/*seccion Admin*/
+(4, 'Ha ingresado como administrador', 'homeAdministrador.php', NULL, NULL),
 /*seccion deposito*/
-(4, 'Ha ingresado como administrador', 'homeAdministrador.php', 1, NULL),
-/*seccion deposito*/
-(5, 'Ha ingresado a Deposito', 'homeDeposito.php', 2, NULL),
+(5, 'Ha ingresado a Deposito', 'homeDeposito.php', NULL, NULL),
 
-(6, 'Inicio', 'home.php', 3, NULL),
-(7, 'Mates', 'mostrarProd.php?nombre=Mates', 3, NULL),
-(8, 'Yerbas', 'mostrarProd.php?nombre=Yerbas', 3, NULL),
-(9, 'Bombillas','mostrarProd.php?nombre=Bombillas', 3, NULL),
-(10, 'Termos', 'mostrarProd.php?nombre=Termos', 3,NULL),
-(11, 'SETS', 'mostrarProd.php?nombre=SETS', 3, NULL),
-(12, 'Mis Compras', '../cliente/misCompras.php', 3, NULL),
-(13, 'iconoCarrito', '../cliente/carrito.php', 3, NULL)
+(6, 'Inicio', 'home.php', NULL, NULL),
+(7, 'Mates', 'mostrarProd.php?nombre=Mates', NULL, NULL),
+(8, 'Yerbas', 'mostrarProd.php?nombre=Yerbas', NULL, NULL),
+(9, 'Bombillas','mostrarProd.php?nombre=Bombillas', NULL, NULL),
+(10, 'Termos', 'mostrarProd.php?nombre=Termos', NULL,NULL),
+(11, 'SETS', 'mostrarProd.php?nombre=SETS', NULL, NULL),
+(12, 'Mis Compras', '../cliente/misCompras.php', NULL, NULL),
+(13, 'iconoCarrito', '../cliente/carrito.php', NULL, NULL)
 ;
 
 -- ----------------------------------------------------------------------------------
@@ -366,7 +366,17 @@ ALTER TABLE `menurol`
 INSERT INTO menurol (idmenu, idrol) VALUES
 (1, 1), -- Admin
 (2, 2), -- Deposito
-(3, 3); -- Cliente
+(3, 3), -- Cliente
+(4,1), -- Admin
+(5,2), -- Deposito
+(6,3), -- Cliente
+(7,3), -- Cliente
+(8,3), -- Cliente
+(9,3), -- Cliente
+(10,3), -- Cliente
+(11,3), -- Cliente
+(12,3), -- Cliente
+(13,3); -- Cliente
 
 -- ----------------------------------------------------------------------------------
 --

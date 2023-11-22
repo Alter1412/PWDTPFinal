@@ -48,7 +48,7 @@ class Session
                 $_SESSION['idusuario'] = $usuario->getIdUsuario();
                 $_SESSION['usnombre'] = $usuario->getUsNombre();
                 $_SESSION['usmail'] = $usuario->getUsMail();
-                $_SESSION['rol'] = $colUsuarioRol[0]->getObjRol()->getIdRol();
+                $_SESSION['rol'] = $colUsuarioRol[0]->getObjRol()->getIdRol();//guarda el id del rol
 
                 for ($i = 0; $i < count($colUsuarioRol); $i++) {
                     $_SESSION['colroles'][$i] = $colUsuarioRol[$i]->getObjRol()->getIdRol();
@@ -87,7 +87,7 @@ class Session
         return  $resp;
     }
 
-    /**Devuelve el usuario logeado*/
+    /**Devuelve el usuario(objUsuario) logeado*/
     public function getUsuario()
     {
         $usuario = null;
