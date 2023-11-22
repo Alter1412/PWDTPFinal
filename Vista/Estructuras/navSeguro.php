@@ -10,9 +10,12 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
+        <?php
 
+        $objMenuRol = new AbmMenuRol;
+        $colMenus = $objMenuRol->obtenerColMenus($rol);
 
-
+        ?>
         </ul>
     </div>
 </nav>

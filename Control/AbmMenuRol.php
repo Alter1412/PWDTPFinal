@@ -204,6 +204,17 @@ class AbmMenuRol{
 
         return $colInfo;
     }
+
+    /**
+     * Devuelve una colección de Menus según el id de rol recibido
+     * 
+     * @param int
+     * @return array
+     */
+    public function obtenerColMenus(){
+        $colMenus = null;
+        
+    }
 }
 
 ?>

@@ -6,7 +6,12 @@ $direccion = "Home";
 
 include_once("../Estructuras/headInseguro.php");
 include_once("../Estructuras/banner.php");
-include_once("../Estructuras/navInseguro.php");
+
+if ($rol != null){
+    include_once("../Estructuras/navSeguro.php");
+} else {
+    include_once("../Estructuras/navInseguro.php");
+}
 
 ?>
 

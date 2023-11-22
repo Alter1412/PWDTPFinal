@@ -1,3 +1,21 @@
+<?php
+include_once("../../configuracion.php");
+
+$objSession = new Session();
+
+//Valido logueo correcto y ademas que tenga permiso(rol)
+if($objSession->validar()){
+    if(array_key_exists('rol', $_SESSION)){
+        $rol = $_SESSION['rol'];
+    } else {
+        $rol = null;
+    }
+} else {
+    $rol = null;
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
