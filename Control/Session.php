@@ -2,7 +2,9 @@
 class Session
 {
 
-    /*_ _construct(). Constructor que. Inicia la sesión.*/
+    /**
+     * __construct(). Constructor que. Inicia la sesión.
+     */
     public function __construct()
     {
         $resp = true;
@@ -12,10 +14,9 @@ class Session
         return $resp;
     }
 
-    /* iniciar($nombreUsuario,$psw). Actualiza las variables de sesión con los valores ingresados.
-    * 
-    */
-
+    /**
+     * iniciar($nombreUsuario,$psw). Actualiza las variables de sesión con los valores ingresados.
+     */
     public function iniciar($nombreUsuario, $psw)
     {
         $resp = false;
@@ -48,7 +49,7 @@ class Session
                 $_SESSION['idusuario'] = $usuario->getIdUsuario();
                 $_SESSION['usnombre'] = $usuario->getUsNombre();
                 $_SESSION['usmail'] = $usuario->getUsMail();
-                $_SESSION['rol'] = $colUsuarioRol[0]->getObjRol()->getIdRol();//guarda el id del rol
+                $_SESSION['rol'] = $colUsuarioRol[0]->getObjRol()->getIdRol(); //guarda el id del rol
 
                 for ($i = 0; $i < count($colUsuarioRol); $i++) {
                     $_SESSION['colroles'][$i] = $colUsuarioRol[$i]->getObjRol()->getIdRol();
@@ -62,7 +63,9 @@ class Session
         return $resp;
     }
 
-    /*validar(). Valida si la sesión actual tiene usuario y psw válidos. Devuelve true o false.*/
+    /**
+     * validar(). Valida si la sesión actual tiene usuario y psw válidos. Devuelve true o false.
+     */
     public function validar()
     {
         $resp = false;
@@ -73,7 +76,9 @@ class Session
         return $resp;
     }
 
-    /*activa(). Devuelve true o false si la sesión está activa o no. */
+    /**
+     * activa(). Devuelve true o false si la sesión está activa o no.
+     */
     public function activa()
     {
         $resp = false;
@@ -87,7 +92,9 @@ class Session
         return  $resp;
     }
 
-    /**Devuelve el usuario(objUsuario) logeado*/
+    /**
+     * Devuelve el usuario(objUsuario) logeado
+     */
     public function getUsuario()
     {
         $usuario = null;
@@ -102,25 +109,29 @@ class Session
         return $usuario;
     }
 
-  /**devuelve el rol activo del usuario logeado */
-  public function getRol()
-  {
-      $rol = null;
-      if ($this->validar()){
+    /**
+     * Devuelve el rol activo del usuario logeado
+     */
+    public function getRol()
+    {
+        $rol = null;
+        if ($this->validar()) {
             $rol = $_SESSION['rol'];
         }
         return $rol;
-       
-  }
+    }
 
-  /**Devuelve todos los roles del usuario */
-  public function getListaRoles(){
-    $roles = null;
-      if ($this->validar()){
+    /**
+     * Devuelve un array con todos los roles del usuario
+     */
+    public function getListaRoles()
+    {
+        $roles = null;
+        if ($this->validar()) {
             $roles = $_SESSION['colroles'];
         }
         return $roles;
-  }
+    }
 
     /**
      * Actualiza los roles de la session
@@ -157,7 +168,9 @@ class Session
         return $resp;
     }
 
-    /**cierra la sesion actual */
+    /**
+     * cierra la sesion actual
+     */
     public function cerrar()
     {
         $resp = true;

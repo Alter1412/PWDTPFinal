@@ -1,5 +1,5 @@
 <?php
-$session = new Session();
+//$session = new Session();
 $rolActivo = $session->getRol();//id del rol
 $idUsuario = $session->getUsuario()->getIdUsuario();//idusuario
 $colRoles = $session->getListaRoles();//$_SESSION['colroles'][$i]= id rol
@@ -7,8 +7,9 @@ $resp = false;
 $j=0;
 $menu = ""; //aca se almacena texto con html 
 $objRol = new AbmRol();
-while($j<count($colRoles['colroles']) && $resp == false){
-    if($colRoles['colroles'][$j]==$rolActivo){
+$colRoles = $session->getListaRoles();
+while($j<count($colRoles) && $resp == false){
+    if($colRoles[$j]==$rolActivo){
         $resp = true;
     }
     $j++;
