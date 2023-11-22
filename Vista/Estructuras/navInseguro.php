@@ -2,7 +2,7 @@
 <!-- ________________________________________ NAV INSEGURO _____________________________________ -->
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
     <div class="container">
-        <a class="navbar-brand" href="#">TECNO-MATES</a>
+        <!--<a class="navbar-brand" href="#">TECNO-MATES</a>-->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -16,6 +16,16 @@
                 } else {
                     echo '<li class="nav-item">';
                     echo '  <a class="nav-link" href="home.php">Inicio</a>';
+                    echo '</li>';
+                }
+
+                if ($menu == "Productos"){
+                    echo '<li class="nav-item active nav-underline">';
+                    echo '  <a class="nav-link active " aria-current="page" href="#">Productos</a>';
+                    echo '</li>';
+                } else {
+                    echo '<li class="nav-item">';
+                    echo '  <a class="nav-link" href="productos.php">Productos</a>';
                     echo '</li>';
                 }
 

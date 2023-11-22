@@ -1,3 +1,6 @@
+<?php
+
+?>
 
 <!-- ________________________________________ NAV SEGURO _______________________________________ -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -9,7 +12,7 @@
         <ul class="navbar-nav ml-auto">
 
 
-        
+
         </ul>
     </div>
 </nav>

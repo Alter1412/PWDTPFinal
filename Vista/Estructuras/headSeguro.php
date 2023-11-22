@@ -1,20 +1,17 @@
 <?php
-//VALIDAR ACA LA SESIÓN
 include_once("../../configuracion.php");
-    
+  
 $objSession = new Session();
-$rol = $_SESSION['rol'];
 
-//$rol = $_SESSION['rol'];//guarda el rol de la session
-/* $menu = new AbmMenu();//se crea un objeto menu
-$param['idpadre'] = $rol;/* el 3 corresponde a clientes, 2 a deposito, 1 a administrador
-$listaMenu = $menu->buscar($param);//se busca el menu segun el idpadre */
-$listaMenu = $objSession->vericarPermisos();
-if($listaMenu){
-    $ruta = $objSession->rutaCarpetas();
-    header($ruta);
-}else{
-    header("../home/home.php");
+//Valido logueo correcto y ademas que tenga permiso(rol)
+if($objSession->validar() && $objSession->tienePermiso()){
+    $rol = $_SESSION['rol'];
+} else {
+    if($direccion == "Home"){
+        header("home.php");
+    } else {
+        header("../Home/home.php");
+    }
 }
 
 ?>
