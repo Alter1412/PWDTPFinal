@@ -156,7 +156,7 @@
         $base = new BaseDatos();
 
         $sql = "DELETE FROM compraitem WHERE idcompraitem= ".$this->getIdCompraItem()."";
-
+        
         if ($base->Iniciar()) {
           if ($base->Ejecutar($sql)) {
             return true;
@@ -186,12 +186,14 @@
         $sql = "SELECT * FROM compraitem ";
     
        if ($parametro != "") {
-         $sql .= " WHERE .$parametro";
+         $sql .= " WHERE $parametro";
         }
+        //echo $sql."<br>";
        $res = $base->Ejecutar($sql);
        if ($res > -1) {
          if ($res > 0) {
            while ($row = $base->Registro()) {
+            
             $obj = new CompraItem();
     
             $objCompra = new Compra();
@@ -203,6 +205,7 @@
             $objProducto->cargar();
   
             $obj->setear($row['idcompraitem'], $objProducto, $objCompra, $row['cicantidad']);
+            array_push($arreglo, $obj);
            }
          }
         }
