@@ -2,7 +2,7 @@
 include_once "../../configuracion.php";
 $objAbmProducto = new AbmProducto();
 /**
- * Desde aqui se agregan productos al carrito
+ * Desde aque se puede ver la lista de productos y modificarla
  */
 
 $listaProductos = $objAbmProducto->buscar(null);
@@ -34,7 +34,7 @@ $listaProductos = $objAbmProducto->buscar(null);
               <td>'.$objProducto->getProNombre().'</td>
               <td>'.$objProducto->getProDetalle().'</td>
               <td>'.$objProducto->getProCantstock().'</td>
-              <td><a href="agregarProductoAlCarrito.php?idproducto='.$objProducto->getIdProducto().'">Agregar al carrito</a> 
+              <td><a href="modificarProductos.php?idproducto='.$objProducto->getIdProducto().'">Modificar Producto</a> 
       </td>
               </tr>';
 	}

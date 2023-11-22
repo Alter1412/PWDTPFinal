@@ -6,7 +6,7 @@ $idUCompra ['idcompra'] =  6; //esto es de prueba
 $objCompraItem = new AbmCompraItem();
 $objProducto = new AbmProducto();
 /**
- * esto sirve para listar productos en Deposito
+ * Desde aqui se listan los productos del carrito
  */
 
 $listaCompraItem = $objCompraItem->buscar($idUCompra);
@@ -31,7 +31,7 @@ $listaCompraItem = $objCompraItem->buscar($idUCompra);
     echo '<tr><td>NOMBRE PRODUCTO</td><td>DETALLE PRODUCTO</td><td>STOCK</td><td>OPCIONES</td></tr>';
     for($i=0;$i<count($listaCompraItem);$i++) {
         $objCompraItem = $listaCompraItem[$i];
-        $idProducto = $objCompraItem->getObjProducto()->getIdProducto();
+        $idProducto['idproducto'] = $objCompraItem->getObjProducto()->getIdProducto();
         $busquedaProducto = $objProducto->buscar($idProducto);
         $producto = $busquedaProducto[0];//objProducto
         //verEstructura($objProducto);

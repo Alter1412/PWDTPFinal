@@ -150,7 +150,7 @@ $this->cefechafin = $cefechafin;
         cefechafin = '" .$this->getCeFechaFin(). "'
         WHERE idcompraestado = ".$this->getIdCompraEstado();
 
-        echo $sql."<br>";
+        //echo $sql."<br>";
     
       if ($base->Iniciar()) {
    

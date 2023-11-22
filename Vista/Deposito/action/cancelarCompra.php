@@ -8,8 +8,9 @@ $arayCompra = $objCompra->buscar($datos);//array
 $compra = $arayCompra[0];//objCompra
 
     $objEstado = new AbmCompraEstado();
+    //parametros de busqueda
     $param['idcompra'] = $compra->getIdCompra();
-    $param['idcompraestadotipo'] = 1;
+    //$param['idcompraestadotipo'] = 1;
     $param['cefechafin'] = null;
     $exito = $objEstado->buscar($param);
 

@@ -8,10 +8,12 @@ $arayCompra = $objCompra->buscar($datos);//array
 $compra = $arayCompra[0];//objCompra
 
     $objEstado = new AbmCompraEstado();
+    //parametros de busqueda
     $param['idcompra'] = $compra->getIdCompra();
-    $param['idcompraestadotipo'] = 1;
-    $param['cefechafin'] = null;
+    $param['idcompraestadotipo'] = 2;
+    $param['cefechafin'] = '0000-00-00 00:00:00';
     $exito = $objEstado->buscar($param);
+    verEstructura($exito);
 
     if($exito){
         //modifico el estado inicial colocandole fecha fin
@@ -27,12 +29,12 @@ $compra = $arayCompra[0];//objCompra
         $cancelado = new AbmCompraEstado();
         $param['idcompraestado'] = 0;
         $param['idcompra'] = $compra->getIdCompra();
-        $param['idcompraestadotipo'] = 4;
+        $param['idcompraestadotipo'] = 3;
         $param['cefechaini'] = date('Y-m-d H:i:s');
         $param['cefechafin'] = null;
         $exito = $cancelado->alta($param);
        
-        echo "cancelacion realizada";
+        echo "Envio realizado";
     }else{
         echo "Algo fallo";
     }

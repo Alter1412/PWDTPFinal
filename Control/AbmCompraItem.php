@@ -108,6 +108,7 @@ class AbmCompraItem{
      * @return array
      */
     public function buscar($param){
+        
         $where = " true ";
         if ($param<>null){
             if  (isset($param['idcompraitem']))

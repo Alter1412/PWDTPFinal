@@ -27,12 +27,12 @@ $compra = $arayCompra[0];//objCompra
         $cancelado = new AbmCompraEstado();
         $param['idcompraestado'] = 0;
         $param['idcompra'] = $compra->getIdCompra();
-        $param['idcompraestadotipo'] = 4;
+        $param['idcompraestadotipo'] = 2;
         $param['cefechaini'] = date('Y-m-d H:i:s');
         $param['cefechafin'] = null;
         $exito = $cancelado->alta($param);
        
-        echo "cancelacion realizada";
+        echo "Compra aceptada";
     }else{
         echo "Algo fallo";
     }
