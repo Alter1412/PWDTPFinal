@@ -3,8 +3,8 @@
 include_once "../../../configuracion.php";
 $datos = data_submitted();
 
-$usnombre = $datos['usuario'];
-$uspass = $datos['contrasenia'];
+$usnombre = $datos['usnombre'];
+$uspass = $datos['uspass'];
 
 $param['usnombre'] = $usnombre;
 
@@ -23,7 +23,7 @@ if (count($colUsuarios) == 1){
 
         if($objSesion ->validar()){
             $rol = $_SESSION['rol'];
-            $respuesta = array("resultado" => "exito", "mensaje" => "Inicio de sesión exitoso." , "rol" => "$rol");
+            $respuesta = array("resultado" => "exito", "mensaje" => "Sesión iniciada con éxito." , "rol" => "$rol");
         }else{
             $respuesta = array("resultado" => "error", "mensaje" => "Esta cuenta aun no tiene roles asignados.
             \nEspere a que un admnistrador le asigne uno.");

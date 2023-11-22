@@ -8,6 +8,7 @@ include_once("../Estructuras/navInseguro.php");
 ?>
 
 <!-- ________________________________________ INICIO CONTENIDO _________________________________ -->
+
 <div class="container mt-5 mb-5">
     <div class="row justify-content-center">
         <div class="col-md-6">
@@ -17,16 +18,18 @@ include_once("../Estructuras/navInseguro.php");
                 </div>
                 <div class="card-body">
                     <form name="formLogin" id="formLogin" method="POST" class="needs-validation">
+
                         <!-- Zona de alerta -->
                         <div id="alertaSesion">
                         </div>
+
                         <div class="form-group">
                             <!--<label for="username">Nombre de Usuario:</label>-->
-                            <input type="text" class="form-control form-control-lg mb-3" id="usuario"  name="usuario" placeholder="Usuario">
+                            <input type="text" class="form-control form-control-lg mb-3" id="usnombre"  name="usnombre" placeholder="Usuario">
                         </div>
                         <div class="form-group">
                             <!--<label for="password">Contraseña:</label>-->
-                            <input type="password" class="form-control form-control-lg mb-3" id="contrasenia" name="contrasenia" placeholder="Contraseña">
+                            <input type="password" class="form-control form-control-lg mb-3" id="uspass" name="uspass" placeholder="Contraseña">
                         </div>
                         <button type="submit" id="ingresar" class="btn btn-primary btn-lg w-100">INGRESAR</button>
                     </form>
@@ -35,7 +38,7 @@ include_once("../Estructuras/navInseguro.php");
         </div>
     </div>
 </div>
-<script src="../js/validacionLogin.js"></script>
+<script src="../js/validarLogin.js"></script>
 <!-- ________________________________________ FIN CONTENIDO ____________________________________ -->
 
 <?php
