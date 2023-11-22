@@ -4,9 +4,9 @@
  
 include_once ('../../configuracion.php');
 $session = new Session();
-$rolActivo = 2;//$session->getRol();
-//$colRoles = $session->getListaRoles();
-$colRoles['colroles'][0]=1;
+$rolActivo = $session->getRol();
+$colRoles = $session->getListaRoles();
+//$colRoles['colroles'][0]=1;
 //$colRoles['colroles'][1]=2;
 //$colRoles['colroles'][2]=3;
 $cantRoles = count($colRoles['colroles']);
