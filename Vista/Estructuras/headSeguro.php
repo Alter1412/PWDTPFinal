@@ -6,6 +6,7 @@ $session = new Session();
 //Valido logueo correcto y ademas que tenga permiso(rol)
 if ($session->validar() && $session->tienePermiso()) {
     $rol = $_SESSION['rol'];
+    $colRoles = $_SESSION['colroles'];
 } else {
     if ($direccion == "Home") {
         header("home.php");
@@ -74,5 +75,4 @@ if ($session->validar() && $session->tienePermiso()) {
 <!-- ________________________________________ FIN HEAD SEGURO _______________________________ -->
 
 <!-- ________________________________________ INCIO BODY _______________________________________ -->
-
-<body>
+<body class="bg-light">

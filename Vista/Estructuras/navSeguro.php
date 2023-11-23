@@ -117,10 +117,32 @@ for ($i=0; $i < count($colMenuRol); $i++){//Consigo la colección de Menus
                             <?php echo $nombreUsuario ?>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Mi Perfil</a>
-                            <a class="dropdown-item" href="#">Cambiar Rol</a>
+                            
+                            <?php
+                                if($direccion == "opcionesDeCuenta"){
+                                    echo '<a class="dropdown-item" href="miPerfil.php">Mi Perfil</a>';
+                                } else {
+                                    echo '<a class="dropdown-item" href="../opcionesDeCuenta/miPerfil.php">Mi Perfil</a>';
+                                }
+                            ?>
+
+                            <?php
+                            if(count($colRoles)>1){
+                                if($direccion == "opcionesDeCuenta"){
+                                    echo '<a class="dropdown-item" href="cambiarRol.php">Cambiar Rol</a>';
+                                } else {
+                                    echo '<a class="dropdown-item" href="../opcionesDeCuenta/cambiarRol.php">Cambiar Rol</a>';
+                                }
+                            }
+                            ?>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="../opcionesDeCuenta/cerrarSesion.php">Cerrar Sesión</a>
+                            <?php
+                                if($direccion == "opcionesDeCuenta"){
+                                    echo '<a class="dropdown-item" href="cerrarSesion.php">Cerrar Sesión</a>';
+                                } else {
+                                    echo '<a class="dropdown-item" href="../opcionesDeCuenta/cerrarSesion.php">Cerrar Sesión</a>';
+                                }
+                            ?>
                         </div>
                     </div>
                 </div>
@@ -128,5 +150,4 @@ for ($i=0; $i < count($colMenuRol); $i++){//Consigo la colección de Menus
         </div>
     </div>
 </nav>
-
 <!-- ________________________________________ FIN NAV SEGURO ___________________________________ -->

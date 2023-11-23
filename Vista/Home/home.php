@@ -16,6 +16,7 @@ if ($rol != null){
 
 ?>
 
+<!-- ________________________________________ INICIO CONTENIDO _________________________________ -->
 <div class="container mt-5 mb-5">
     <div id="carouselExample" class="carousel slide" data-ride="carousel" data-interval="3000">
         <div class="carousel-inner">
@@ -36,7 +37,6 @@ if ($rol != null){
         </a>
     </div>
 </div>
-
 <!-- ________________________________________ FIN CONTENIDO ____________________________________ -->
 
 <?php

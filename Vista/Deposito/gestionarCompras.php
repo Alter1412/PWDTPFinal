@@ -6,6 +6,7 @@ $direccion = "Deposito";
 include_once ("../Estructuras/headSeguro.php");
 include_once("../Estructuras/banner.php");
 include_once("../Estructuras/navSeguro.php");
+
 /**
  * desde aqui se puede:
  * Listar las compras

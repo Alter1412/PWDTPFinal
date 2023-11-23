@@ -105,7 +105,13 @@ class MenuRol
         return $resp;
     }
 
-
+    /**
+     * Esta función lee los valores actuales de los atributos del objeto e inserta un nuevo
+     * registro en la base de datos a partir de ellos.
+     * Retorna un booleano que indica si le operación tuvo éxito
+     * 
+     * @return boolean
+     */
     public function insertar()
     {
         $resp = false;
@@ -129,12 +135,23 @@ class MenuRol
         return $resp;
     }
 
-    
+
+    /**
+     * Esta función lee los valores actuales de los atributos del objeto y los actualiza en la
+     * base de datos.
+     * Retorna un booleano que indica si le operación tuvo éxito
+     * 
+     * @return boolean
+     */
     public function modificar()
     {
         $resp = false;
         $base = new BaseDatos();
-        $sql = "UPDATE menurol SET idrol = " . $this->getrol()->getIdrol() . " WHERE idmenu = " . $this->getmenu()->getIdMenu() . "";
+
+        $idmenu = $this->getObjMenu()->getIdMenu();
+        $idrol = $this->getObjRol()->getIdRol();
+
+        $sql = "UPDATE menurol SET idrol = " . $idrol . " WHERE idmenu = " . $idmenu . "";
         if ($base->Iniciar()) {
             if ($base->Ejecutar($sql)) {
                 $resp = true;
@@ -147,11 +164,21 @@ class MenuRol
         return $resp;
     }
 
+    /**
+     * Esta función lee el id actual del objeto y si puede lo borra de la base de datos
+     * Retorna un booleano que indica si le operación tuvo éxito
+     * 
+     * @return boolean
+     */
     public function eliminar()
     {
         $resp = false;
         $base = new BaseDatos();
-        $sql = "DELETE FROM menurol WHERE idmenu= " . $this->getmenu()->getIdMenu() . " AND idrol=" . $this->getrol()->getIdrol() . "";
+
+        $idmenu = $this->getObjMenu()->getIdMenu();
+        $idrol = $this->getObjRol()->getIdRol();
+
+        $sql = "DELETE FROM menurol WHERE idmenu= " . $idmenu . " AND idrol=" . $idrol . "";
         if ($base->Iniciar()) {
             if ($base->Ejecutar($sql)) {
                 return true;
@@ -164,6 +191,16 @@ class MenuRol
         return $resp;
     }
 
+    /**
+     * Esta función recibe condiciones de busqueda en forma de consulta sql para obtener
+     * los registros requeridos.
+     * Si por parámetro se envía el valor "" se devolveran todos los registros de la tabla
+     * 
+     * La función devuelve un arreglo compuesto por todos los objetos que cumplen la condición indicada
+     * por parámetro
+     * 
+     * @return array
+     */
     public static function listar($parametro = "")
     {
         $arreglo = array();
