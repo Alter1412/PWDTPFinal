@@ -190,7 +190,7 @@ ALTER TABLE `menu`
 -- AUTO_INCREMENT de la tabla 'menu'
 --
 ALTER TABLE `menu`
-  MODIFY `idmenu` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `idmenu` bigint(20) NOT NULL;
 
 --
 -- Filtros para la tabla `menu`
@@ -202,6 +202,8 @@ ALTER TABLE `menu`
 -- Volcado de datos para la tabla 'menu'
 --
 INSERT INTO menu (idmenu, menombre, medescripcion, idpadre, medeshabilitado) VALUES
+
+(0, 'Invisible', '../Nada/', NULL, '0000-00-00 00:00:00'), -- Padre Invisible
 (1, 'Home', '../Home/', NULL, '0000-00-00 00:00:00'), -- Padre Home
 (2, 'Administrador', '../Administrador/', NULL, '0000-00-00 00:00:00'), -- Padre Administrador
 (3, 'Deposito', '../Deposito/', NULL, '0000-00-00 00:00:00'), -- Padre Deposito
@@ -216,8 +218,8 @@ INSERT INTO menu (idmenu, menombre, medescripcion, idpadre, medeshabilitado) VAL
 (23, 'Gestionar Roles', 'gestionarRoles.php', 2, '0000-00-00 00:00:00'), -- Hijo Administrador (2)
 (24, 'Asignar Roles', 'asignarRoles.php', 0, '0000-00-00 00:00:00'), -- Hijo Nulo (0)
 (25, 'Quitar Roles', 'quitarRol.php', 0, '0000-00-00 00:00:00'), -- Hijo Nulo (0)
-(26, 'Actualizar Usuario', 'formActualizarUsuario.php', 0, '0000-00-00 00:00:00'), --Hijo Nulo (0)
-(26, 'Crear Rol', 'crearRol.php', 0, '0000-00-00 00:00:00'), --Hijo Nulo (0)
+(26, 'Actualizar Usuario', 'formActualizarUsuario.php', 0, '0000-00-00 00:00:00'), -- Hijo Nulo (0)
+(27, 'Crear Rol', 'crearRol.php', 0, '0000-00-00 00:00:00'), -- Hijo Nulo (0)
 
 (31, 'Crear Productos', 'crearProductos.php', 3, '0000-00-00 00:00:00'), -- Hijo Deposito (3)
 (32, 'Gestionar Productos', 'gestionarProductos.php', 3, '0000-00-00 00:00:00'), -- Hijo Deposito (3)
