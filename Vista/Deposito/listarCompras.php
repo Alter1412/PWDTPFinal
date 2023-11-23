@@ -180,7 +180,7 @@ $listaCompra = $objAbmCompra->buscar(null);
                             <td>'.$producto->getProNombre().'</td>
                             <td>'.$producto->getProDetalle().'</td>
                             <td>'.$objCompraItem->getCiCantidad().'</td>
-                            <td><a href="action/eliminarArticuloCompra.php?idcompraitem='.$objCompraItem->getIdCompraItem().'">Quitar Producto</a> 
+                            <td>
                     </td>
                             </tr>';
                   }
