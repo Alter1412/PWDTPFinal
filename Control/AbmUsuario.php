@@ -110,13 +110,14 @@ class AbmUsuario
     /**
      * Devuelve una lista con los roles de un usuario, espera
      * $param['idusuario'], retorna un
-     * arreglo de objetos objetos usuarioRol.
+     * arreglo de objetos Rol.
      * 
      * @return array
      */
     public function buscarRoles($param)
     {
         $where = " true ";
+        $arregloRol = [];
         if ($param <> null) {
             if (isset($param['idusuario']))
                 $where .= " and idusuario =" . $param['idusuario'];
@@ -124,8 +125,12 @@ class AbmUsuario
                 $where .= " and idrol =" . $param['idrol'];*/
         }
         $obj = new UsuarioRol();
-        $arreglo = $obj->listar($where);
-        return $arreglo;
+        $arregloUsuarioRol = $obj->listar($where);
+
+        for ($i=0; $i < count($arregloUsuarioRol); $i++ ){
+            $arregloRol[] = $arregloUsuarioRol[$i]->getObjRol();
+        }
+        return $arregloRol;
     }
 
     /**

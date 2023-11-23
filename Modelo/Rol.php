@@ -155,6 +155,7 @@ class Rol{
         if ($parametro!="") {
             $sql .= ' WHERE '.$parametro;
         }
+        
         $res = $base->Ejecutar($sql);
         if($res>-1){
             if($res>0){

@@ -174,7 +174,7 @@ class AbmMenuRol{
 
         }
 
-        //echo $where ." <br>";
+        //echo "<br>La condición de busqueda es: ".$where." <br><br>";
 
         $obj = new MenuRol();
         $arreglo = $obj->listar($where);

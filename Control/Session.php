@@ -24,7 +24,7 @@ class Session
         //if ($nombreUsuario!= null && $psw != null) {
         $param['usnombre'] = $nombreUsuario;
         $param['uspass'] = $psw;
-        $param['usdeshabilitado'] = '0000-00-00 00:00:00'; //volver a abilitar
+        $param['usdeshabilitado'] = '0000-00-00 00:00:00'; //volver a habilitar
 
         //Buscamos la colección de usuarios que cumplen con usuario y contraseña
         $colUsuarios = $objAbmUsuario->buscar($param);
@@ -41,19 +41,16 @@ class Session
 
             //Obtenemos toda la colección de roles que tiene ese usuario a partir
             //de los parámetros que enviemos
-            $colUsuarioRol = $objAbmUsuario->buscarRoles($param2);
+            $colRol = $objAbmUsuario->buscarRoles($param2);
 
             //Si tiene al menos 1 rol podrá iniciar sesión en la página y podrá
             //visualizarla con la vista de su rol de mayor categoría
-            if (count($colUsuarioRol) > 0) {
+            if (count($colRol) > 0) {
                 $_SESSION['idusuario'] = $usuario->getIdUsuario();
                 $_SESSION['usnombre'] = $usuario->getUsNombre();
                 $_SESSION['usmail'] = $usuario->getUsMail();
-                $_SESSION['rol'] = $colUsuarioRol[0]->getObjRol()->getIdRol(); //guarda el id del rol
-
-                for ($i = 0; $i < count($colUsuarioRol); $i++) {
-                    $_SESSION['colroles'][$i] = $colUsuarioRol[$i]->getObjRol()->getIdRol();
-                }
+                $_SESSION['rol'] = $colRol[0]->getIdRol(); //guarda el id del rol
+                $_SESSION['colroles'] = $colRol;
 
                 $resp = true;
             }
@@ -149,10 +146,10 @@ class Session
      * Actualiza los roles de la session
      * $param['rol'] o un int
      */
-    function actualizarRol($param)
+    /*function actualizarRol($param)
     {
         $_SESSION['rol'] = $param;
-    }
+    }*/
 
     /**
      * Revisa si el usuario tiene el rol (permiso) para entrar a una página

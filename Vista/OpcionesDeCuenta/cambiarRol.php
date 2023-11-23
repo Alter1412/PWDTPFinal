@@ -7,11 +7,14 @@ $direccion = "opcionesDeCuenta";
 
 include_once("../Estructuras/headSemiSeguro.php");
 
-$colRoles = $session->getListaRoles();
-print_r($colRoles);
+$colObjRoles = $session->getListaRoles();
 
-if(count($colRoles) == 1){
+if(count($colObjRoles) == 1){
     header("Location: ../Home/home.php");
+} else {
+    for ($i=0; $i < count($colObjRoles); $i++){
+        $colRoles[] = $colObjRoles[$i]->getIdRol();
+    }
 }
 
 include_once("../Estructuras/banner.php");
@@ -32,12 +35,12 @@ include_once("../Estructuras/navSeguro.php");
                         <?php
                         for ($i=0; $i < count($colRoles); $i++){
                             $rol = $colRoles[$i];
-                            $param['idrol'] = $rol;
+                            $paramRol['idrol'] = $rol->getIdRol();
                             $objRol = new AbmRol();
-                            $colRol = $objRol->buscar($param);
+                            $colRol = $objRol->buscar($paramRol);
                             $nombreRol = $colRol[0]->getRolDescripcion();
                             echo '<div class="form-check custom-lg mb-3">
-                                    <input class="form-check-input" type="radio" name="opcion" id="opcion'.$i.'" value="'.$rol.'">
+                                    <input class="form-check-input" type="radio" name="opcion" id="opcion'.$i.'" value="'.$paramRol['idrol'].'">
                                     <label class="form-check-label" for="opcion'.$i.'">
                                         '.$nombreRol.'
                                     </label>

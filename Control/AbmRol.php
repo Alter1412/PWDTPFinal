@@ -106,6 +106,7 @@ class AbmRol{
             if  (isset($param['rodescripcion']))
                 $where.=" and rodescripcion ='".$param['rodescripcion']."'";
         }
+
         $obj = new Rol();
         $arreglo = $obj->listar($where);
         return $arreglo;
