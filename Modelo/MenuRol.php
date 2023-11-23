@@ -244,9 +244,11 @@ class MenuRol
     {
         $resp = false;
         $base = new BaseDatos();
+
         /**Consulta a la base de datos si el usuario tiene el rol(permiso) para ver
          * la pagina.
          */
+
         $sql = "SELECT idusuario, menurol.idrol, menu.idmenu, medescripcion FROM menurol
         INNER JOIN usuariorol ON menurol.idrol = usuariorol.idrol
         INNER JOIN menu ON menu.idmenu = menurol.idmenu
@@ -255,7 +257,9 @@ class MenuRol
         if ($base->Iniciar()) {
             if ($base->Ejecutar($sql)) {
                 if ($base->Registro()) {
+
                     $resp = true;
+
                 }
             } else {
                 $this->setMensajeOperacion("menurol->verificarPermiso: " . $base->getError());
@@ -264,6 +268,11 @@ class MenuRol
             $this->setMensajeOperacion("menurol->verificarPermiso: " . $base->getError());
         }
 
+        if($resp == true){
+            echo "La respuesta es verdadera";
+        } else {
+            echo "La respuesta es falsa";
+        }
         return $resp;
     }
 }

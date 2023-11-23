@@ -4,14 +4,26 @@ include_once("../../configuracion.php");
 $session = new Session();
 
 //Valido logueo correcto y ademas que tenga permiso(rol)
-if ($session->validar() && $session->tienePermiso()) {
-    $rol = $_SESSION['rol'];
-    $colRoles = $_SESSION['colroles'];
-} else {
-    if ($direccion == "Home") {
-        header("home.php");
+if ($session->validar()) {
+    if($session->tienePermiso()){
+        
+        $rol = $_SESSION['rol'];
+        $colRoles = $_SESSION['colroles'];
+
     } else {
-        header("../Home/home.php");
+
+        if ($direccion == "Home") {
+            header("Location: home.php");
+        } else {
+            header("Location: ../Home/home.php");
+        }
+    }
+} else {
+
+    if ($direccion == "Home") {
+        header("Location: home.php");
+    } else {
+        header("Location: ../Home/home.php");
     }
 }
 

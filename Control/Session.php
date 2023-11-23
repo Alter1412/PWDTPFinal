@@ -152,9 +152,10 @@ class Session
 
         $rutaArchivo = $_SERVER['PHP_SELF']; //retorna un string con la $rutaArchivo del archivo
         $rutaArchivo = explode("/", $rutaArchivo); //separa una sentencia por una letra o simbolo dado y retorna un array
-        $stringRuta = "../";
-        $stringRuta .= $rutaArchivo[count($rutaArchivo) - 2] . "/";
-        $stringRuta .= $rutaArchivo[count($rutaArchivo) - 1];
+        /*$stringRuta = "../";
+        $stringRuta .= $rutaArchivo[count($rutaArchivo) - 2] . "/";*/
+
+        $stringRuta = $rutaArchivo[count($rutaArchivo) - 1];
 
         $objMenuRol = new MenuRol();
         if ($objMenuRol->verificarPermiso($_SESSION["idusuario"], $stringRuta)) {
