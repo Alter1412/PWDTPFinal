@@ -131,7 +131,7 @@ class AbmCompraItem{
      */
     public function agregarProductoCarrito($datos){
         $resp = false;
-        $idusuario['idusuario'] = $datos['idusuario'];
+        $idusuario = $datos['idusuario'];
         $objCompra = new AbmCompra();
         $busquedaCompra = $objCompra->buscarCarrito($idusuario);
         //verEstructura($busquedaCompra);

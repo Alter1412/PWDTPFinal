@@ -22,7 +22,7 @@ if (count($colUsuarios) == 1){
         $objSesion->iniciar($usnombre, $uspass);
 
         if($objSesion ->validar()){
-            $rol = $_SESSION['rol'];
+            $rol = $session->getRol();
             $respuesta = array("resultado" => "exito", "mensaje" => "Sesión iniciada con éxito." , "rol" => "$rol");
         }else{
             if($colUsuarios[0]->getUsDeshabilitado() != '0000-00-00 00:00:00'){

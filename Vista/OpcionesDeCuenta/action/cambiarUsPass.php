@@ -1,6 +1,6 @@
 <?php
 include_once "../../../configuracion.php";
-
+//Coregir, contiene $_SESSION
 session_start();
 
 $datos = data_submitted();

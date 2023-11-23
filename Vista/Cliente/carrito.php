@@ -7,8 +7,11 @@ include_once("../Estructuras/headSeguro.php");
 include_once("../Estructuras/banner.php");
 include_once("../Estructuras/navSeguro.php");
 //verEstructura($_SESSION);
+//$session = new Session();
+$usuario = $session->getUsuario();
+$idUsuario = $usuario->getIdUsuario();
 $objCompra = new AbmCompra();
-$busquedaCompra = $objCompra->buscarCarrito($_SESSION['idusuario']);
+$busquedaCompra = $objCompra->buscarCarrito($idUsuario);
 //verEstructura($busquedaCompra);
 $compra = $busquedaCompra[0]; 
 //verEstructura($datos);
@@ -48,7 +51,7 @@ $listaCompraItem = $objCompraItem->buscar($idUCompra);
               </tr>';
         }
         echo "</tbody></table><br><br>";
-        echo '<a href="action/pagoCompra.php?idusuario='.$_SESSION['idusuario'].'" class="btn btn-primary">Comprar</a>';
+        echo '<a href="action/pagoCompra.php?idusuario='.$idUsuario.'" class="btn btn-primary">Comprar</a>';
         
     } else {
         echo "<p class='alert alert-warning'>No se encontraron productos en el carrito.</p>";
