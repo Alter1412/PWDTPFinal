@@ -1,7 +1,7 @@
 <?php 
 include_once ('../../../configuracion.php');
 $datos = data_submitted();
-verEstructura($datos);
+//verEstructura($datos);
 $objUsuario = new AbmUsuario();
 
 //$existe = $objUsuario->existen($datos);

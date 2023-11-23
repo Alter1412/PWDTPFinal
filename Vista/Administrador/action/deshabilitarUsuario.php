@@ -3,7 +3,7 @@
 include_once "../../../configuracion.php";
 $objAbmUsuario = new AbmUsuario();
 $datos = data_submitted();
-verEstructura($datos);
+//verEstructura($datos);
 
 if(isset($datos['idusuario'])){
     $resp = $objAbmUsuario->borradoLogico($datos);

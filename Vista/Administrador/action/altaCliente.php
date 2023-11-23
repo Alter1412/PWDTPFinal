@@ -3,7 +3,7 @@ include_once '../../../configuracion.php';
 
 // Encapsulo los datos para crear usuario nuevo
 $datos = data_submitted();
-verEstructura($datos);
+//verEstructura($datos);
 
 // Extraigo datos necesarios para la creación de usuario
 $usuario = $datos['usnombre'];

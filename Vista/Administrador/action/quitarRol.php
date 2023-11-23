@@ -5,7 +5,7 @@
  
 include_once ('../../../configuracion.php');
 $datos = data_submitted();//estoy recibiendo el id del rol y el usuario
-verEstructura($datos);
+//verEstructura($datos);
 $objUsuarioRol = new AbmUsuarioRol();
 $exito = $objUsuarioRol->baja($datos);
 if($exito){

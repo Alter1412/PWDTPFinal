@@ -29,8 +29,7 @@ $listaUsuarios = $objAbmUsuario->buscar(null);
 <body>
 
 <div class="container mt-4">
-    
-<a href="crearCliente.php" class="btn btn-success">Crear Usuario Nuevo</a>
+
 <br>
     <?php
     if (count($listaUsuarios) > 0) {
