@@ -22,11 +22,11 @@ include_once("../Estructuras/navInseguro.php");
                         </div>
                         <div class="form-group">
                             <label for="username">Nombre de Usuario:</label>
-                            <input type="text" class="form-control form-control-lg mb-3" id="usuario" required>
+                            <input type="text" class="form-control form-control-lg mb-3" id="usnombre" required>
                         </div>
                         <div class="form-group">
                             <label for="email">Correo Electrónico:</label>
-                            <input type="email" class="form-control form-control-lg mb-3" id="email" required>
+                            <input type="email" class="form-control form-control-lg mb-3" id="usmail" required>
                         </div>
                         <button type="submit" class="btn btn-primary btn-lg w-100">CREAR CUENTA</button>
                     </form>
@@ -35,6 +35,8 @@ include_once("../Estructuras/navInseguro.php");
         </div>
     </div>
 </div>
+<script src="../js/validacionCrearCuenta.js"></script>
+
 <!-- ________________________________________ FIN CONTENIDO ____________________________________ -->
 
 <?php

@@ -1,7 +1,8 @@
 <?php
 include_once "../../configuracion.php";
 $objAbmUsuario = new AbmUsuario();
-
+$objAbmUsuarioRol = new AbmUsuarioRol();
+$objAbmRol = new AbmUsuarioRol();
 
 $listaUsuarios = $objAbmUsuario->buscar(null);
 
@@ -23,16 +24,24 @@ $listaUsuarios = $objAbmUsuario->buscar(null);
 
  if( count($listaUsuarios)>0){
     echo "<table border='1'>";//por el momento no muestro la password, no tiene sentido
-    echo '<tr><td>ID USUARIO</td><td>NOMBRE</td><td>E-MAIL</td><td>FECHA DESHABILITADO</td><td>ACCION</td></tr>';
+    echo '<tr><td>ID USUARIO</td><td>NOMBRE</td><td>E-MAIL</td><td>ROL</td><td>FECHA DESHABILITADO</td><td>ACCION</td></tr>';
     for($i=0;$i<count($listaUsuarios);$i++) {
         $objUsuario=$listaUsuarios[$i];
+        $usid['idusuario'] = $objUsuario->getIdUsuario();
         //verEstructura($objUsuario);
-       
+       $relacionRol = $objAbmUsuarioRol->buscar($usid);
+       if($relacionRol == null){
+        $rolDesc = "-------";
+       }else{
+            $rolDesc  = $relacionRol[0]->getObjRol()->getRolDescripcion();
+       }
+      
         
         
     echo '<tr><td>'.$objUsuario->getIdUsuario().'</td>
               <td>'.$objUsuario->getUsNombre().'</td>
               <td>'.$objUsuario->getUsMail().'</td>
+              <td>'.$rolDesc.'</td>
               <td>'.$objUsuario->getUsDeshabilitado().'</td>
               <td><a href="formActualizarUsuarios.php?idusuario='.$objUsuario->getIdUsuario().'">Actualizar</a> <a href="asignarRoles.php?idusuario='.$objUsuario->getIdUsuario().'">Asignar Roles</a> <a href="quitarRol.php?idusuario='.$objUsuario->getIdUsuario().'">Quitar Roles</a> <a href="action/deshabilitarUsuario.php?idusuario='.$objUsuario->getIdUsuario().'">Eliminar</a></td></tr>';
 	}

@@ -2,30 +2,22 @@ $(document).ready(function () {
 
     $("#formCrearCuenta").validate({
         rules: {
-            usnombreCrearCuenta: {
+            usnombre: {
                 required: true,
                 //nombre            //valor que debe tener
-                nombreNoRepetido: {nombreNoRepetido: true}
+                //nombreNoRepetido: {nombreNoRepetido: true}
             },
-            usmailCrearCuenta: {
+            usmail: {
                 required: true,
                 mailValido: {mailValido: true}
-            },
-            captchaCrearCuenta: {
-                captchaCrearCuentaSinExpirar: {captchaCrearCuentaSinExpirar: true},
-                required: true,
-                captchaCrearCuentaCorrecto: {captchaCrearCuentaCorrecto: true}
             }
         },
         messages: {
-            usnombreCrearCuenta: {
+            usnombre: {
                 required: "Ingrese su usuario"
             },
-            usmailCrearCuenta: {
+            usmail: {
                 required: "Ingrese su dirección de mail"
-            },
-            captchaCrearCuenta: {
-                required: "Complete el captcha"
             }
         },
         errorElement: "span",
@@ -42,11 +34,17 @@ $(document).ready(function () {
         },
 
         submitHandler: function(form){
-
-            var formData = $(form).serialize()
+            console.log("Aqui esta el formData")
+            var nombre = document.getElementById('usnombre').value;
+            var mail = document.getElementById('usmail').value;
+            var formData = {
+                'usnombre': nombre,
+                'usmail': mail
+            };
+            console.log(formData)
             
             $.ajax({ 
-                url: "../../Control/Ajax Antiguo/crearCuenta.php",
+                url: "action/validacionCrearCuenta.php",
                 type: "POST",
                 dataType: "json",
                 data: formData,
@@ -67,7 +65,7 @@ $(document).ready(function () {
 
                     $(form).find('.is-valid').removeClass('is-valid');
                     $("#formCrearCuenta")[0].reset();
-                    $("#imgCaptchaCrearCuenta").attr("src", "../../Control/captchaCrearCuenta.php?r=" + Math.random());
+                    
                     alert(respuesta.mensaje);
                     //$("#modalCrearCuenta").modal("hide");
 
@@ -81,105 +79,24 @@ $(document).ready(function () {
         }
     });
 
-    $("#actualizarCaptchaCrearCuenta").on("click", function() {
-        $("#imgCaptchaCrearCuenta").attr("src", "../../Control/captchaCrearCuenta.php?r=" + Math.random());
-    });
+    
 });
 
-jQuery.validator.addMethod("nombreNoRepetido", function (value, element) {
-    return this.optional(element) || nombreNoRepetido(value);
-}, "Nombre de usuario en uso");
+
 
 jQuery.validator.addMethod("mailValido", function (value, element) {
     return this.optional(element) || (/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(value));
 }, "Mail ingresado no válido");
 
-jQuery.validator.addMethod("captchaCrearCuentaSinExpirar", function (value, element) {
-    return this.optional(element) || captchaCrearCuentaSinExpirar(value);
-}, "El captcha ha expirado, por favor actualícelo");
-
-jQuery.validator.addMethod("captchaCrearCuentaCorrecto", function (value, element) {
-    return this.optional(element) || captchaCrearCuentaCorrecto(value);
-}, "El captcha ingresado es incorrecto");
 
 
-function nombreNoRepetido(value){
 
-    var formData = {'usnombreCrearCuenta': value};//array en formato json. value es el dato recibido desde el formulario
-    var ruta = "../../Control/Ajax Antiguo/nombreNoRepetido.php";
-    var resultado = false;
 
-    $.ajax({
 
-        url: ruta,
-        type: "POST",
-        data: formData,
-        dataType: "json",
-        async: false,
 
-        success: function(respuesta) {
 
-            if (respuesta.validacion == "exito"){
-                resultado = true;
-            }
-        }
 
-    });
 
-    return resultado;
-}
-
-function captchaCrearCuentaSinExpirar(value){
-
-    var formData = {'captchaCrearCuenta': value};
-    var ruta = "../../Control/Ajax Antiguo/captchaCrearCuentaSinExpirar.php";
-    var resultado = false;
-        
-    $.ajax({
-
-        url: ruta,
-        type: "POST",
-        data: formData,
-        dataType: "json",
-        async: false,
-
-        success: function(respuesta) {
-
-            if (respuesta.validacion == "exito"){
-                resultado = true;
-            }
-        }
-
-    });
-
-    return resultado;
-}
-
-function captchaCrearCuentaCorrecto(value){
-
-    var formData = {'captchaCrearCuenta': value};
-    var ruta = "../../Control/Ajax Antiguo/captchaCrearCuentaCorrecto.php";
-    var resultado = false;
-        
-    $.ajax({
-
-        url: ruta,
-        type: "POST",
-        data: formData,
-        dataType: "json",
-        async: false,
-
-        success: function(respuesta) {
-
-            if (respuesta.validacion == "exito"){
-                resultado = true;
-            }
-        }
-
-    });
-
-    return resultado;
-}
 
 /*
 console.log("Este es un mensaje de registro normal");
