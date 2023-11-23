@@ -137,7 +137,10 @@ class Session
     {
         $roles = null;
         if ($this->validar()) {
-            $roles = $_SESSION['colroles'];
+            $objAbmUsuario = new AbmUsuario();
+            $param['idusuario'] = $_SESSION['idusuario'];
+            $roles = $objAbmUsuario->buscarRoles($param);
+            $_SESSION['colroles'] = $roles;
         }
         return $roles;
     }
