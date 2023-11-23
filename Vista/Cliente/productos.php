@@ -61,6 +61,7 @@ include_once("../Estructuras/navSeguro.php");
         echo "<div class='card-body'>";
         echo "<h5 class='card-title'>" . $listaProd[$i]->getProNombre() . "</h5>";
         echo "<p class='card-text'>Precio: $" . $listaProd[$i]->getProDetalle() . "</p>";
+        echo "<p class='card-text'>Stock: " . $listaProd[$i]->getProCantstock() . "</p>";
     
        echo "<a href='agregarProductoAlCarrito.php?idproducto=".$listaProd[$i]->getIdProducto()."'  class='btn btn-primary' >Agregar al carrito</a></button>";
 
