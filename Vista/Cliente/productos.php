@@ -61,10 +61,10 @@ include_once("../Estructuras/navSeguro.php");
         echo "<div class='card-body'>";
         echo "<h5 class='card-title'>" . $listaProd[$i]->getProNombre() . "</h5>";
         echo "<p class='card-text'>Precio: $" . $listaProd[$i]->getProDetalle() . "</p>";
-    ?>
-        <button type='button' class='btn' onclick='enviar( <?php echo $listaProd[$i]->getIdProducto() ?>)' data-bs-toggle="modal" data-bs-target="#exampleModal"><i class='bi bi-cart-plus-fill text-start'></i></button>
+    
+       echo "<button type='button' class='btn'  data-bs-toggle='modal' data-bs-target='#exampleModal'><a href='agregarProductoAlCarrito.php?idproducto=".$listaProd[$i]->getIdProducto()."'>Agregar al carrito</a></button>";
 
-    <?php
+   
         echo "</div>";
         echo "</div>";
         echo "</div>";

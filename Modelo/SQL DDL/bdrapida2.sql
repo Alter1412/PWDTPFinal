@@ -228,6 +228,7 @@ INSERT INTO menu (idmenu, menombre, medescripcion, idpadre, medeshabilitado) VAL
 (41, 'Productos', 'productos.php', 4, '0000-00-00 00:00:00'), -- Hijo Cliente (4)
 (42, 'Mis Compras', 'misCompras.php', 4, '0000-00-00 00:00:00'), -- Hijo Cliente (4)
 (43, 'Carrito', 'carrito.php', 4, '0000-00-00 00:00:00'); -- Hijo Cliente (4)
+(44, 'Agregar Productos', 'agregarProductoAlCarrito.php', 0, '0000-00-00 00:00:00'); -- Hijo Nulo (0)
 
 -- ----------------------------------------------------------------------------------
 --
@@ -387,7 +388,8 @@ INSERT INTO menurol (idmenu, idrol) VALUES
 
 (41, 3), -- Cliente - Productos
 (42, 3), -- Cliente - Mis Compras
-(43, 3); -- Cliente - Carrito
+(43, 3), -- Cliente - Carrito
+(44, 3); -- Cliente - Ver Producto(Agregar Producto)
 
 -- ----------------------------------------------------------------------------------
 --

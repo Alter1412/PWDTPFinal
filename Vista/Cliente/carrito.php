@@ -6,9 +6,14 @@ $direccion = " 	Cliente";
 include_once("../Estructuras/headSeguro.php");
 include_once("../Estructuras/banner.php");
 include_once("../Estructuras/navSeguro.php");
-$datos = data_submitted();//idCompra
+
+$objCompra = new AbmCompra();
+$busquedaCompra = $objCompra->buscarCarrito($_SESSION['idusuario']);
+//verEstructura($busquedaCompra);
+$compra = $busquedaCompra[0]; 
 //verEstructura($datos);
-$idUCompra ['idcompra'] =  6; //esto es de prueba
+$idUCompra ['idcompra'] = $compra->getIdCompra(); 
+//print_r($idUCompra);
 $objCompraItem = new AbmCompraItem();
 $objProducto = new AbmProducto();
 /**
@@ -34,7 +39,7 @@ $listaCompraItem = $objCompraItem->buscar($idUCompra);
 
  if( count($listaCompraItem)>0){
     echo "<table border='1'>";//por el momento no muestro la password, no tiene sentido
-    echo '<tr><td>NOMBRE PRODUCTO</td><td>DETALLE PRODUCTO</td><td>STOCK</td><td>OPCIONES</td></tr>';
+    echo '<tr><td>NOMBRE PRODUCTO</td><td>DETALLE PRODUCTO</td><td>CANTIDAD</td><td>OPCIONES</td></tr>';
     for($i=0;$i<count($listaCompraItem);$i++) {
         $objCompraItem = $listaCompraItem[$i];
         $idProducto['idproducto'] = $objCompraItem->getObjProducto()->getIdProducto();
@@ -53,7 +58,7 @@ $listaCompraItem = $objCompraItem->buscar($idUCompra);
               </tr>';
 	}
     echo "</table><br><br><br>";
-    //echo "<a href='crearCliente.php'>Crear Usuario Nuevo</a>";
+    echo "<a href='../altaCompra.php'>Comprar</a>";
     
 }else{
     echo "No se encontraron Productos";
