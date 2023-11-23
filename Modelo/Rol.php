@@ -46,8 +46,8 @@ class Rol{
 	 */		
 	public function cargar(){
         $resp = false;
-        $base=new BaseDatos();
-        $sql="SELECT * FROM rol WHERE idrol = '".$this->getIdRol()."'";
+        $base = new BaseDatos();
+        $sql = "SELECT * FROM rol WHERE idrol = '".$this->getIdRol()."'";
         if ($base->Iniciar()) {
             $res = $base->Ejecutar($sql);
             if($res>-1){

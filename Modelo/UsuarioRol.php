@@ -131,6 +131,8 @@ class UsuarioRol {
             .$idusuario .", "
             .$idrol. ");";
 
+        echo $sql ."<br>";
+
         if ($base->Iniciar()) {
             
             if ($base->Ejecutar($sql)) {

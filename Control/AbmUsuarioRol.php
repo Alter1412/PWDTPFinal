@@ -11,6 +11,7 @@ class AbmUsuarioRol{
         $objUsuarioRol = null;
         $objRol = null;
         $objUsuario = null;
+
         if (array_key_exists('idrol', $param) && $param['idrol'] != null) {
             $objRol = new Rol();
             $objRol->setIdrol($param['idrol']);
