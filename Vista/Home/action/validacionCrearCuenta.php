@@ -2,18 +2,8 @@
 
 include_once "../../../configuracion.php";
 $datos = data_submitted();
-
-$usnombre = $datos['usnombre'];
-$usmail = $datos['usmail'];
-
-$param['usnombre'] = $usnombre;
-$param['usmail'] = $usmail;
-$param['idusuario'] = 0;
-$param['uspass'] = md5(123456);
-$param['usdeshabilitado'] = NULL;
-
-$objUsuario = new AbmUsuario();
-$resultado = $objUsuario->alta($param);
+$nuevoUsuario = new AbmUsuario();
+$resultado = $nuevoUsuario->crearUsuario($datos);
 
 if ($resultado){
     $respuesta = array("resultado" => "exito", "mensaje" => "Su cuenta ha sido creada con éxito.
@@ -27,4 +17,24 @@ if ($resultado){
 }
 
 echo json_encode($respuesta);
+
+
+
+/* $usnombre = $datos['usnombre'];
+$usmail = $datos['usmail'];
+
+$param['usnombre'] = $usnombre;
+$param['usmail'] = $usmail;
+$param['idusuario'] = 0;
+$param['uspass'] = md5(123456);
+$param['usdeshabilitado'] = NULL;
+
+$objUsuario = new AbmUsuario();
+$resultado = $objUsuario->alta($param);// poner el resulstado de crear al usuario (true o false)
+$nuevaCompra = new AbmCompra();
+$aux['idcompra'] = 0;
+$aux['cofecha'] = null;
+$aux['idusuario'] = $idusuario;
+$nuevaCompra->alta($aux);
+$resp = true; */
 ?>

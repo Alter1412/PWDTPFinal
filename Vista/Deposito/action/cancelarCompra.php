@@ -3,7 +3,14 @@ include_once ("../../../configuracion.php");
 //pasa el carrito al estado iniciada
 $datos = data_submitted();//idCompra
 verEstructura($datos);
-$objCompra = new AbmCompra();
+$objEstado = new AbmCompraEstado();
+$cancelado = $objEstado->cancelarCompra($datos);
+if($cancelado){
+    header("Location: ../gestionarCompras.php"); 
+}else{
+    echo "Algo fallo";
+}
+/* $objCompra = new AbmCompra();
 $arayCompra = $objCompra->buscar($datos);//array
 $compra = $arayCompra[0];//objCompra
 
@@ -37,5 +44,5 @@ $compra = $arayCompra[0];//objCompra
     }else{
         echo "Algo fallo";
     }
-    header("Location: ../gestionarCompras.php");
+    header("Location: ../gestionarCompras.php"); */
 ?>

@@ -3,9 +3,18 @@ include_once ("../../../configuracion.php");
 //pasa el carrito al estado iniciada
 $datos= data_submitted();//idusuario
 verEstructura($datos);
+$obj = new AbmCompraEstado();
+$resp = $obj->pagarCompra($datos['idusuario']);
 
-$objCompra = new AbmCompra();
-$arayCompra = $objCompra->buscarCarrito($datos['idusuario']);//array
+if($resp){
+    header('Location: ../misCompras.php');
+    echo "se creo compra";
+}else{
+    echo "Compra no realizada";
+}
+
+/* $objCompra = new AbmCompra();
+$arayCompra = $objCompra->buscarCarrito();//array
 //verEstructura($arayCompra);
 $compra = $arayCompra[0];//objCompra
 //verEstructura($compra);
@@ -58,8 +67,8 @@ if($compraExitosa){
     }
 }else{
     echo "Algo fallo";
-} 
-
+}
+ */
 
 
 ?>

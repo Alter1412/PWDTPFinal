@@ -123,4 +123,22 @@ class AbmProducto
         return $arreglo;
     }
 
+    public function agregarProducto($datos){
+        $resp = false;
+        $param['idproducto'] = 0;
+        $param['pronombre'] = $datos['pronombre'];
+        $param['prodetalle'] = $datos['prodetalle'];
+        $param['procantstock'] = $datos['procantstock'];
+        $param['tipo'] = $datos['tipo'];
+        $param['imagenproducto'] = $datos['imagenproducto'];
+        verEstructura($param);
+
+        $objProducto = new AbmProducto();
+        $exito = $objProducto->alta($param);
+        if($exito){
+            $resp = true;
+        }
+        return $resp;
+    } 
+
 }

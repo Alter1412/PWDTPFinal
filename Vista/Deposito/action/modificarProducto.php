@@ -15,10 +15,11 @@ verEstructura($param); */
 $objProducto = new AbmProducto();
  $exito = $objProducto->modificar($datos);
 if($exito){
+    header("Location: ../gestionarProductos.php");
     echo "Producto modificado";
 }else{
     echo "Algo fallo";
 }
-header("Location: ../gestionarProductos.php");
+
 
 ?>

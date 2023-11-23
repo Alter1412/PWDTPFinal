@@ -125,6 +125,244 @@ class AbmCompraEstado{
         $arreglo = $obj->listar($where);
         return $arreglo;
     }
+
+
+    
+
+    /**
+     * Recibe el id(un numero no array) del usuario y coloca la compra en el estado Iniciada
+     */
+    public function pagarCompra($idusuario){
+        $resp = false;
+        $objCompra = new AbmCompra();
+        $arayCompra = $objCompra->buscarCarrito($idusuario);//array
+        //verEstructura($arayCompra);
+        $compra = $arayCompra[0];//objCompra
+        //verEstructura($compra);
+        $fecha['idcompra'] = $compra->getIdCompra();
+        $fecha['cofecha'] = date('Y-m-d H:i:s');
+        $fecha['idusuario'] = $compra->getObjUsuario()->getIdUsuario();
+        verEstructura($fecha);
+        $compraExitosa = $objCompra->modificar($fecha);
+       /*  $ItemComprados = new AbmCompraItem();
+        $idCompra['idcompra'] = $fecha['idcompra'];
+        $listaItems = $ItemComprados->buscar($idCompra);
+        verEstructura($listaItems);
+         //se modifica el stock en a base de datos, mover para deposito
+        $objProducto = new AbmProducto();
+       
+        for ($i = 0; $i < count($listaItems); $i++){
+            $idUnItem['idproducto'] = $listaItems[$i]->getObjProducto()->getIdProducto();//id del item a comprar
+            //echo $idUnItem."<br>";
+            $productoGondola = $objProducto->buscar($idUnItem);
+            verEstructura($productoGondola);
+            $cantLlevar = $listaItems[$i]->getCiCantidad();
+            $stockGondola = $productoGondola[0]->getProCantstock();
+            $nuevoStock = $stockGondola - $cantLlevar;
+            $datosProductos['idproducto'] = $productoGondola[0]->getIdProducto();
+            $datosProductos['pronombre'] = $productoGondola[0]->getProNombre();
+            $datosProductos['prodetalle'] = $productoGondola[0]->getProDetalle();
+            $datosProductos['procantstock'] = $nuevoStock;
+            $datosProductos['tipo'] = $productoGondola[0]->getTipo();
+            $datosProductos['imagenproducto'] = $productoGondola[0]->getImagenProducto();
+            $objProducto->modificar($datosProductos);
+        } */
+
+        if($compraExitosa){
+            $objEstado = new AbmCompraEstado();
+            $param['idcompraestado'] = 0;
+            $param['idcompra'] = $compra->getIdCompra();
+            $param['idcompraestadotipo'] = 1;
+            $param['cefechaini'] = date('Y-m-d H:i:s');
+            $param['cefechafin'] = null;
+            $exito = $objEstado->alta($param);
+            $resp = true;
+            if($exito){
+                $nuevaCompra = new AbmCompra();
+                $aux['idcompra'] = 0;
+                $aux['cofecha'] = null;
+                $aux['idusuario'] = $idusuario;
+                $nuevaCompra->alta($aux);
+                
+               
+            }else{
+                echo "Algo fallo 2";
+            }
+        }else{
+            echo "Algo fallo";
+        }
+        return $resp;
+
+    }
+
+    /**
+     * Acepta una compra
+     */
+    public function aceptarCompra($datos){
+        $resp = false;
+        $objCompra = new AbmCompra();
+        $arayCompra = $objCompra->buscar($datos);//array
+        $compra = $arayCompra[0];//objCompra
+
+        $objEstado = new AbmCompraEstado();
+        $param['idcompra'] = $compra->getIdCompra();
+        $param['idcompraestadotipo'] = 1;
+        $param['cefechafin'] = null;
+        $exito = $objEstado->buscar($param);
+
+        if($exito){
+
+            $ItemComprados = new AbmCompraItem();
+            $idCompra['idcompra'] = $param['idcompra'];
+            $listaItems = $ItemComprados->buscar($idCompra);
+            verEstructura($listaItems);
+             //se modifica el stock en a base de datos, mover para deposito
+            $objProducto = new AbmProducto();
+           
+            for ($i = 0; $i < count($listaItems); $i++){
+                $idUnItem['idproducto'] = $listaItems[$i]->getObjProducto()->getIdProducto();//id del item a comprar
+                //echo $idUnItem."<br>";
+                $productoGondola = $objProducto->buscar($idUnItem);
+                verEstructura($productoGondola);
+                $cantLlevar = $listaItems[$i]->getCiCantidad();
+                $stockGondola = $productoGondola[0]->getProCantstock();
+                $nuevoStock = $stockGondola - $cantLlevar;
+                $datosProductos['idproducto'] = $productoGondola[0]->getIdProducto();
+                $datosProductos['pronombre'] = $productoGondola[0]->getProNombre();
+                $datosProductos['prodetalle'] = $productoGondola[0]->getProDetalle();
+                $datosProductos['procantstock'] = $nuevoStock;
+                $datosProductos['tipo'] = $productoGondola[0]->getTipo();
+                $datosProductos['imagenproducto'] = $productoGondola[0]->getImagenProducto();
+                $objProducto->modificar($datosProductos);
+            }
+
+
+            //modifico el estado inicial colocandole fecha fin
+            $estado = $exito[0];
+            $param['idcompraestado'] = $estado->getIdCompraEstado();
+            $param['idcompra'] = $estado->getObjCompra()->getIdCompra();
+            $param['idcompraestadotipo'] = $estado->getObjCompraEstadoTipo()->getIdCompraEstadoTipo();
+            $param['cefechaini'] = $estado->getCeFechaIni();
+            $param['cefechafin'] = date('Y-m-d H:i:s');
+            $objEstado->modificar($param);
+
+            //creo el estado Aceptada con fecha de inicio
+            $cancelado = new AbmCompraEstado();
+            $param['idcompraestado'] = 0;
+            $param['idcompra'] = $compra->getIdCompra();
+            $param['idcompraestadotipo'] = 2;
+            $param['cefechaini'] = date('Y-m-d H:i:s');
+            $param['cefechafin'] = null;
+            $exito = $cancelado->alta($param);
+        
+            echo "Compra aceptada";
+            $resp = true;
+        }
+        return $resp;
+    }
+
+    /**
+     * Cambia el Estado A enviada
+     */
+    public function enviarCompra($datos){
+        $resp = false;
+        $objCompra = new AbmCompra();
+        $arayCompra = $objCompra->buscar($datos);//array
+        $compra = $arayCompra[0];//objCompra
+
+            $objEstado = new AbmCompraEstado();
+            //parametros de busqueda
+            $param['idcompra'] = $compra->getIdCompra();
+            $param['idcompraestadotipo'] = 2;
+            $param['cefechafin'] = '0000-00-00 00:00:00';
+            $exito = $objEstado->buscar($param);
+            verEstructura($exito);
+
+            if($exito){
+                //modifico el estado inicial colocandole fecha fin
+                $estado = $exito[0];
+                $param['idcompraestado'] = $estado->getIdCompraEstado();
+                $param['idcompra'] = $estado->getObjCompra()->getIdCompra();
+                $param['idcompraestadotipo'] = $estado->getObjCompraEstadoTipo()->getIdCompraEstadoTipo();
+                $param['cefechaini'] = $estado->getCeFechaIni();
+                $param['cefechafin'] = date('Y-m-d H:i:s');
+                $objEstado->modificar($param);
+
+                //creo el estado cancelada con fecha de inicio
+                $cancelado = new AbmCompraEstado();
+                $param['idcompraestado'] = 0;
+                $param['idcompra'] = $compra->getIdCompra();
+                $param['idcompraestadotipo'] = 3;
+                $param['cefechaini'] = date('Y-m-d H:i:s');
+                $param['cefechafin'] = null;
+                $exito = $cancelado->alta($param);
+                $resp = true;
+            
+                echo "Envio realizado";
+            }else{
+                echo "Algo fallo";
+            }
+            return $resp;
+    }
+
+    /**
+     * Recibe un obj compraEstado, cancela una compra y devuelve el stock a su estado anterior
+     */
+    public function cancelarCompra($param){
+        $objEstado = new AbmCompraEstado();
+        $estado = $param[0];
+        //modifico el estado inicial colocandole fecha fin
+        $idc=$estado->getObjCompra()->getIdCompra();//id de la compra
+        $resp = false;
+        
+        $param['idcompraestado'] = $estado->getIdCompraEstado();
+        $param['idcompra'] = $idc;
+        $param['idcompraestadotipo'] = $estado->getObjCompraEstadoTipo()->getIdCompraEstadoTipo();
+        $param['cefechaini'] = $estado->getCeFechaIni();
+        $param['cefechafin'] = date('Y-m-d H:i:s');
+        $exito = $objEstado->modificar($param);
+       
+        if($exito){
+            $cancelado = new AbmCompraEstado();
+            $param['idcompraestado'] = 0;
+            $param['idcompra'] = $idc;
+            $param['idcompraestadotipo'] = 4;
+            $param['cefechaini'] = date('Y-m-d H:i:s');
+            $param['cefechafin'] = null;
+            $exito = $cancelado->alta($param);
+            $resp = true;
+            if($param['idcompraestadotipo'] != 1 ){
+                $ItemComprados = new AbmCompraItem();
+                $idCompra['idcompra'] = $idc;
+                $listaItems = $ItemComprados->buscar($idCompra);
+                verEstructura($listaItems);
+                $objProducto = new AbmProducto();
+                //se modifica el stock en a base de datos
+                for ($i = 0; $i < count($listaItems); $i++){
+                    $idUnItem['idproducto'] = $listaItems[$i]->getObjProducto()->getIdProducto();//id del item a comprar
+                    //echo $idUnItem."<br>";
+                    $productoGondola = $objProducto->buscar($idUnItem);
+                    verEstructura($productoGondola);
+                    $cantLlevar = $listaItems[$i]->getCiCantidad();
+                    $stockGondola = $productoGondola[0]->getProCantstock();
+                    $nuevoStock = $stockGondola + $cantLlevar;
+                    $datosProductos['idproducto'] = $productoGondola[0]->getIdProducto();
+                    $datosProductos['pronombre'] = $productoGondola[0]->getProNombre();
+                    $datosProductos['prodetalle'] = $productoGondola[0]->getProDetalle();
+                    $datosProductos['procantstock'] = $nuevoStock;
+                    $datosProductos['tipo'] = $productoGondola[0]->getTipo();
+                    $datosProductos['imagenproducto'] = $productoGondola[0]->getImagenProducto();
+                    $objProducto->modificar($datosProductos);
+                }
+            }
+            
+
+
+            
+        }
+        //creo el estado cancelada con fecha de inicio
+        return $resp;
+    }
 }
 
 ?>

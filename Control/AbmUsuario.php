@@ -232,7 +232,82 @@ class AbmUsuario
         return $resp;
     }
 
-    public function prueba(){
-        return 2;
+    public function crearUsuarioAdmin($datos){
+        $resp = false;
+        // Extraigo datos necesarios para la creación de usuario
+        $usuario = $datos['usnombre'];
+        $email = $datos['usmail'];
+        $passEncriptada= md5($datos['uspass']);
+        //creo los objetos Usuario y objeto UsuarioRol
+        $objUsuario = new AbmUsuario();
+        //Guardo los parametros del Usuario
+        $paramUsuario['idusuario'] = 0;
+        $paramUsuario['usnombre'] = $usuario;
+        $paramUsuario['uspass'] = $passEncriptada;
+        $paramUsuario['usmail'] = $email;
+        $paramUsuario['usdeshabilitado'] = "'0000-00-00 00:00:00'";
+
+        //Lo cargo a la base de datos
+        $exito = $objUsuario->alta($paramUsuario);
+        if($exito){
+            $objUsuarioRol = new AbmUsuarioRol();
+
+            $paramUsuario2['usnombre'] = $usuario;
+            $nuevoUsuario = $objUsuario->buscar($paramUsuario2);
+            $idUsuario = $nuevoUsuario[0]->getIdUsuario();
+            $paramUsuarioRol['idusuario'] = $idUsuario;
+            echo $idUsuario."<br>";
+            if(array_key_exists('Cliente', $datos)){
+                echo "Entro a Cliente <br>";
+                $paramUsuarioRol['idrol'] = 3;
+                verEstructura($paramUsuarioRol);
+                $objUsuarioRol->alta($paramUsuarioRol);
+            }
+            if(array_key_exists('Deposito', $datos)){
+                $paramUsuarioRol['idrol'] = 2;
+                $objUsuarioRol->alta($paramUsuarioRol);
+            }
+            if(array_key_exists('Admin', $datos)){
+                $paramUsuarioRol['idrol'] = 1;
+                $objUsuarioRol->alta($paramUsuarioRol);
+            }
+            $nuevaCompra = new AbmCompra();
+            $aux['idcompra'] = 0;
+            $aux['cofecha'] = null;
+            $aux['idusuario'] = $datos['idusuario'];
+            $nuevaCompra->alta($aux);
+            $resp = true;
+            
+        }
+        return $resp;
+    }
+
+    public function crearUsuario($datos){
+        $resp = false;
+        $usnombre = $datos['usnombre'];
+        $usmail = $datos['usmail'];
+
+        $param['usnombre'] = $usnombre;
+        $param['usmail'] = $usmail;
+        $param['idusuario'] = 0;
+        $param['uspass'] = md5(123456);
+        $param['usdeshabilitado'] = NULL;
+
+        $objUsuario = new AbmUsuario();
+        $resultado = $objUsuario->alta($param);// poner el resulstado de crear al usuario (true o false)
+        if($resultado){
+            $buscarNuevoUsuario = $objUsuario->buscar($datos);
+            $idusuario = $buscarNuevoUsuario[0]->getIdUsuario();
+            $nuevaCompra = new AbmCompra();
+            $aux['idcompra'] = 0;
+            $aux['cofecha'] = null;
+            $aux['idusuario'] = $idusuario;
+            $nuevaCompra->alta($aux);
+            $resp = true;
+        }
+        return $resp;
     }
 }
+
+
+?>

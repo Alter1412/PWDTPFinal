@@ -6,8 +6,9 @@ $objCompraItem = new AbmCompraItem();
 $agregar = $objCompraItem->baja($datos);
 if($agregar){
     echo "Item Borrado del Carrito";
+    header("Location: ../gestionarCompras.php");
 }else{
     echo "Algo Fallo";
 }
-header("Location: ../gestionarCompras.php");
+
 ?>
