@@ -4,11 +4,11 @@
 */
  
 include_once ('../../../configuracion.php');
-$datos = data_submitted();//estoy recibiendo el id del rol y el usuario
-verEstructura($datos);
+$datos = data_submitted();//estoy recibiendo el id del rol 
+//verEstructura($datos);
 
 $objRol = new AbmRol();
-$exito = $objRol->alta($datos);
+$exito = $objRol->baja($datos);
 if($exito){
     header('Location:../gestionarRoles.php');
 }else{

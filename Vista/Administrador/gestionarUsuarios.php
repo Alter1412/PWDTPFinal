@@ -29,6 +29,9 @@ $listaUsuarios = $objAbmUsuario->buscar(null);
 <body>
 
 <div class="container mt-4">
+    
+<a href="crearCliente.php" class="btn btn-success">Crear Usuario Nuevo</a>
+<br>
     <?php
     if (count($listaUsuarios) > 0) {
         echo '<table class="table table-bordered">';
@@ -60,7 +63,7 @@ $listaUsuarios = $objAbmUsuario->buscar(null);
                     <td>' . $rolDesc . '</td>
                     <td>' . $objUsuario->getUsDeshabilitado() . '</td>
                     <td>
-                        <a href="formActualizarUsuarios.php?idusuario=' . $objUsuario->getIdUsuario() . '" class="btn btn-primary btn-sm">Actualizar</a>
+                        <a href="formActualizarUsuario.php?idusuario=' . $objUsuario->getIdUsuario() . '" class="btn btn-primary btn-sm">Actualizar</a>
                         <a href="asignarRoles.php?idusuario=' . $objUsuario->getIdUsuario() . '" class="btn btn-info btn-sm">Asignar Roles</a>
                         <a href="quitarRol.php?idusuario=' . $objUsuario->getIdUsuario() . '" class="btn btn-warning btn-sm">Quitar Roles</a>
                         <a href="action/deshabilitarUsuario.php?idusuario=' . $objUsuario->getIdUsuario() . '" class="btn btn-danger btn-sm">Eliminar</a>
@@ -69,14 +72,18 @@ $listaUsuarios = $objAbmUsuario->buscar(null);
         }
         echo '</tbody>';
         echo '</table>';
-        echo '<a href="crearCliente.php" class="btn btn-success">Crear Usuario Nuevo</a>';
+        echo "<br>";
+        
+       
     } else {
         echo '<div class="alert alert-info" role="alert">No se encontraron Usuarios.</div>';
     }
     ?>
 </div>
 
-
+<?php
+ echo "<br>";
+?>
 
 </body>
 </html>
