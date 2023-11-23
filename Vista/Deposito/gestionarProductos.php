@@ -45,7 +45,7 @@ $listaProductos = $objAbmProducto->buscar(null);
             
             echo '<tr>
                     <td>' . $objProducto->getProNombre() . '</td>
-                    <td>' . $objProducto->getProDetalle() . '</td>
+                    <td> $' . $objProducto->getProDetalle() . '</td>
                     <td>' . $objProducto->getProCantstock() . '</td>
                     <td><a href="modificarProductos.php?idproducto=' . $objProducto->getIdProducto() . '" class="btn btn-primary">Modificar Producto</a></td>
                   </tr>';

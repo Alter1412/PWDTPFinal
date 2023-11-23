@@ -19,5 +19,6 @@ if($exito){
 }else{
     echo "Algo fallo";
 }
+header("Location: ../gestionarProductos.php");
 
 ?>

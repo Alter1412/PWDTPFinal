@@ -9,7 +9,7 @@ $datos = data_submitted();//estoy recibiendo el id del rol y el usuario
 $objUsuarioRol = new AbmUsuarioRol();
 $exito = $objUsuarioRol->baja($datos);
 if($exito){
-    header('Location:../gestionarRoles.php');
+    header('Location:../gestionarUsuarios.php');
 }else{
     echo "Algo fallo";
 }

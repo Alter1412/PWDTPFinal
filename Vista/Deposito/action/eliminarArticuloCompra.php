@@ -9,4 +9,5 @@ if($agregar){
 }else{
     echo "Algo Fallo";
 }
+header("Location: ../gestionarCompras.php");
 ?>

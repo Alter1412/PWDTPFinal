@@ -38,8 +38,5 @@ $compra = $arayCompra[0];//objCompra
     }else{
         echo "Algo fallo";
     }
-
-
-
-
+    header("Location: ../gestionarCompras.php");
 ?>

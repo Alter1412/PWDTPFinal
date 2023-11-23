@@ -39,7 +39,7 @@ $listaUsuarios = $objAbmUsuario->buscar(null);
                     <th>ID USUARIO</th>
                     <th>NOMBRE</th>
                     <th>E-MAIL</th>
-                    <th>ROL</th>
+                    <th>ROL PRINCIPAL</th>
                     <th>FECHA DESHABILITADO</th>
                     <th>ACCION</th>
                 </tr>

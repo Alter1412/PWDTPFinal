@@ -10,7 +10,7 @@ $param['pronombre'] = $datos['pronombre'];
 $param['prodetalle'] = $datos['prodetalle'];
 $param['procantstock'] = $datos['procantstock'];
 $param['tipo'] = $datos['tipo'];
-$param['imagenproducto'] = null;
+$param['imagenproducto'] = $datos['imagenproducto'];
 verEstructura($param);
 
 $objProducto = new AbmProducto();
@@ -20,5 +20,5 @@ if($exito){
 }else{
     echo "Algo fallo";
 }
-
+header("Location: ../crearProductos.php");
 ?>
