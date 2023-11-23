@@ -1,10 +1,11 @@
 <?php
 include_once "../../../configuracion.php";
-//Coregir, contiene $_SESSION
-session_start();
 
+$session = new Session();
 $datos = data_submitted();
-$param['idusuario'] = $_SESSION['idusuario'];
+$usuario = $session->getUsuario();
+$idUsuario['idusuario'] = $usuario->getIdUsuario();
+$param['idusuario'] = $idUsuario;
 
 $objAbmUsuario = new AbmUsuario();
 $colUsuario = $objAbmUsuario->buscar($param);
@@ -24,7 +25,8 @@ if (count($resultadoNombreRepetido) == 0){
     
     if ($resultado){
         $respuesta = array("resultado" => "exito", "mensaje" => "Nombre de usuario cambiado con éxito.");
-        $_SESSION['usnombre'] = $datos['usnombre'];
+        $session->actualizarNombre($datos['usnombre']);
+        
     } else {
         $respuesta = array("resultado" => "error", "mensaje" => "No pudo cambiarse el nombre de usuario.");
     }

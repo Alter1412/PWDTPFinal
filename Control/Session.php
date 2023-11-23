@@ -143,13 +143,25 @@ class Session
     }
 
     /**
-     * Actualiza los roles de la session
-     * $param['rol'] o un int
+     * Actualizan las variables de la session
      */
-    /*function actualizarRol($param)
+    public function actualizarRol($param)
     {
         $_SESSION['rol'] = $param;
-    }*/
+    }
+    public function actualizarEmail($param){
+        $_SESSION['usmail']= $param;
+    }
+    public function actualizarNombre($param){
+        $_SESSION['usnombre']= $param;
+    }
+    public function actualizarPass($param){
+        $_SESSION['uspass']= $param;
+    }
+
+
+
+
 
     /**
      * Revisa si el usuario tiene el rol (permiso) para entrar a una página
@@ -173,7 +185,7 @@ class Session
 
         return $resp;
     }
-
+    
     /**
      * cierra la sesion actual
      */

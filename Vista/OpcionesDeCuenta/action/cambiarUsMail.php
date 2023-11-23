@@ -1,10 +1,12 @@
 <?php
 include_once "../../../configuracion.php";
-//Coregir, contiene $_SESSION
-session_start();
 
+//session_start();
+$session = new Session();
 $datos = data_submitted();
-$param['idusuario'] = $_SESSION['idusuario'];
+$usuario = $session->getUsuario();
+$idUsuario['idusuario'] = $usuario->getIdUsuario();
+$param['idusuario'] = $idUsuario;
 
 $objAbmUsuario = new AbmUsuario();
 $colUsuario = $objAbmUsuario->buscar($param);
@@ -20,8 +22,10 @@ if (filter_var($param['usmail'], FILTER_VALIDATE_EMAIL)) {
     $resultado = $objAbmUsuario->modificar($param);
 
     if ($resultado){
+      
         $respuesta = array("resultado" => "exito", "mensaje" => "Dirección de mail cambiada con éxito.");
-        $_SESSION['usmail'] = $param['usmail'];
+        $session->actualizarEmail($param['usmail']);
+        
     } else {
         $respuesta = array("resultado" => "error", "mensaje" => "No pudo cambiarse la dirección de mail.");
     }

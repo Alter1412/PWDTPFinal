@@ -1,10 +1,11 @@
 <?php
 include_once "../../../configuracion.php";
-//Coregir, contiene $_SESSION
-session_start();
 
+$session = new Session();
 $datos = data_submitted();
-$param['idusuario'] = $_SESSION['idusuario'];
+$usuario = $session->getUsuario();
+$idUsuario['idusuario'] = $usuario->getIdUsuario();
+$param['idusuario'] = $idUsuario;
 
 $objAbmUsuario = new AbmUsuario();
 $colUsuario = $objAbmUsuario->buscar($param);
