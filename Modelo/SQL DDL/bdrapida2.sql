@@ -227,7 +227,7 @@ INSERT INTO menu (idmenu, menombre, medescripcion, idpadre, medeshabilitado) VAL
 
 (41, 'Productos', 'productos.php', 4, '0000-00-00 00:00:00'), -- Hijo Cliente (4)
 (42, 'Mis Compras', 'misCompras.php', 4, '0000-00-00 00:00:00'), -- Hijo Cliente (4)
-(43, 'Carrito', 'carrito.php', 4, '0000-00-00 00:00:00'); -- Hijo Cliente (4)
+(43, 'Carrito', 'carrito.php', 4, '0000-00-00 00:00:00'), -- Hijo Cliente (4)
 (44, 'Agregar Productos', 'agregarProductoAlCarrito.php', 0, '0000-00-00 00:00:00'); -- Hijo Nulo (0)
 
 -- ----------------------------------------------------------------------------------
@@ -265,7 +265,9 @@ INSERT INTO compra (idcompra, cofecha, idusuario) VALUES
 (1, '2021-11-19 02:43:15', 1),
 (2, '2021-11-19 02:45:20', 1),
 (3, '2021-11-19 02:53:10', 1),
-(4, '2021-11-19 02:54:14', 1);
+(4, '2021-11-19 02:54:14', 1),
+(5, '0000-00-00 00:00:00', 7); -- Compra test
+
 
 -- ----------------------------------------------------------------------------------
 --

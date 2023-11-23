@@ -3,12 +3,12 @@ include_once("../../../configuracion.php");
 $datos = data_submitted();//Recibe idcompraitem = 0(por el autoincrement), idproducto, idcompra y cicantidad
  //verEstructura($datos);
  $session = new Session();
- $usuario = $session->getUsuario();
+ //$usuario = $session->getUsuario();
  //verEstructura($usuario);
- $idUsuario['idusuario'] = $usuario->getIdUsuario();
+ //$idUsuario['idusuario'] = $usuario->getIdUsuario();
  $objCompra = new AbmCompra();
-$busquedaCompra = $objCompra->buscar($idUsuario);
-//verEstructura($busquedaCompra);
+$busquedaCompra = $objCompra->buscarCarrito($_SESSION['idusuario']);
+verEstructura($busquedaCompra);
 $compra = $busquedaCompra[0]; 
 $producto['idcompraitem'] = 0;
 $producto['idproducto'] = $datos['idproducto'];
@@ -18,7 +18,7 @@ $producto['cicantidad'] = $datos['cantidad'];
 $objCompraItem = new AbmCompraItem();
 $agregar = $objCompraItem->alta($producto);
 if($agregar){
-    header('Location:../productos.php');
+   header('Location:../productos.php');
 }else{
     echo "Algo Fallo";
 }

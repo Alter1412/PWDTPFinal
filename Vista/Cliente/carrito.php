@@ -6,7 +6,7 @@ $direccion = " 	Cliente";
 include_once("../Estructuras/headSeguro.php");
 include_once("../Estructuras/banner.php");
 include_once("../Estructuras/navSeguro.php");
-
+//verEstructura($_SESSION);
 $objCompra = new AbmCompra();
 $busquedaCompra = $objCompra->buscarCarrito($_SESSION['idusuario']);
 //verEstructura($busquedaCompra);

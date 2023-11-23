@@ -5,7 +5,7 @@ verEstructura($datos);
 $objCompraItem = new AbmCompraItem();
 $agregar = $objCompraItem->baja($datos);
 if($agregar){
-    echo "Item Borrado del Carrito";
+    header('Location:../carrito.php');
 }else{
     echo "Algo Fallo";
 }
