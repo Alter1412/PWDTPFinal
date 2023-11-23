@@ -268,11 +268,6 @@ class MenuRol
             $this->setMensajeOperacion("menurol->verificarPermiso: " . $base->getError());
         }
 
-        if($resp == true){
-            echo "La respuesta es verdadera";
-        } else {
-            echo "La respuesta es falsa";
-        }
         return $resp;
     }
 }

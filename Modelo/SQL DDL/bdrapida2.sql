@@ -376,6 +376,10 @@ INSERT INTO menurol (idmenu, idrol) VALUES
 (21, 1), -- Admin - Crear Usuarios
 (22, 1), -- Admin - Gestionar Usuarios
 (23, 1), -- Admin - Gestionar Roles
+(24, 1), -- Admin - Asignar Roles
+(25, 1), -- Admin - Quitar Roles
+(26, 1), -- Admin - Actualizar Usuario
+(27, 1), -- Admin - Crear Rol
 
 (31, 2), -- Deposito - Crear Productos
 (32, 2), -- Deposito - Gestionar Productos
