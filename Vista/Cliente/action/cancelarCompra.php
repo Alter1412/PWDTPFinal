@@ -31,7 +31,7 @@ $compra = $arayCompra[0];//objCompra
         $param['cefechaini'] = date('Y-m-d H:i:s');
         $param['cefechafin'] = null;
         $exito = $cancelado->alta($param);
-       
+        header('Location: ../misCompras.php');
         echo "cancelacion realizada";
     }else{
         echo "Algo fallo";

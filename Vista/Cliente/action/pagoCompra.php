@@ -51,7 +51,7 @@ if($compraExitosa){
         $aux['cofecha'] = null;
         $aux['idusuario'] = $datos['idusuario'];
         $nuevaCompra->alta($aux);
-        header('Location:../misCompras.php');
+        header('Location: ../misCompras.php');
         echo "se creo compra";
     }else{
         echo "Algo fallo 2";
