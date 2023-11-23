@@ -1,5 +1,6 @@
 <?php
 class Menu {
+
     private $idmenu;
     private $menombre ;
     private $medescripcion;
@@ -11,8 +12,8 @@ class Menu {
         $this->idmenu="";
         $this->menombre="" ;
         $this->medescripcion="";
-        $this->menuPadre= null;
-        $this->medeshabilitado = null;
+        $this->menuPadre = null;
+        $this->medeshabilitado = "";
         $this->mensajeoperacion ="";     
     }
 

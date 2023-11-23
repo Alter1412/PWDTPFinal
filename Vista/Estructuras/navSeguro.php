@@ -91,7 +91,7 @@ for ($i=0; $i < count($colMenuRol); $i++){//Consigo la colección de Menus
                 $nombrePadre = $padreMenu->getMeNombre();
                 $medescripcionpadre = $padreMenu->getMeDescripcion();
 
-                if ($colMenu[$i]->getIdPadre() != 0){
+                if ($colMenu[$i]->getMenuPadre()->getIdMenu() != 0){
                     
                     if ($menu == $menombre){
                         echo '<li class="nav-item active nav-underline">';
