@@ -26,16 +26,45 @@ $listaCompraItem = $objCompraItem->buscar($idUCompra);
 
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+
 <body>
 
-<?php	
+<div class="container mt-4">
+    <?php
+    if (count($listaCompraItem) > 0) {
+        echo "<table class='table table-bordered'>";
+        echo '<thead class="thead-dark"><tr><th scope="col">NOMBRE PRODUCTO</th><th scope="col">DETALLE PRODUCTO</th><th scope="col">CANTIDAD</th><th scope="col">OPCIONES</th></tr></thead><tbody>';
+        for ($i = 0; $i < count($listaCompraItem); $i++) {
+            $objCompraItem = $listaCompraItem[$i];
+            $idProducto['idproducto'] = $objCompraItem->getObjProducto()->getIdProducto();
+            $busquedaProducto = $objProducto->buscar($idProducto);
+            $producto = $busquedaProducto[0];//objProducto
+            
+            echo '<tr>
+              <td>' . $producto->getProNombre() . '</td>
+              <td>' . $producto->getProDetalle() . '</td>
+              <td>' . $objCompraItem->getCiCantidad() . '</td>
+              <td><a href="action/quitarProductoCarrito.php?idcompraitem=' . $objCompraItem->getIdCompraItem() . '" class="btn btn-danger">Quitar Producto</a></td>
+              </tr>';
+        }
+        echo "</tbody></table><br><br>";
+        echo '<a href="action/pagoCompra.php?idusuario='.$_SESSION['idusuario'].'" class="btn btn-primary">Comprar</a>';
+        
+    } else {
+        echo "<p class='alert alert-warning'>No se encontraron productos en el carrito.</p>";
+    }
+    ?>
+</div>
+<br>
+
+
+</body>
+</html>
+
+
+<!-- <body>
+
+<?php	/*
 
  if( count($listaCompraItem)>0){
     echo "<table border='1'>";//por el momento no muestro la password, no tiene sentido
@@ -63,11 +92,11 @@ $listaCompraItem = $objCompraItem->buscar($idUCompra);
 }else{
     echo "No se encontraron Productos";
 }
-
+*/
 ?>
 
 </body>
-</html>
+</html> -->
 
 <?php
 include_once("../Estructuras/footer.php");

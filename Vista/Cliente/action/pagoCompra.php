@@ -1,7 +1,8 @@
 <?php
 include_once ("../../../configuracion.php");
 //pasa el carrito al estado iniciada
-$datos = data_submitted();//idCompra
+$datos= data_submitted();//idusuario
+verEstructura($datos);
 //verEstructura($datos);
 $objCompra = new AbmCompra();
 $arayCompra = $objCompra->buscar($datos);//array
@@ -27,7 +28,7 @@ if($compraExitosa){
         $aux['cofecha'] = null;
         $aux['isuduario'] = $compra->getObjUsuario()->getIdUsuario();
         $nuevaCompra->alta($aux);
-        echo "Pago realizado";
+        header('Location:../misCompras.php');
     }else{
         echo "Algo fallo 2";
     }
