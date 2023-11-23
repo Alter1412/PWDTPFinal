@@ -45,7 +45,6 @@ class AbmRol{
         return $resp;
     }
 
-
     /**
      * 
      * @param array $param
@@ -112,15 +111,17 @@ class AbmRol{
         return $arreglo;
     }
 
-      /**
+    /**
      * Retorna todos los obj menu a los que el usuario puede acceder
      * Devuelve un array MenuRol
      * @param array $param
      * @return array|null
      */
     public function buscarPermisos($param){
-        $where = " true ";
 
+        $arreglo = null;
+
+        $where = " true ";
         if($param != null){
             if(array_key_exists("id",$param)){
                 $where.= "and idrol = '". $param["id"]  ."'";

@@ -1,5 +1,6 @@
 <?php
-class Compra extends BaseDatos{
+class Compra {
+    
  private $idcompra;
  private $cofecha;
  private $objUsuario;

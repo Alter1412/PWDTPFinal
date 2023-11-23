@@ -211,9 +211,8 @@ class AbmMenuRol{
      * @param int
      * @return array
      */
-    public function obtenerColMenus(){
+    public function obtenerColMenus($rol){
         $colMenus = null;
-        
     }
 }
 

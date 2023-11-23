@@ -202,24 +202,26 @@ ALTER TABLE `menu`
 -- Volcado de datos para la tabla 'menu'
 --
 INSERT INTO menu (idmenu, menombre, medescripcion, idpadre, medeshabilitado) VALUES
-(1, 'administrador', 'nav-bar-2', NULL, NULL),
-(2, 'deposito', 'nav-bar-2', NULL, NULL),
-(3, 'cliente','nav-bar-2', NULL, NULL),
+(1, 'Home', '../Home/', NULL, '0000-00-00 00:00:00'), -- Padre Home
+(2, 'Administrador', '../Administrador/', NULL, '0000-00-00 00:00:00'), -- Padre Administrador
+(3, 'Deposito', '../Deposito/', NULL, '0000-00-00 00:00:00'), -- Padre Deposito
+(4, 'Cliente', '../Cliente/', NULL, '0000-00-00 00:00:00'), -- Padre Cliente
 
-/*seccion Admin*/
-(4, 'Ha ingresado como administrador', 'homeAdministrador.php', NULL, NULL),
-/*seccion deposito*/
-(5, 'Ha ingresado a Deposito', 'homeDeposito.php', NULL, NULL),
+(11, 'Inicio', 'home.php', 1, '0000-00-00 00:00:00'), -- Hijo Home (1)
+(12, 'Crear Cuenta', 'crearCuenta.php', 1, '0000-00-00 00:00:00'), -- Hijo Home (1)
+(13, 'Login', 'login.php', 1, '0000-00-00 00:00:00'), -- Hijo Home (1)
 
-(6, 'Inicio', 'home.php', NULL, NULL),
-(7, 'Mates', 'mostrarProd.php?nombre=Mates', NULL, NULL),
-(8, 'Yerbas', 'mostrarProd.php?nombre=Yerbas', NULL, NULL),
-(9, 'Bombillas','mostrarProd.php?nombre=Bombillas', NULL, NULL),
-(10, 'Termos', 'mostrarProd.php?nombre=Termos', NULL,NULL),
-(11, 'SETS', 'mostrarProd.php?nombre=SETS', NULL, NULL),
-(12, 'Mis Compras', '../cliente/misCompras.php', NULL, NULL),
-(13, 'iconoCarrito', '../cliente/carrito.php', NULL, NULL)
-;
+(21, 'Crear Usuarios', 'crearUsuarios.php', 2, '0000-00-00 00:00:00'), -- Hijo Administrador (2)
+(22, 'Gestionar Usuarios', 'gestionarUsuarios.php', 2, '0000-00-00 00:00:00'), -- Hijo Administrador (2)
+(23, 'Gestionar Roles', 'gestionarRoles.php', 2, '0000-00-00 00:00:00'), -- Hijo Administrador (2)
+
+(31, 'Crear Productos', 'crearProductos.php', 3, '0000-00-00 00:00:00'), -- Hijo Deposito (3)
+(32, 'Gestionar Productos', 'gestionarProductos.php', 3, '0000-00-00 00:00:00'), -- Hijo Deposito (3)
+(33, 'Gestionar Compras', 'gestionarCompras.php' , 3, '0000-00-00 00:00:00'), -- Hijo Deposito (3)
+
+(41, 'Productos', 'productos.php', 4, '0000-00-00 00:00:00'), -- Hijo Cliente (4)
+(42, 'Mis Compras', 'misCompras.php', 4, '0000-00-00 00:00:00'), -- Hijo Cliente (4)
+(43, 'Carrito', 'carrito.php', 4, '0000-00-00 00:00:00'); -- Hijo Cliente (4)
 
 -- ----------------------------------------------------------------------------------
 --
@@ -364,19 +366,18 @@ ALTER TABLE `menurol`
 
 -- Volcado de datos para la tabla menurol
 INSERT INTO menurol (idmenu, idrol) VALUES
-(1, 1), -- Admin
-(2, 2), -- Deposito
-(3, 3), -- Cliente
-(4,1), -- Admin
-(5,2), -- Deposito
-(6,3), -- Cliente
-(7,3), -- Cliente
-(8,3), -- Cliente
-(9,3), -- Cliente
-(10,3), -- Cliente
-(11,3), -- Cliente
-(12,3), -- Cliente
-(13,3); -- Cliente
+
+(21, 1), -- Admin - Crear Usuarios
+(22, 1), -- Admin - Gestionar Usuarios
+(23, 1), -- Admin - Gestionar Roles
+
+(31, 2), -- Deposito - Crear Productos
+(32, 2), -- Deposito - Gestionar Productos
+(33, 2), -- Deposito - Gestionar Compras
+
+(41, 3), -- Cliente - Productos
+(42, 3), -- Cliente - Mis Compras
+(43, 3); -- Cliente - Carrito
 
 -- ----------------------------------------------------------------------------------
 --

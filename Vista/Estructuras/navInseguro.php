@@ -1,4 +1,3 @@
-
 <!-- ________________________________________ NAV INSEGURO _____________________________________ -->
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
     <div class="container">
@@ -9,7 +8,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <?php
-                if ($menu == "Inicio"){
+                if ($menu == "Inicio") {
                     echo '<li class="nav-item active nav-underline">';
                     echo '  <a class="nav-link active " aria-current="page" href="#">Inicio</a>';
                     echo '</li>';
@@ -19,7 +18,7 @@
                     echo '</li>';
                 }
 
-                if ($menu == "Productos"){
+                if ($menu == "Productos") {
                     echo '<li class="nav-item active nav-underline">';
                     echo '  <a class="nav-link active " aria-current="page" href="#">Productos</a>';
                     echo '</li>';
@@ -29,7 +28,7 @@
                     echo '</li>';
                 }
 
-                if ($menu == "Crear Cuenta"){
+                if ($menu == "Crear Cuenta") {
                     echo '<li class="nav-item active nav-underline">';
                     echo '  <a class="nav-link active " aria-current="page" href="#">Crear Cuenta</a>';
                     echo '</li>';
@@ -39,7 +38,7 @@
                     echo '</li>';
                 }
 
-                if ($menu == "Iniciar Sesión"){
+                if ($menu == "Iniciar Sesión") {
                     echo '<li class="nav-item active nav-underline">';
                     echo '  <a class="nav-link active " aria-current="page" href="#">Iniciar Sesión</a>';
                     echo '</li>';
