@@ -4,15 +4,68 @@
 */
  
 include_once ('../../configuracion.php');
+$tituloPagina = "Gestionar Usuarios";
+$menu = "Gestionar Usuarios";
+$direccion = " 	Administrador";
+include_once ("../Estructuras/headSeguro.php");
+include_once("../Estructuras/banner.php");
+include_once("../Estructuras/navSeguro.php");
 $idUsuario = data_submitted();//recibo el id del usuario
-verEstructura($idUsuario);
+//verEstructura($idUsuario);
 $rol = new AbmRol();
 $listaRoles = $rol->buscar(null);
 
 
 
 ?>
+
 <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asignar Roles</title>
+    <!-- Enlaces a Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container mt-4">
+    <form action="action/asignarRol.php" method="post">
+        <?php
+        if (count($listaRoles) > 0) {
+            echo "<div class='form-group'>";
+            echo "ID DEL USUARIO: <input type='text' class='form-control' id='idusuario' name='idusuario' value=" . $idUsuario['idusuario'] . " readonly><br>";
+            echo "ROLES A ASIGNAR:<br>";
+            for ($i = 0; $i < count($listaRoles); $i++) {
+                $objRol = $listaRoles[$i];
+                echo "<div class='form-check'>";
+                echo "<input type='checkbox' class='form-check-input' name='idrol[]' id='idrol{$i}' value=" . $objRol->getIdRol() . ">";
+                echo "<label class='form-check-label' for='idrol{$i}'>" . $objRol->getRolDescripcion() . "</label>";
+                echo "</div>";
+            }
+            echo "</div>";
+        } else {
+            echo "<p>No se encontraron Roles</p>";
+        }
+        ?>
+        <button type="submit" class="btn btn-primary mt-2">Asignar Roles</button>
+    </form>
+</div>
+
+<!-- Enlaces a Bootstrap JS y jQuery -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+</body>
+</html>
+
+<?php
+include_once("../Estructuras/footer.php");
+?>
+
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -26,7 +79,7 @@ $listaRoles = $rol->buscar(null);
 
    
 
-    <?php
+    <?php /*
     if( count($listaRoles)>0){
         
         //echo "<table border='1'>";//por el momento no muestro la password, no tiene sentido
@@ -47,7 +100,7 @@ $listaRoles = $rol->buscar(null);
     }else{
         echo "No se encontraron Roles <br>";
     }
-    ?>
+    */?>
 
 
         
@@ -56,4 +109,4 @@ $listaRoles = $rol->buscar(null);
         <input type="submit"  value="Crear"> 
     </form>
 </body>
-</html>
+</html> -->

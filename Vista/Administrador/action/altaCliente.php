@@ -49,11 +49,11 @@ if($exito){
         $objUsuarioRol->alta($paramUsuarioRol);
     }
     
-    echo "Lo creo <br>";
-    //header('Location: ../gestionMenu.php');
+    //Hacer un ajax que muestre un cartelito de que se creo o no el usuario
+    header('Location: ../crearUsuarios.php');
 
 }else{
-    //header('Location: ../gestionMenu.php');
+    header('Location: ../crearUsuarios.php');
 }
 
 
