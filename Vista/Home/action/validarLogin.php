@@ -25,26 +25,18 @@ if (count($colUsuarios) == 1){
             $rol = $_SESSION['rol'];
             $respuesta = array("resultado" => "exito", "mensaje" => "Sesión iniciada con éxito." , "rol" => "$rol");
         }else{
-
-
-            
             if($colUsuarios[0]->getUsDeshabilitado() != '0000-00-00 00:00:00'){
                 $respuesta = array("resultado" => "error", "mensaje" => "Su cuenta ha sido deshabilitada");
             }else{
                 $respuesta = array("resultado" => "error", "mensaje" => "Esta cuenta aun no tiene roles asignados.
                 \nEspere a que un admnistrador le asigne uno.");
             }
-
         }
-
     } else {
         $respuesta = array("resultado" => "error", "mensaje" => "El nombre de usuario y contraseña no coinciden.");
     }
-    
 } else {
     $respuesta = array("resultado" => "error", "mensaje" => "El nombre de usuario no existe.");
-    
 }
-
 echo json_encode($respuesta);
 ?>

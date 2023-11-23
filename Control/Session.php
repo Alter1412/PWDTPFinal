@@ -70,7 +70,16 @@ class Session
     {
         $resp = false;
         if ($this->activa() && isset($_SESSION['idusuario'])) {
-            $resp = true;
+            
+            $objAbmUsuario = new AbmUsuario();
+            $param['idusuario'] = $_SESSION['idusuario'];
+            $param['usdeshabilitado'] = '0000-00-00 00:00:00';
+            $colUsuario = $objAbmUsuario->buscar($param);
+
+            if(count($colUsuario) > 0){
+                $resp = true;
+            }
+
         }
 
         return $resp;
