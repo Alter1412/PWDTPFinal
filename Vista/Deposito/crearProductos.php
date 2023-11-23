@@ -1,6 +1,12 @@
 <?php
 include_once ("../../configuracion.php");
 //la tabla producto tiene autoincrement
+$tituloPagina = "Crear Productos";
+$menu = "Crear Productos";
+$direccion = "Deposito";
+include_once ("../Estructuras/headSeguro.php");
+include_once("../Estructuras/banner.php");
+include_once("../Estructuras/navSeguro.php");
 ?>
 
 <!--<!DOCTYPE html>
@@ -29,7 +35,7 @@ include_once ("../../configuracion.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario de Producto</title>
     <!-- Agrega la referencia a Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    
 </head>
 <body class="bg-light">
 
@@ -61,17 +67,19 @@ include_once ("../../configuracion.php");
                     <label for="imagenproducto">Imagen:</label>
                     <input type="text" class="form-control" name="imagenproducto" id="imagenproducto">
                 </div>
+                <br>
 
-                <button type="submit" class="btn btn-primary">Test</button>
+                <button type="submit" class="btn btn-primary">Crear Producto</button>
             </form>
         </div>
     </div>
 </div>
+<br>
 
-<!-- Agrega la referencia a Bootstrap JS y Popper.js -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
 </body>
 </html>
+
+<?php
+include_once("../Estructuras/footer.php");
+?>
