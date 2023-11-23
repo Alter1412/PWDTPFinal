@@ -24,7 +24,7 @@ class Session
         //if ($nombreUsuario!= null && $psw != null) {
         $param['usnombre'] = $nombreUsuario;
         $param['uspass'] = $psw;
-        //$param['usdeshabilitado'] = NULL; //volver a abilitar
+        $param['usdeshabilitado'] != '0000-00-00 00:00:00'; //volver a abilitar
 
         //Buscamos la colección de usuarios que cumplen con usuario y contraseña
         $colUsuarios = $objAbmUsuario->buscar($param);
