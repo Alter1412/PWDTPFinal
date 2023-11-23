@@ -9,7 +9,7 @@ $objUsuario = new AbmUsuario();
 
     $exito = $objUsuario->modificar($datos);
     if($exito){
-        echo "Usuario actuaizado";
+        header('Location:../gestionarUsuarios.php');
     }else{
         echo "Algo fallo";
     }

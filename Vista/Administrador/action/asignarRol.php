@@ -9,7 +9,7 @@ verEstructura($datos);
 $objUsuarioRol = new AbmUsuarioRol();
 $exito = $objUsuarioRol->alta($datos);
 if($exito){
-    echo "Rol asignado";
+    header('Location:../gestionarUsuarios.php');
 }else{
     echo "Algo fallo";
 }
