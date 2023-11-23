@@ -34,6 +34,7 @@ $listaCompraItem = $objCompraItem->buscar($idUCompra);
 
 <div class="container mt-4">
     <?php
+    $montoAPagar = 0;
     if (count($listaCompraItem) > 0) {
         echo "<table class='table table-bordered'>";
         echo '<thead class="thead-dark"><tr><th scope="col">NOMBRE PRODUCTO</th><th scope="col">DETALLE PRODUCTO</th><th scope="col">CANTIDAD</th><th scope="col">OPCIONES</th></tr></thead><tbody>';
@@ -42,7 +43,7 @@ $listaCompraItem = $objCompraItem->buscar($idUCompra);
             $idProducto['idproducto'] = $objCompraItem->getObjProducto()->getIdProducto();
             $busquedaProducto = $objProducto->buscar($idProducto);
             $producto = $busquedaProducto[0];//objProducto
-            
+            $montoAPagar = $montoAPagar + ($producto->getProDetalle() *  $objCompraItem->getCiCantidad());
             echo '<tr>
               <td>' . $producto->getProNombre() . '</td>
               <td>' . $producto->getProDetalle() . '</td>
@@ -50,6 +51,7 @@ $listaCompraItem = $objCompraItem->buscar($idUCompra);
               <td><a href="action/quitarProductoCarrito.php?idcompraitem=' . $objCompraItem->getIdCompraItem() . '" class="btn btn-danger">Quitar Producto</a></td>
               </tr>';
         }
+        echo "Monto a Pagar: $".$montoAPagar."<br>";
         echo "</tbody></table><br><br>";
         echo '<a href="action/pagoCompra.php?idusuario='.$idUsuario.'" class="btn btn-primary">Comprar</a>';
         
