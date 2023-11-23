@@ -13,8 +13,8 @@ class MenuRol
      */
     public function __construct()
     {
-        $this->objMenu = null;
-        $this->objRol = null;
+        $this->objMenu = new Menu();
+        $this->objRol = new Rol();
         $this->mensajeoperacion = "";
     }
 
@@ -88,15 +88,14 @@ class MenuRol
                     $row = $base->Registro();
 
                     $objMenu = new Menu();
-                    
-                    if ($row['DniDuenio'] != "null"){
-                        $objPersona->setNroDni($row['DniDuenio']);
-                        $objPersona->cargar();
-                    } else {
-                        $objPersona = null;
-                    }
+                    $objMenu->setIdMenu($row['idmenu']);
+                    $objMenu->cargar();
 
-                    $this->setear($row['idmenu'], $row['idrol']);
+                    $objRol = new Rol();
+                    $objRol->setIdRol($row['idrol']);
+                    $objRol->cargar();
+
+                    $this->setear($objMenu, $objRol);
 
                 }
             }
@@ -111,7 +110,11 @@ class MenuRol
     {
         $resp = false;
         $base = new BaseDatos();
-        $sql = "INSERT INTO menurol (idmenu, idrol) VALUES (" . $this->getmenu()->getIdMenu() . ", " . $this->getrol()->getIdrol() . ")";
+
+        $idmenu = $this->getObjMenu()->getIdMenu();
+        $idrol = $this->getObjRol()->getIdRol();
+
+        $sql = "INSERT INTO menurol (idmenu, idrol) VALUES (" . $idmenu . ", " . $idrol . ")";
 
         if ($base->Iniciar()) {
             if ($base->Ejecutar($sql)) {
@@ -126,6 +129,7 @@ class MenuRol
         return $resp;
     }
 
+    
     public function modificar()
     {
         $resp = false;

@@ -49,7 +49,7 @@ $objMenuRol = new AbmMenuRol;
 $colMenuRol = $objMenuRol->buscar($arreglo);//Consigo la colección de AbmMenuRol
 
 for ($i=0; $i < count($colMenuRol); $i++){//Consigo la colección de Menus
-    $colMenu[] = $colMenuRol[$i]->getMenu;
+    $colMenu[] = $colMenuRol[$i]->getObjMenu();
 }
 
 ?>
@@ -70,7 +70,7 @@ for ($i=0; $i < count($colMenuRol); $i++){//Consigo la colección de Menus
                 echo '  <a class="nav-link active " aria-current="page" href="#">Inicio</a>';
                 echo '</li>';
             } else {
-                if ($ruta == "Home"){
+                if ($direccion == "Home"){
                     echo '<li class="nav-item">';
                     echo '  <a class="nav-link" href="home.php">Inicio</a>';
                     echo '</li>';
@@ -87,22 +87,22 @@ for ($i=0; $i < count($colMenuRol); $i++){//Consigo la colección de Menus
                 $menombre = $colMenu[$i]->getMeNombre();
                 $medescripcion = $colMenu[$i]->getMeDescripcion();
 
-                $padreMenu = $colMenun[$i]->getMenuPadre();
+                $padreMenu = $colMenu[$i]->getMenuPadre();
                 $nombrePadre = $padreMenu->getMeNombre();
                 $medescripcionpadre = $padreMenu->getMeDescripcion();
                 
                 if ($menu == $menombre){
                     echo '<li class="nav-item active nav-underline">';
-                    echo '  <a class="nav-link active " aria-current="page" href="#">Inicio</a>';
+                    echo '  <a class="nav-link active " aria-current="page" href="#">'.$menombre.'</a>';
                     echo '</li>';
                 } else {
-                    if ($ruta == $nombrePadre){
+                    if ($direccion == $nombrePadre){
                         echo '<li class="nav-item">';
-                        echo '  <a class="nav-link" href='.$medescripcion.'>Inicio</a>';
+                        echo '  <a class="nav-link" href='.$medescripcion.'>'.$menombre.'</a>';
                         echo '</li>';
                     } else {
                         echo '<li class="nav-item">';
-                        echo '  <a class="nav-link" href='.$medescripcionpadre.$medescripcion.'>Inicio</a>';
+                        echo '  <a class="nav-link" href='.$medescripcionpadre.$medescripcion.'>'.$menombre.'</a>';
                         echo '</li>';
                     }
     
