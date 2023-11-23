@@ -143,7 +143,7 @@ class Usuario {
         $sql = "UPDATE usuario SET usnombre = '".$this->getUsNombre()."', uspass = '".$this->getUsPass()
         ."', usmail = '".$this->getUsMail()."', usdeshabilitado='".$this->getUsDeshabilitado()
         ."' WHERE idusuario = ".$this->getIdUsuario();
-        
+
         if ($base->Iniciar()) {
             if ($base->Ejecutar($sql)) {
                 $resp = true;

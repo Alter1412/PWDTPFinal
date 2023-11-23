@@ -17,6 +17,4 @@ $objUsuario = new AbmUsuario();
     //echo "existe usuario";
 //}
 
-
-
 ?>

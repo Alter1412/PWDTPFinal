@@ -8,6 +8,14 @@ $direccion = "opcionesDeCuenta";
 include_once("../Estructuras/headSemiSeguro.php");
 include_once("../Estructuras/banner.php");
 include_once("../Estructuras/navSeguro.php");
+
+$objAbmUsuario = new AbmUsuario();
+$paramUsuario['idusuario'] = $_SESSION['idusuario'];
+$colUsuarios = $objAbmUsuario->buscar($paramUsuario);
+
+$nombreUsuario = $colUsuarios[0]->getUsNombre();
+$mail = $colUsuarios[0]->getUsMail();
+
 ?>
 <!-- ________________________________________ INICIO CONTENIDO _________________________________ -->
 
@@ -15,51 +23,54 @@ include_once("../Estructuras/navSeguro.php");
     <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="card">
-                <div class="card-header">
-                    Perfil de Usuario
+            <div class="card-header bg-dark text-white">
+                    <h4 class="mb-2 mt-2 text-center">Mi Perfil</h4>
                 </div>
                 <div class="card-body">
-                    <!-- Datos actuales del perfil -->
-                    <div class="form-group">
-                        <label for="username">Nombre de Usuario:</label>
-                        <input type="text" class="form-control" id="username" value="UsuarioEjemplo" readonly>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Correo Electrónico:</label>
-                        <input type="email" class="form-control" id="email" value="usuario@example.com" readonly>
-                    </div>
-
                     <!-- Formulario para actualizar datos del perfil -->
-                    <form id="updateProfileForm">
-                        <div class="form-group">
-                            <label for="newUsername">Nuevo Nombre de Usuario:</label>
-                            <input type="text" class="form-control" id="newUsername" placeholder="Nuevo nombre de usuario">
-                        </div>
-                        <div class="form-group">
-                            <label for="newEmail">Nuevo Correo Electrónico:</label>
-                            <input type="email" class="form-control" id="newEmail" placeholder="Nuevo correo electrónico">
-                        </div>
-                        <button type="submit" class="btn btn-primary">Actualizar Perfil</button>
-                    </form>
+                <div class="contenedor-dato">
+                    <p>Usuario: <span id="nombreUsuario"><?php echo $nombreUsuario ?></span></p>
+                </div>
+                <div class="contenedor-dato">
+                    <p>Mail: <span id="mailUsuario"><?php echo $mail ?></span></p>
+                </div>
+                
+                <hr class="modal-divider">
 
-                    <!-- Formulario para cambiar la contraseña -->
-                    <form id="changePasswordForm" class="mt-3">
-                        <div class="form-group">
-                            <label for="currentPassword">Contraseña Actual:</label>
-                            <input type="password" class="form-control" id="currentPassword" placeholder="Contraseña actual">
-                        </div>
-                        <div class="form-group">
-                            <label for="newPassword">Nueva Contraseña:</label>
-                            <input type="password" class="form-control" id="newPassword" placeholder="Nueva contraseña">
-                        </div>
-                        <button type="submit" class="btn btn-danger">Cambiar Contraseña</button>
-                    </form>
+                <div id="alertaSesion">
+                </div>
+
+                <form name="formConfiguracionCuenta" id="formConfiguracionCuenta" method="POST" class="needs-validation" novalidate>
+                    
+                    <div class="contenedor-dato">
+                        <label for="uspass" class="form-label">Ingrese su nuevo nombre de usuario</label>
+                        <input type="text" class="form-control" id="usnombre" name="usnombre">
+                    </div>
+                    <br>
+
+                    <div class="contenedor-dato">
+                        <label for="usmail" class="form-label">Ingrese su nueva dirección de mail</label>
+                        <input type="text" class="form-control" id="usmail" name="usmail">
+                    </div>
+                    <br>
+
+                    <div class="contenedor-dato">
+                        <label for="uspass" class="form-label">Ingrese su nueva contraseña</label>
+                        <input type="password" class="form-control" id="uspass" name="uspass">
+                    </div>
+                    <div class="contenedor-dato">
+                        <label for="uspass2" class="form-label">Repita su nueva contraseña</label>
+                        <input type="password" class="form-control mb-3" id="uspass2" name="uspass2">
+                    </div>
+                        <button type="submit" id="realizarCambios" class="btn btn-primary btn-lg w-100">REALIZAR CAMBIOS</button>
+                </div>
+                </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
+<script src="../js/configuracionCuenta.js"></script>
 <!-- ________________________________________ FIN CONTENIDO ____________________________________ -->
 
 <?php

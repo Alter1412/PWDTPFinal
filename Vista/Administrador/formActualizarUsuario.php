@@ -17,19 +17,24 @@ $objUsuario = $listaUsuario[0];
 
 ?>
 
-
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Actualizar Usuario</title>
-    <!-- Enlaces a Bootstrap CSS -->
     
 </head>
-<body>
+<body>-->
 
-<div class="container mt-4">
+<div class="container mt-4 mb-4">
+<div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-dark text-white">
+                    <h4 class="mb-2 mt-2 text-center">Actualizar Usuario</h4>
+                </div>
+                <div class="card-body">
     <form action="action/actualizarUsuarios.php" method="post">
         <div class="form-group">
             <label for="idusuario">ID:</label>
@@ -40,22 +45,23 @@ $objUsuario = $listaUsuario[0];
             <input type="text" class="form-control" id="usnombre" name="usnombre" value='<?php echo $objUsuario->getUsNombre() ?>'>
         </div>
         <div class="form-group">
-            <label for="uspass">CONTRASEÑA:</label>
-            <input type="text" class="form-control" id="uspass" name="uspass" value='<?php echo $objUsuario->getUsPass() ?>' readonly>
-        </div>
-        <div class="form-group">
             <label for="usmail">E-MAIL:</label>
             <input type="text" class="form-control" id="usmail" name="usmail" value='<?php echo $objUsuario->getUsMail() ?>'>
+        </div>
+        <div class="form-group">
+            <!--<label for="uspass">CONTRASEÑA:</label>-->
+            <input type="text" class="form-control" id="uspass" name="uspass" value='<?php echo $objUsuario->getUsPass() ?>' hidden>
         </div>
         <div class="form-group">
             <label for="usdeshabilitado">HABILITAR:</label>
             <input type="text" class="form-control" id="usdeshabilitado" name="usdeshabilitado" value='<?php echo $objUsuario->getUsDeshabilitado() ?>'>
         </div>
         <br>
-        <button type="submit" class="btn btn-primary">Actualizar</button>
+        <button type="submit" class="btn btn-primary w-100">ACTUALIZAR</button>
     </form>
 </div>
-<br>
+            </div>
+        </div></div></div>
 <?php
 include_once("../Estructuras/footer.php");
 ?>

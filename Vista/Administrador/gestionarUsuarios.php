@@ -18,7 +18,7 @@ $listaUsuarios = $objAbmUsuario->buscar(null);
 ?>
 
 
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -26,11 +26,10 @@ $listaUsuarios = $objAbmUsuario->buscar(null);
     <title>Lista de Usuarios</title>
   
 </head>
-<body>
+<body>-->
 
 <div class="container mt-4">
 
-<br>
     <?php
     if (count($listaUsuarios) > 0) {
         echo '<table class="table table-bordered">';

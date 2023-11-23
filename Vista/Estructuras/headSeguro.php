@@ -9,6 +9,7 @@ if ($session->validar()) {
         
         $rol = $_SESSION['rol'];
         $colRoles = $_SESSION['colroles'];
+        //NO SE UTILIZAN VARIAS DE SESSION EN OTRO SCRIPT
 
     } else {
 

@@ -11,6 +11,7 @@ class AbmUsuario
     private function cargarObjeto($param)
     {
         $obj = null;
+
         if (
             array_key_exists('idusuario', $param) and
             array_key_exists('usnombre', $param) and
@@ -18,6 +19,7 @@ class AbmUsuario
             array_key_exists('usmail', $param) and
             array_key_exists('usdeshabilitado', $param)
         ) {
+
             $obj = new Usuario();
             $obj->setear($param['idusuario'], $param['usnombre'], $param['uspass'], $param['usmail'], $param['usdeshabilitado']);
         }
@@ -105,7 +107,6 @@ class AbmUsuario
         }
         return $respuesta;
     }
-
 
     /**
      * Devuelve una lista con los roles de un usuario, espera
