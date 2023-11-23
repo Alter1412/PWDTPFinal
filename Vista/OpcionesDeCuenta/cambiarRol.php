@@ -10,7 +10,7 @@ include_once("../Estructuras/headSeguro.php");
 $colRoles = $session->getListaRoles();
 
 if(count($colRoles) == 1){
-    header("../Home/home.php");
+    header("Location: ../Home/home.php");
 }
 
 include_once("../Estructuras/banner.php");

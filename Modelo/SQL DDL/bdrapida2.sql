@@ -214,6 +214,10 @@ INSERT INTO menu (idmenu, menombre, medescripcion, idpadre, medeshabilitado) VAL
 (21, 'Crear Usuarios', 'crearUsuarios.php', 2, '0000-00-00 00:00:00'), -- Hijo Administrador (2)
 (22, 'Gestionar Usuarios', 'gestionarUsuarios.php', 2, '0000-00-00 00:00:00'), -- Hijo Administrador (2)
 (23, 'Gestionar Roles', 'gestionarRoles.php', 2, '0000-00-00 00:00:00'), -- Hijo Administrador (2)
+(24, 'Asignar Roles', 'asignarRoles.php', 0, '0000-00-00 00:00:00'), -- Hijo Nulo (0)
+(25, 'Quitar Roles', 'quitarRol.php', 0, '0000-00-00 00:00:00'), -- Hijo Nulo (0)
+(26, 'Actualizar Usuario', 'formActualizarUsuario.php', 0, '0000-00-00 00:00:00'), --Hijo Nulo (0)
+(26, 'Crear Rol', 'crearRol.php', 0, '0000-00-00 00:00:00'), --Hijo Nulo (0)
 
 (31, 'Crear Productos', 'crearProductos.php', 3, '0000-00-00 00:00:00'), -- Hijo Deposito (3)
 (32, 'Gestionar Productos', 'gestionarProductos.php', 3, '0000-00-00 00:00:00'), -- Hijo Deposito (3)

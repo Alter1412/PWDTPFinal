@@ -90,22 +90,25 @@ for ($i=0; $i < count($colMenuRol); $i++){//Consigo la colección de Menus
                 $padreMenu = $colMenu[$i]->getMenuPadre();
                 $nombrePadre = $padreMenu->getMeNombre();
                 $medescripcionpadre = $padreMenu->getMeDescripcion();
-                
-                if ($menu == $menombre){
-                    echo '<li class="nav-item active nav-underline">';
-                    echo '  <a class="nav-link active " aria-current="page" href="#">'.$menombre.'</a>';
-                    echo '</li>';
-                } else {
-                    if ($direccion == $nombrePadre){
-                        echo '<li class="nav-item">';
-                        echo '  <a class="nav-link" href='.$medescripcion.'>'.$menombre.'</a>';
+
+                if ($colMenu[$i]->getIdPadre() != 0){
+                    
+                    if ($menu == $menombre){
+                        echo '<li class="nav-item active nav-underline">';
+                        echo '  <a class="nav-link active " aria-current="page" href="#">'.$menombre.'</a>';
                         echo '</li>';
                     } else {
-                        echo '<li class="nav-item">';
-                        echo '  <a class="nav-link" href='.$medescripcionpadre.$medescripcion.'>'.$menombre.'</a>';
-                        echo '</li>';
+                        if ($direccion == $nombrePadre){
+                            echo '<li class="nav-item">';
+                            echo '  <a class="nav-link" href='.$medescripcion.'>'.$menombre.'</a>';
+                            echo '</li>';
+                        } else {
+                            echo '<li class="nav-item">';
+                            echo '  <a class="nav-link" href='.$medescripcionpadre.$medescripcion.'>'.$menombre.'</a>';
+                            echo '</li>';
+                        }
+        
                     }
-    
                 }
 
             }

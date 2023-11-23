@@ -5,7 +5,7 @@ $tituloPagina = "Mi Perfil";
 $menu = "Mi Perfil";
 $direccion = "opcionesDeCuenta";
 
-include_once("../Estructuras/headSeguro.php");
+include_once("../Estructuras/headInseguro.php");
 include_once("../Estructuras/banner.php");
 include_once("../Estructuras/navSeguro.php");
 ?>
