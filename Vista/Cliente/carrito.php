@@ -1,5 +1,11 @@
 <?php
 include_once "../../configuracion.php";
+$tituloPagina = "Carrito";
+$menu = "Carrito";
+$direccion = " 	Cliente";
+include_once("../Estructuras/headSeguro.php");
+include_once("../Estructuras/banner.php");
+include_once("../Estructuras/navSeguro.php");
 $datos = data_submitted();//idCompra
 //verEstructura($datos);
 $idUCompra ['idcompra'] =  6; //esto es de prueba
@@ -57,3 +63,7 @@ $listaCompraItem = $objCompraItem->buscar($idUCompra);
 
 </body>
 </html>
+
+<?php
+include_once("../Estructuras/footer.php");
+?>
