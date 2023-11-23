@@ -76,7 +76,7 @@ class UsuarioRol {
         $base = new BaseDatos();
 
         $idusuario = $this->getObjUsuario()->getIdUsuario();
-        $idrol = $this->getObjUsuario()->getIdUsuario();
+        $idrol = $this->getObjRol()->getIdRol();
 
         $sql = "SELECT * FROM usuariorol WHERE idusuario = ".$idusuario." AND idrol = ".$idrol;
 
@@ -158,7 +158,7 @@ class UsuarioRol {
         $base = new BaseDatos();
 
         $idusuario = $this->getObjUsuario()->getIdUsuario();
-        $idrol = $this->getObjUsuario()->getIdUsuario();
+        $idrol = $this->getObjRol()->getIdRol();
         
         $sql = "UPDATE usuariorol SET 
         idrol = ".$idrol.
@@ -187,10 +187,10 @@ class UsuarioRol {
         $base = new BaseDatos();
 
         $idusuario = $this->getObjUsuario()->getIdUsuario();
-        $idrol = $this->getObjUsuario()->getIdUsuario();
+        $idrol = $this->getObjRol()->getIdRol();
 
         $sql = "DELETE FROM usuariorol WHERE idusuario = ".$idusuario." AND idrol = ".$idrol;
-        
+        //echo $sql;
         if ($base->Iniciar()) {
             if ($base->Ejecutar($sql)) {
                 $resp = true;

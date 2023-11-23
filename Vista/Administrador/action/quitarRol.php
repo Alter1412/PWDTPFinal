@@ -9,7 +9,7 @@ $datos = data_submitted();//estoy recibiendo el id del rol y el usuario
 $objUsuarioRol = new AbmUsuarioRol();
 $exito = $objUsuarioRol->baja($datos);
 if($exito){
-    echo "Rol quitado";
+    header('Location:../gestionarRoles.php');
 }else{
     echo "Algo fallo";
 }
