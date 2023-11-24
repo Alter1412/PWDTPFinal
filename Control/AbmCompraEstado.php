@@ -215,7 +215,7 @@ class AbmCompraEstado{
             $ItemComprados = new AbmCompraItem();
             $idCompra['idcompra'] = $param['idcompra'];
             $listaItems = $ItemComprados->buscar($idCompra);
-            verEstructura($listaItems);
+            //verEstructura($listaItems);
              //se modifica el stock en a base de datos, mover para deposito
             $objProducto = new AbmProducto();
            
@@ -223,7 +223,7 @@ class AbmCompraEstado{
                 $idUnItem['idproducto'] = $listaItems[$i]->getObjProducto()->getIdProducto();//id del item a comprar
                 //echo $idUnItem."<br>";
                 $productoGondola = $objProducto->buscar($idUnItem);
-                verEstructura($productoGondola);
+                //verEstructura($productoGondola);
                 $cantLlevar = $listaItems[$i]->getCiCantidad();
                 $stockGondola = $productoGondola[0]->getProCantstock();
                 $nuevoStock = $stockGondola - $cantLlevar;
@@ -255,7 +255,7 @@ class AbmCompraEstado{
             $param['cefechafin'] = null;
             $exito = $cancelado->alta($param);
         
-            echo "Compra aceptada";
+            //echo "Compra aceptada";
             $resp = true;
         }
         return $resp;
