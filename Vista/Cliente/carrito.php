@@ -4,8 +4,7 @@ $tituloPagina = "Carrito";
 include_once("../Estructuras/headSeguro.php");
 include_once("../Estructuras/banner.php");
 include_once("../Estructuras/navSeguro.php");
-//verEstructura($_SESSION);
-//$session = new Session();
+
 $idUsuario = $session->getIdUsuario();
 $objCompra = new AbmCompra();
 $busquedaCompra = $objCompra->buscarCarrito($idUsuario);

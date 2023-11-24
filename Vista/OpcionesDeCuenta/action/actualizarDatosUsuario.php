@@ -3,10 +3,11 @@
 include_once "../../../configuracion.php";
 
 session_start();
-
-if(array_key_exists('usnombre', $_SESSION) && array_key_exists('usmail', $_SESSION)){
-    $usnombre = $_SESSION['usnombre'];
-    $usmail = $_SESSION['usmail'];
+$param['usnombre'] = $session->getUsNombre();
+$param['usmail'] = $session->getUsMail();
+if( $param['usnombre'] != null && $param['usmail'] != null){
+    $usnombre = $param['usnombre'];
+    $usmail = $param['usmail'];
 } else {
     $usnombre = "Null";
     $usmail = "Null";
