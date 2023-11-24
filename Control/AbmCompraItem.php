@@ -134,20 +134,51 @@ class AbmCompraItem{
         $idusuario = $datos['idusuario'];
         $objCompra = new AbmCompra();
         $busquedaCompra = $objCompra->buscarCarrito($idusuario);
-        //verEstructura($busquedaCompra);
         $compra = $busquedaCompra[0]; 
-        $producto['idcompraitem'] = 0;
-        $producto['idproducto'] = $datos['idproducto'];
-        $producto['idcompra'] = $compra->getIdCompra();
-        $producto['cicantidad'] = $datos['cantidad'];
-        //verEstructura($producto);
-        $objCompraItem = new AbmCompraItem();
-        $agregar = $objCompraItem->alta($producto);
-        if($agregar){
-            $resp = true;
-            
-        }else{
-            //echo "Algo Fallo";
+
+        $abmCompraItem = new AbmCompraItem();
+        $paramCompraItem['idproducto'] = $datos['idproducto'];
+        $paramCompraItem['idcompra'] = $compra->getIdCompra();
+        $colCompraItem = $abmCompraItem->buscar($paramCompraItem);
+
+        if(count($colCompraItem) > 0){
+
+            $cantidad1 = $datos['cantidad'];//Recibimos del item nuevo a sumar al carrito
+            $cantidad2 = $colCompraItem[0]->getCiCantidad();
+
+            $cantidad3 = $cantidad1 + $cantidad2;
+
+            $objAbmProducto = new AbmProducto();
+            $respuesta = $objAbmProducto->controlarStock($cantidad3, $datos['idproducto']);
+
+            if ($respuesta) {
+
+                $datosCompraItem['idcompraitem'] = $colCompraItem[0]->getIdCompraItem();
+                $datosCompraItem['idproducto'] = $colCompraItem[0]->getObjProducto()->getIdProducto();
+                $datosCompraItem['idcompra'] = $colCompraItem[0]->getObjCompra()->getIdCompra();
+                $datosCompraItem['cicantidad'] = $cantidad3;
+
+                $abmCompraItem->modificar($datosCompraItem);
+
+                $resp = true;
+
+            } else {
+                $resp = false;
+            }
+
+        } else {
+            $producto['idcompraitem'] = 0;
+            $producto['idproducto'] = $datos['idproducto'];
+            $producto['idcompra'] = $compra->getIdCompra();
+            $producto['cicantidad'] = $datos['cantidad'];
+
+            $objCompraItem = new AbmCompraItem();
+            $agregar = $objCompraItem->alta($producto);
+            if($agregar){
+                $resp = true;
+            }else{
+                $resp = false;
+            }
         }
         return $resp;
     }
