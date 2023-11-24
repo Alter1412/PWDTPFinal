@@ -14,18 +14,5 @@ if($agregar){
     echo "Algo Fallo";
 }
 
-//verEstructura($datos);
- /* $session = new Session();
- $usuario = $session->getUsuario();
- //verEstructura($usuario);
- 
- $objCompra = new AbmCompra();
-$busquedaCompra = $objCompra->buscarCarrito($datos);
-//verEstructura($busquedaCompra);
-$compra = $busquedaCompra[0]; 
-$producto['idcompraitem'] = 0;
-$producto['idproducto'] = $datos['idproducto'];
-$producto['idcompra'] = $compra->getIdCompra();
-$producto['cicantidad'] = $datos['cantidad'];
-//verEstructura($producto); */
+
 ?>

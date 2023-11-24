@@ -55,27 +55,3 @@ $objUsuario = $listaUsuario[0];
 <?php
 include_once("../Estructuras/footer.php");
 ?>
-
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <form action="action/actualizarUsuarios.php" method="post">
-        ID: <input type="text" id="idusuario" name="idusuario" value='<?php //echo $objUsuario->getIdUsuario() 
-                                                                        ?>' readonly> <br>
-        NOMBRE: <input type="text" id="usnombre" name="usnombre" value='<?php //echo $objUsuario->getUsNombre() 
-                                                                        ?>'> <br>
-        CONTRASEÑA: <input type="text" name="uspass" id="uspass" value='<?php //echo $objUsuario->getUsPass() 
-                                                                        ?>' readonly> <br>
-        E-MAIL: <input type="text" id="usmail" name="usmail" value='<?php //echo $objUsuario->getUsMail() 
-                                                                    ?>'> <br>
-        HABILITAR: <input type="text" id="usdeshabilitado" name="usdeshabilitado" value='<?php //echo $objUsuario->getUsDeshabilitado() 
-                                                                                            ?>'> <br>
-        <input type="submit"  value="Actualizar"> 
-    </form>
-</body>
-</html> -->
