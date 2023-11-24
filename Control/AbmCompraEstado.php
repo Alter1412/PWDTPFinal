@@ -311,13 +311,14 @@ class AbmCompraEstado{
     public function cancelarCompra($param){
         $objEstado = new AbmCompraEstado();
         //modifico el estado inicial colocandole fecha fin
-        $idc = $param['idcompra'];//id de la compra
+        /* $idc = $param['idcompra'];//id de la compra
         $resp = false;
-        $colEstado = $objEstado->buscar($idc);
-        verEstructura($colEstado);
+        echo $idc."<br>"; */
+        $colEstado = $objEstado->buscar($param);
+        //verEstructura($colEstado);
         $estado = $colEstado[0];
         $param['idcompraestado'] = $estado->getIdCompraEstado();
-        $param['idcompra'] = $idc;
+        $param['idcompra'] = $estado->getObjCompra()->getIdCompra();
         $param['idcompraestadotipo'] = $estado->getObjCompraEstadoTipo()->getIdCompraEstadoTipo();
         $param['cefechaini'] = $estado->getCeFechaIni();
         $param['cefechafin'] = date('Y-m-d H:i:s');
@@ -326,7 +327,7 @@ class AbmCompraEstado{
         if($exito){
             $cancelado = new AbmCompraEstado();
             $param['idcompraestado'] = 0;
-            $param['idcompra'] = $idc;
+            $param['idcompra'] = $estado->getObjCompra()->getIdCompra();;
             $param['idcompraestadotipo'] = 4;
             $param['cefechaini'] = date('Y-m-d H:i:s');
             $param['cefechafin'] = null;
@@ -334,7 +335,7 @@ class AbmCompraEstado{
             $resp = true;
             if($param['idcompraestadotipo'] != 1 ){
                 $ItemComprados = new AbmCompraItem();
-                $idCompra['idcompra'] = $idc;
+                $idCompra['idcompra'] = $estado->getObjCompra()->getIdCompra();;
                 $listaItems = $ItemComprados->buscar($idCompra);
                 //verEstructura($listaItems);
                 $objProducto = new AbmProducto();
