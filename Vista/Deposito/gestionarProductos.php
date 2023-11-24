@@ -10,23 +10,13 @@ $objAbmProducto = new AbmProducto();
 $listaProductos = $objAbmProducto->buscar(null);
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Productos</title>
-    <!-- Enlaces a Bootstrap CSS -->
-   
-</head>
-<body>
-
 <div class="container mt-4">
     <?php
     if (count($listaProductos) > 0) {
         echo '<table class="table table-bordered">';
         echo '<thead class="thead-light">
                 <tr>
+                    <th scope="col">IMAGEN</th>
                     <th scope="col">NOMBRE PRODUCTO</th>
                     <th scope="col">DETALLE PRODUCTO</th>
                     <th scope="col">STOCK</th>
@@ -38,6 +28,7 @@ $listaProductos = $objAbmProducto->buscar(null);
             $objProducto = $listaProductos[$i];
             
             echo '<tr>
+                    <td><img src=' . $objProducto->getImagenProducto() . ' width="100px"></td>
                     <td>' . $objProducto->getProNombre() . '</td>
                     <td> $' . $objProducto->getProDetalle() . '</td>
                     <td>' . $objProducto->getProCantstock() . '</td>
@@ -52,10 +43,6 @@ $listaProductos = $objAbmProducto->buscar(null);
     ?>
 </div>
 
-
-
-</body>
-</html>
 <?php
 include_once("../Estructuras/footer.php");
 ?>
