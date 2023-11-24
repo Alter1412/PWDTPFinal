@@ -246,7 +246,15 @@ class Session {
     {
         $colRoles = null;
         if ($this->validar()) {
-            $colRoles = $_SESSION['colroles'];
+            $objAbmUsuario = new AbmUsuario();
+            $param['idusuario'] = $_SESSION['idusuario'];
+            $colObjRoles = $objAbmUsuario->buscarRoles($param);
+
+            $colRoles = array();
+
+            for($i=0; $i < count($colObjRoles); $i++){
+                $colRoles[] = $colObjRoles[$i]->getIdRol();
+            }
         }
         return $colRoles;
     }

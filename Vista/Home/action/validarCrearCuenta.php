@@ -3,7 +3,15 @@
 include_once "../../../configuracion.php";
 $datos = data_submitted();
 $nuevoUsuario = new AbmUsuario();
-$resultado = $nuevoUsuario->crearUsuario($datos);
+
+$paramUsuario['usnombre'] = $datos['usnombre'];
+$colUsuarios = $nuevoUsuario->buscar($paramUsuario);
+
+if (count($colUsuarios) == 0){
+    $resultado = $nuevoUsuario->crearUsuario($datos);
+} else {
+    $resultado = false;
+}
 
 //ARMA LAS RESPUESTAS PARA LA SOLICITUD AJAX
 if ($resultado){
@@ -13,9 +21,6 @@ if ($resultado){
     \nRecuerde cambiarla en su próximo inicio de sesión.");
     
 } else {
-
-    $arregloError['usnombre'] = $datos['usnombre'];
-    $colUsuarios = $nuevoUsuario->buscar($arregloError);
 
     if (count($colUsuarios) > 0){
         $respuesta = array("resultado" => "error", "mensaje" => "El nombre de usuario ya se encuentra en uso.");

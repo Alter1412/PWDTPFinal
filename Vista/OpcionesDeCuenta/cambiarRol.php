@@ -6,7 +6,7 @@ include_once("../Estructuras/banner.php");
 include_once("../Estructuras/navSeguro.php");
 
 $colRoles = $session->getColRoles();
-print_r($colRoles);
+
 if(count($colRoles) <= 1){
     $session->redireccionar();
 }
