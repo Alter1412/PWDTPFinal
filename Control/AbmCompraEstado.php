@@ -317,9 +317,11 @@ class AbmCompraEstado{
         $colEstado = $objEstado->buscar($param);
         //verEstructura($colEstado);
         $estado = $colEstado[0];
+        verEstructura($estado);
         $param['idcompraestado'] = $estado->getIdCompraEstado();
         $param['idcompra'] = $estado->getObjCompra()->getIdCompra();
         $param['idcompraestadotipo'] = $estado->getObjCompraEstadoTipo()->getIdCompraEstadoTipo();
+      
         $param['cefechaini'] = $estado->getCeFechaIni();
         $param['cefechafin'] = date('Y-m-d H:i:s');
         $exito = $objEstado->modificar($param);
