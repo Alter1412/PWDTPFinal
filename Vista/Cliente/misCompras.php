@@ -1,8 +1,6 @@
 <?php
 include_once "../../configuracion.php";
 $tituloPagina = "Mis Compras";
-$menu = "Mis Compras";
-$direccion = " 	Cliente";
 include_once("../Estructuras/headSeguro.php");
 include_once("../Estructuras/banner.php");
 include_once("../Estructuras/navSeguro.php");
@@ -13,10 +11,6 @@ include_once("../Estructuras/navSeguro.php");
  * cancelar una compra iniciada
  */
 ?>
-
-
-
-<body>
 
 <div class="container mt-4">
     <?php
@@ -99,13 +93,6 @@ include_once("../Estructuras/navSeguro.php");
     ?>
 
 </div>
-
-
-
-</body>
-</html>
-
-
 
 <?php
 include_once("../Estructuras/footer.php");

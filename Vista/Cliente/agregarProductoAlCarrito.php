@@ -1,24 +1,18 @@
 <?php
-/**Este es un formulario para actualizar al usuario 
- * redirige a actualizarLogin.php
-*/
- 
-include_once ('../../configuracion.php');
+//Este es un formulario para actualizar al usuario 
+//redirige a actualizarLogin.php
+include_once('../../configuracion.php');
 $tituloPagina = "Agregar Productos";
-$menu = "Agregar Productos";
-$direccion = " 	Cliente";
 include_once("../Estructuras/headSeguro.php");
 include_once("../Estructuras/banner.php");
 include_once("../Estructuras/navSeguro.php");
+
 $datos = data_submitted();
 $abmProducto = new AbmProducto;
 $busquedaProducto = $abmProducto->buscar($datos);
 //verEstructura($busquedaProducto);
 $producto = $busquedaProducto[0];
 //vamos ver que sucede desde la BD
-
-
-
 ?>
 
 <body>

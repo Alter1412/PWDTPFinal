@@ -1,6 +1,6 @@
 <?php
 /**Aca se llama al metodo borradoLogico de AmbUsuario*/
-include_once "../../../configuracion.php";
+include_once("../../../configuracion.php");
 $objAbmUsuario = new AbmUsuario();
 $datos = data_submitted();
 //verEstructura($datos);

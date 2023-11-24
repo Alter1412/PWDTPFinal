@@ -1,14 +1,9 @@
 <?php
-/**Este es un formulario para actualizar al usuario 
- * redirige a actualizarLogin.php
-*/
- 
-include_once ('../../configuracion.php');
+//Este es un formulario para actualizar al usuario 
+//redirige a actualizarLogin.php
+include_once('../../configuracion.php');
 $abmMenu = new AbmMenu();
 //vamos ver que sucede desde la BD
-
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">

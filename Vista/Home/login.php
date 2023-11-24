@@ -1,7 +1,6 @@
 <?php
 include_once("../../configuracion.php");
 $tituloPagina = "Iniciar Sesión";
-$menu = "Iniciar Sesión";
 include_once("../Estructuras/headInseguro.php");
 include_once("../Estructuras/banner.php");
 include_once("../Estructuras/navInseguro.php");
@@ -19,18 +18,18 @@ include_once("../Estructuras/navInseguro.php");
                     <form name="formLogin" id="formLogin" method="POST" class="needs-validation">
 
                         <!-- Zona de alerta -->
-                        <div id="alertaSesion">
+                        <div id="alertaMensajes">
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group contenedor-dato">
                             <!--<label for="username">Nombre de Usuario:</label>-->
-                            <input type="text" class="form-control form-control-lg mb-3" id="usnombre"  name="usnombre" placeholder="Usuario">
+                            <input type="text" class="form-control form-control-lg" id="usnombre"  name="usnombre" placeholder="Usuario">
                         </div>
-                        <div class="form-group">
+                        <div class="form-group contenedor-dato mt-3">
                             <!--<label for="password">Contraseña:</label>-->
-                            <input type="password" class="form-control form-control-lg mb-3" id="uspass" name="uspass" placeholder="Contraseña">
+                            <input type="password" class="form-control form-control-lg" id="uspass" name="uspass" placeholder="Contraseña">
                         </div>
-                        <button type="submit" id="ingresar" class="btn btn-primary btn-lg w-100">INGRESAR</button>
+                        <button type="submit" id="ingresar" class="btn btn-primary btn-lg w-100 mt-3">INGRESAR</button>
                     </form>
                 </div>
             </div>

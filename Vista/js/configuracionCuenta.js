@@ -36,10 +36,19 @@ function actualizarDatosUsuario(){
 
 $(document).ready(function () {
 
-    $("#realizarCambios").on("click", function() {
+    $("#realizarCambios").on("click", function(event) {
 
+        //Evita recarga de página
+        event.preventDefault();
+
+        //Contenedor de mensajes de alerta
+        var alertaMensajesElem = document.getElementById('alertaMensajes');
+        alertaMensajesElem.innerHTML = "";
+
+        //Elementos a actualizar
         var nombreUsuarioElem = document.getElementById("nombreUsuario");
         var mailUsuarioElem = document.getElementById("mailUsuario");
+        var nombreUsuarioActivoElem = document.getElementById("nombreUsuarioActivo");
         
         var usnombreValue = document.getElementById("usnombre").value;
         var usmailValue = document.getElementById("usmail").value;
@@ -58,26 +67,41 @@ $(document).ready(function () {
                 async: false,
         
                 complete: function(xhr, textStatus) {
-                    //se llama cuando se recibe la respuesta (no importa si es error o éxito)
-                    console.log("La respuesta regreso");
+                    //console.log("La solicitud regreso");
                 },
                 success: function(respuesta, textStatus, xhr) {
-                    //se llama cuando tiene éxito la respuesta
+                    //console.log("La solicitud fue exitosa");
+
                     if (respuesta.resultado == "exito"){
+
+                        const wrapper = document.createElement('div');
+                        wrapper.innerHTML = [
+                            '<div class="alert alert-success alert-dismissible" role="alert">',
+                            '   <div>' + respuesta.mensaje + '</div>',
+                            '</div>'
+                        ].join('');
+                        alertaMensajesElem.append(wrapper);
+
                         nombreUsuarioElem.innerHTML = usnombreValue;
-                        alert(respuesta.mensaje);
-                        location.reload();
-        
+                        nombreUsuarioActivoElem.innerHTML = usnombreValue;
+                        $("#formConfiguracionCuenta")[0].reset();
+
                     } else {
-                        console.log(respuesta.resultado + ", " + respuesta.mensaje);
-                        alert(respuesta.mensaje);
+
+                        const wrapper = document.createElement('div');
+                        wrapper.innerHTML = [
+                            '<div class="alert alert-danger alert-dismissible" role="alert">',
+                            '   <div>' + respuesta.mensaje + '</div>',
+                            '</div>'
+                        ].join('');
+                        alertaMensajesElem.append(wrapper);
+                        
                     }
-        
+
                 },
                 error: function(xhr, textStatus, errorThrown) {
-                    //called when there is an error
                     console.error("Error en la solicitud Ajax: " + textStatus + " - " + errorThrown);
-                    console.error(xhr.responseText);
+                    console.log(xhr.responseText);
                 }
             });
         }
@@ -94,25 +118,39 @@ $(document).ready(function () {
                 async: false,
         
                 complete: function(xhr, textStatus) {
-                    //se llama cuando se recibe la respuesta (no importa si es error o éxito)
-                    console.log("La respuesta regreso");
+                    //console.log("La solicitud regreso");
                 },
                 success: function(respuesta, textStatus, xhr) {
-                    //se llama cuando tiene éxito la respuesta
+                    //console.log("La solicitud fue exitosa");
+
                     if (respuesta.resultado == "exito"){
+
+                        const wrapper = document.createElement('div');
+                        wrapper.innerHTML = [
+                            '<div class="alert alert-success alert-dismissible" role="alert">',
+                            '   <div>' + respuesta.mensaje + '</div>',
+                            '</div>'
+                        ].join('');
+                        alertaMensajesElem.append(wrapper);
+
                         mailUsuarioElem.innerHTML = usmailValue;
-                        alert(respuesta.mensaje);
-        
+                        $("#formConfiguracionCuenta")[0].reset();
+
                     } else {
-                        console.log(respuesta.resultado + ", " + respuesta.mensaje);
-                        alert(respuesta.mensaje);
+
+                        const wrapper = document.createElement('div');
+                        wrapper.innerHTML = [
+                            '<div class="alert alert-danger alert-dismissible" role="alert">',
+                            '   <div>' + respuesta.mensaje + '</div>',
+                            '</div>'
+                        ].join('');
+                        alertaMensajesElem.append(wrapper);
                     }
-        
+
                 },
                 error: function(xhr, textStatus, errorThrown) {
-                    //called when there is an error
                     console.error("Error en la solicitud Ajax: " + textStatus + " - " + errorThrown);
-                    console.error(xhr.responseText);
+                    console.log(xhr.responseText);
                 }
             });
         }
@@ -133,39 +171,72 @@ $(document).ready(function () {
                             async: false,
                     
                             complete: function(xhr, textStatus) {
-                                //se llama cuando se recibe la respuesta (no importa si es error o éxito)
-                                console.log("La respuesta regreso");
+                                //console.log("La solicitud regreso");
                             },
                             success: function(respuesta, textStatus, xhr) {
-                                //se llama cuando tiene éxito la respuesta
+                                //console.log("La solicitud fue exitosa");
+            
                                 if (respuesta.resultado == "exito"){
-                                    alert(respuesta.mensaje);
-                    
+            
+                                    const wrapper = document.createElement('div');
+                                    wrapper.innerHTML = [
+                                        '<div class="alert alert-success alert-dismissible" role="alert">',
+                                        '   <div>' + respuesta.mensaje + '</div>',
+                                        '</div>'
+                                    ].join('');
+                                    alertaMensajesElem.append(wrapper);
+
+                                    $("#formConfiguracionCuenta")[0].reset();
+            
                                 } else {
-                                    console.log(respuesta.resultado + ", " + respuesta.mensaje);
-                                    alert(respuesta.mensaje);
+            
+                                    const wrapper = document.createElement('div');
+                                    wrapper.innerHTML = [
+                                        '<div class="alert alert-danger alert-dismissible" role="alert">',
+                                        '   <div>' + respuesta.mensaje + '</div>',
+                                        '</div>'
+                                    ].join('');
+                                    alertaMensajesElem.append(wrapper);
+
                                 }
-                    
+            
                             },
                             error: function(xhr, textStatus, errorThrown) {
-                                //called when there is an error
                                 console.error("Error en la solicitud Ajax: " + textStatus + " - " + errorThrown);
-                                console.error(xhr.responseText);
+                                console.log(xhr.responseText);
                             }
                         });
 
                     } else {
-                        alert("Las contraseña ingresada debe tener al menos 6 carácteres.");
+                        const wrapper = document.createElement('div');
+                        wrapper.innerHTML = [
+                            '<div class="alert alert-danger alert-dismissible" role="alert">',
+                            '   <div>' + "Las contraseña ingresada debe tener al menos 6 carácteres." + '</div>',
+                            '</div>'
+                        ].join('');
+                        alertaMensajesElem.append(wrapper);
                     }
                 } else {
-                    alert("Las contraseñas ingresadas no coinciden.");
+                    const wrapper = document.createElement('div');
+                    wrapper.innerHTML = [
+                        '<div class="alert alert-danger alert-dismissible" role="alert">',
+                        '   <div>' + "Las contraseñas ingresadas no coinciden." + '</div>',
+                        '</div>'
+                    ].join('');
+                    alertaMensajesElem.append(wrapper);
                 }
             } else {
-                alert("Debe confirmar 2 veces su nueva contraseña si desea cambiarla.");
+                const wrapper = document.createElement('div');
+                wrapper.innerHTML = [
+                    '<div class="alert alert-danger alert-dismissible" role="alert">',
+                    '   <div>' + "Debe confirmar 2 veces su nueva contraseña si desea cambiarla." + '</div>',
+                    '</div>'
+                ].join('');
+                alertaMensajesElem.append(wrapper);
             }
         }
 
-        $("#formConfiguracionCuenta")[0].reset();
+        //$("#formConfiguracionCuenta")[0].reset();
 
     });
 

@@ -4,8 +4,6 @@ $(document).ready(function () {
         rules: {
             usnombre: {
                 required: true,
-                //nombre            //valor que debe tener
-                //nombreNoRepetido: {nombreNoRepetido: true}
             },
             usmail: {
                 required: true,
@@ -34,46 +32,61 @@ $(document).ready(function () {
         },
 
         submitHandler: function(form){
-            console.log("Aqui esta el formData")
+
+            //Contenedor de mensajes de alerta
+            var alertaMensajesElem = document.getElementById('alertaMensajes');
+            alertaMensajesElem.innerHTML = "";
+
             var nombre = document.getElementById('usnombre').value;
             var mail = document.getElementById('usmail').value;
+
             var formData = {
                 'usnombre': nombre,
                 'usmail': mail
             };
+
             console.log(formData)
             
             $.ajax({ 
-                url: "action/validacionCrearCuenta.php",
+                url: "action/validarCrearCuenta.php",
                 type: "POST",
                 dataType: "json",
                 data: formData,
                 async: false,
 
                 complete: function(xhr, textStatus) {
-                    //se llama cuando se recibe la respuesta (no importa si es error o éxito)
-                    console.log("La respuesta regreso");
+                    //console.log("La solicitud regreso");
                 },
                 success: function(respuesta, textStatus, xhr) {
-                    //se llama cuando tiene éxito la respuesta
+                    //console.log("La solicitud fue exitosa");
+
                     if (respuesta.resultado == "exito"){
-                        console.log("El resultado de la consulta es: " + respuesta.resultado);
+
+                        const wrapper = document.createElement('div');
+                        wrapper.innerHTML = [
+                            '<div class="alert alert-success alert-dismissible" role="alert">',
+                            '   <div>' + respuesta.mensaje + '</div>',
+                            '</div>'
+                        ].join('');
+                        alertaMensajesElem.append(wrapper);
+
+                        $("#formCrearCuenta")[0].reset();
 
                     } else {
-                        console.log(respuesta.resultado);
-                    }
 
-                    $(form).find('.is-valid').removeClass('is-valid');
-                    $("#formCrearCuenta")[0].reset();
-                    
-                    alert(respuesta.mensaje);
-                    //$("#modalCrearCuenta").modal("hide");
+                        const wrapper = document.createElement('div');
+                        wrapper.innerHTML = [
+                            '<div class="alert alert-danger alert-dismissible" role="alert">',
+                            '   <div>' + respuesta.mensaje + '</div>',
+                            '</div>'
+                        ].join('');
+                        alertaMensajesElem.append(wrapper);
+                    }
 
                 },
                 error: function(xhr, textStatus, errorThrown) {
-                    //called when there is an error
-                    console.error("Error en la solicitud Ajax: " + textStatus + " - " + errorThrown)
-                    console.log(xhr.responseText);//muestra en la consola del navegador todos los errores
+                    console.error("Error en la solicitud Ajax: " + textStatus + " - " + errorThrown);
+                    console.log(xhr.responseText);
                 }
             });
         }
@@ -82,11 +95,9 @@ $(document).ready(function () {
     
 });
 
-
-
 jQuery.validator.addMethod("mailValido", function (value, element) {
     return this.optional(element) || (/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(value));
-}, "Mail ingresado no válido");
+}, "Formato de mail no válido");
 
 
 

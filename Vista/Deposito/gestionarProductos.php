@@ -1,19 +1,13 @@
 <?php
-include_once "../../configuracion.php";
+include_once("../../configuracion.php");
 $tituloPagina = "Gestionar Productos";
-$menu = "Gestionar Productos";
-$direccion = "Deposito";
-include_once ("../Estructuras/headSeguro.php");
+include_once("../Estructuras/headSeguro.php");
 include_once("../Estructuras/banner.php");
 include_once("../Estructuras/navSeguro.php");
 $objAbmProducto = new AbmProducto();
-/**
- * Desde aque se puede ver la lista de productos y modificarla
- */
 
+//Desde aquí se puede ver la lista de productos y modificarla
 $listaProductos = $objAbmProducto->buscar(null);
-
-
 ?>
 
 <!DOCTYPE html>

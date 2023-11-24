@@ -1,12 +1,9 @@
 <?php
 include_once "../../../configuracion.php";
-
 $session = new Session();
 $datos = data_submitted();
-$usuario = $session->getUsuario();
-$idUsuario['idusuario'] = $usuario->getIdUsuario();
-$param['idusuario'] = $idUsuario;
 
+$param['idusuario'] = $session->getIdUsuario();
 $objAbmUsuario = new AbmUsuario();
 $colUsuario = $objAbmUsuario->buscar($param);
 
@@ -19,7 +16,7 @@ if (count($resultadoNombreRepetido) == 0){
     $param['usnombre'] = $datos['usnombre'];
     $param['usmail'] = $colUsuario[0]->getUsMail();
     $param['uspass'] = $colUsuario[0]->getUsPass();
-    $param['usdeshabilitado'] = NULL;
+    $param['usdeshabilitado'] = '0000-00-00 00:00:00';
     
     $resultado = $objAbmUsuario->modificar($param);
     

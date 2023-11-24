@@ -1,13 +1,9 @@
 <?php
-
-/**Este es un formulario para actualizar al usuario 
- * redirige a actualizarLogin.php
- */
+//Este es un formulario para actualizar al usuario 
+//redirige a actualizarLogin.php
 
 include_once('../../configuracion.php');
 $tituloPagina = "Gestionar Usuarios";
-$menu = "Gestionar Usuarios";
-$direccion = " 	Administrador";
 include_once("../Estructuras/headSeguro.php");
 include_once("../Estructuras/banner.php");
 include_once("../Estructuras/navSeguro.php");
@@ -76,10 +72,6 @@ $listaRoles = $rol->buscar(null);*/
     </div>
 </div>
 </div>
-
-</body>
-
-</html>
 
 <?php
 include_once("../Estructuras/footer.php");

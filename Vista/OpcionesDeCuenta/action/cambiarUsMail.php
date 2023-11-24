@@ -1,13 +1,9 @@
 <?php
 include_once "../../../configuracion.php";
-
-//session_start();
 $session = new Session();
 $datos = data_submitted();
-$usuario = $session->getUsuario();
-$idUsuario['idusuario'] = $usuario->getIdUsuario();
-$param['idusuario'] = $idUsuario;
 
+$param['idusuario'] = $session->getIdUsuario();
 $objAbmUsuario = new AbmUsuario();
 $colUsuario = $objAbmUsuario->buscar($param);
 
@@ -17,7 +13,7 @@ if (filter_var($param['usmail'], FILTER_VALIDATE_EMAIL)) {
 
     $param['usnombre'] = $colUsuario[0]->getUsNombre();
     $param['uspass'] = $colUsuario[0]->getUsPass();
-    $param['usdeshabilitado'] = null;
+    $param['usdeshabilitado'] = '0000-00-00 00:00:00';
 
     $resultado = $objAbmUsuario->modificar($param);
 

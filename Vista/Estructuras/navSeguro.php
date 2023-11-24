@@ -1,58 +1,12 @@
 <?php
 //$session = new Session();
-
-$nombreUsuario = $_SESSION['usnombre'];
-
-$rolActivo = $session->getRol();//ID del ROL ACTIVO
-$idUsuario = $session->getUsuario()->getIdUsuario();//ID de USUARIO
-$colRoles = $session->getListaRoles();//$_SESSION['colroles'][$i]= id rol
-
-/*
-$resp = false;
-$j=0;
-$menu = ""; //aca se almacena texto con html 
-$objRol = new AbmRol();
-
-while( $j < count($colRoles) && $resp == false){//Busca en la colecciones de roles el rol activo, para que?
-    if($colRoles[$j]==$rolActivo){
-        $resp = true;
-    }
-    $j++;
-}
-
-if($resp){ 
-
-    for ($i = 0; $i < 1; $i++){
-        $id['id'] = $rolActivo;
-        $permisos = $objRol->buscarPermisos($id);//devuelve un array de OBJ MenuRol
-        //Los MenuRol guardan un objMenu y un objRol
-        if($permisos != null){
-            $idrol['idrol'] = $id['id'];
-            $rol = $objRol->buscar($idrol);
-            $rolDesc = $rol[0]->getRolDescripcion();
-            $menu = "ROL: ".$rolDesc."<br>";
-            foreach ($permisos as $permiso){
-                $menu .= "RUTA MENU: ".$permiso->getmenu()->getMeDescripcion().
-                         "<br>NOMBRE MENU: ".$permiso->getmenu()->getMeNombre()."<br>";
-            }
-    
-        }
-        echo $menu;
-    }
-}
-*/
-
-//Algoritmo para buscar La colección de menus:
-$rolActivo = $session->getRol();//ID del ROL ACTIVO
-$paramMenuRol['idrol'] = $rolActivo;//Armo los parámetros de busqueda
-$objMenuRol = new AbmMenuRol;
-$colMenuRol = $objMenuRol->buscar($paramMenuRol);//Consigo la colección de AbmMenuRol
-
-$colMenu = [];
-for ($i=0; $i < count($colMenuRol); $i++){//Consigo la colección de Menus
-    $colMenu[] = $colMenuRol[$i]->getObjMenu();
-}
-
+$nombreUsuario = $session->getUsNombre();
+$rolActivo = $session->getIdRol();
+$idUsuario = $session->getIdUsuario();
+$colRoles = $session->getColRoles();
+$colMenu = $session->getColMenu();
+$direccionMenu = $session->getDireccionMenu();
+$direccionPadre = $session->getDireccionPadreMenu();
 ?>
 
 <!-- ________________________________________ NAV SEGURO _______________________________________ -->
@@ -66,12 +20,12 @@ for ($i=0; $i < count($colMenuRol); $i++){//Consigo la colección de Menus
             <ul class="navbar-nav ml-auto">
             <?php
 
-            if ($menu == "Inicio"){
+            if ($direccionMenu == "home.php"){
                 echo '<li class="nav-item active nav-underline">';
                 echo '  <a class="nav-link active " aria-current="page" href="#">Inicio</a>';
                 echo '</li>';
             } else {
-                if ($direccion == "Home"){
+                if ($direccionPadre == "Home"){
                     echo '<li class="nav-item">';
                     echo '  <a class="nav-link" href="home.php">Inicio</a>';
                     echo '</li>';
@@ -96,12 +50,12 @@ for ($i=0; $i < count($colMenuRol); $i++){//Consigo la colección de Menus
     
                     if ($colMenu[$i]->getMenuPadre()->getIdMenu() != 0){
                         
-                        if ($menu == $menombre){
+                        if ($direccionMenu == $medescripcion){
                             echo '<li class="nav-item active nav-underline">';
                             echo '  <a class="nav-link active " aria-current="page" href="#">'.$menombre.'</a>';
                             echo '</li>';
                         } else {
-                            if ($direccion == $nombrePadre){
+                            if ($direccionPadre == $nombrePadre){
                                 echo '<li class="nav-item">';
                                 echo '  <a class="nav-link" href='.$medescripcion.'>'.$menombre.'</a>';
                                 echo '</li>';
@@ -120,14 +74,24 @@ for ($i=0; $i < count($colMenuRol); $i++){//Consigo la colección de Menus
 
             ?>
                 <div class="ml-auto">
-                    <div class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <?php echo $nombreUsuario ?>
-                        </a>
+
+                    <?php
+                    if ($direccionPadre == "opcionesDeCuenta"){
+                        echo '<div class="nav-item dropdown active nav-underline">';
+                        echo '<a class="nav-link dropdown-toggle active nav-underline" href="#" id="nombreUsuarioActivo" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">';
+                        echo $nombreUsuario;
+                        echo '</a>';
+                    } else {
+                        echo '<div class="nav-item dropdown">';
+                        echo '<a class="nav-link dropdown-toggle" href="#" id="nombreUsuarioActivo" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">';
+                        echo $nombreUsuario;
+                        echo '</a>';
+                    }
+                    ?>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             
                             <?php
-                                if($direccion == "opcionesDeCuenta"){
+                                if($direccionPadre == "opcionesDeCuenta"){
                                     echo '<a class="dropdown-item" href="miPerfil.php">Mi Perfil</a>';
                                 } else {
                                     echo '<a class="dropdown-item" href="../opcionesDeCuenta/miPerfil.php">Mi Perfil</a>';
@@ -136,7 +100,7 @@ for ($i=0; $i < count($colMenuRol); $i++){//Consigo la colección de Menus
 
                             <?php
                             if(count($colRoles)>1){
-                                if($direccion == "opcionesDeCuenta"){
+                                if($direccionPadre == "opcionesDeCuenta"){
                                     echo '<a class="dropdown-item" href="cambiarRol.php">Cambiar Rol</a>';
                                 } else {
                                     echo '<a class="dropdown-item" href="../opcionesDeCuenta/cambiarRol.php">Cambiar Rol</a>';
@@ -145,7 +109,7 @@ for ($i=0; $i < count($colMenuRol); $i++){//Consigo la colección de Menus
                             ?>
                             <div class="dropdown-divider"></div>
                             <?php
-                                if($direccion == "opcionesDeCuenta"){
+                                if($direccionPadre == "opcionesDeCuenta"){
                                     echo '<a class="dropdown-item" href="cerrarSesion.php">Cerrar Sesión</a>';
                                 } else {
                                     echo '<a class="dropdown-item" href="../opcionesDeCuenta/cerrarSesion.php">Cerrar Sesión</a>';

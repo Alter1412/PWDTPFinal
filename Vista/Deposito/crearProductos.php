@@ -1,10 +1,7 @@
 <?php
-include_once ("../../configuracion.php");
-//la tabla producto tiene autoincrement
+include_once("../../configuracion.php");
 $tituloPagina = "Crear Productos";
-$menu = "Crear Productos";
-$direccion = "Deposito";
-include_once ("../Estructuras/headSeguro.php");
+include_once("../Estructuras/headSeguro.php");
 include_once("../Estructuras/banner.php");
 include_once("../Estructuras/navSeguro.php");
 ?>

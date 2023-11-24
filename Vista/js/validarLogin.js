@@ -38,8 +38,9 @@ $(document).ready(function () {
 
         submitHandler: function(form){
 
-            var alertaSesionElem = document.getElementById('alertaSesion');
-            alertaSesionElem.innerHTML = "";
+            //Contenedor de mensajes de alerta
+            var alertaMensajesElem = document.getElementById('alertaMensajes');
+            alertaMensajesElem.innerHTML = "";
 
             // Obtiene el valor de uspass del formulario
             var uspassValue = $("#uspass").val();
@@ -61,11 +62,10 @@ $(document).ready(function () {
                 async: false,
 
                 complete: function(xhr, textStatus) {
-                    //console.log("La respuesta regreso");
-
+                    //console.log("La solicitud regreso");
                 },
                 success: function(respuesta, textStatus, xhr) {
-                    console.log("La respuesta fue exitosa");
+                    //console.log("La solicitud fue exitosa");
 
                     if (respuesta.resultado == "exito"){
 
@@ -75,21 +75,10 @@ $(document).ready(function () {
                             '   <div>' + respuesta.mensaje + '</div>',
                             '</div>'
                         ].join('');
-                        alertaSesionElem.append(wrapper);
+                        alertaMensajesElem.append(wrapper);
 
                         //Dirección de logueo exitoso
                         window.location.href = "home.php"; 
-
-
-                    } else if (respuesta.resultado == "error" && respuesta.motivo == "usuario"){
-
-                        const wrapper = document.createElement('div');
-                        wrapper.innerHTML = [
-                            '<div class="alert alert-danger alert-dismissible" role="alert">',
-                            '   <div>' + respuesta.mensaje + '</div>',
-                            '</div>'
-                        ].join('');
-                        alertaSesionElem.append(wrapper);
 
                     } else {
 
@@ -99,13 +88,13 @@ $(document).ready(function () {
                             '   <div>' + respuesta.mensaje + '</div>',
                             '</div>'
                         ].join('');
-                        alertaSesionElem.append(wrapper);
+                        alertaMensajesElem.append(wrapper);
                     }
+
                 },
                 error: function(xhr, textStatus, errorThrown) {
                     console.error("Error en la solicitud Ajax: " + textStatus + " - " + errorThrown);
                     console.log(xhr.responseText);
-
                 }
             });
         }

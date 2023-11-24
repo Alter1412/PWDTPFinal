@@ -1,15 +1,12 @@
 <?php
-include_once "../../configuracion.php";
+include_once("../../configuracion.php");
 $tituloPagina = "Carrito";
-$menu = "Carrito";
-$direccion = " 	Cliente";
 include_once("../Estructuras/headSeguro.php");
 include_once("../Estructuras/banner.php");
 include_once("../Estructuras/navSeguro.php");
 //verEstructura($_SESSION);
 //$session = new Session();
-$usuario = $session->getUsuario();
-$idUsuario = $usuario->getIdUsuario();
+$idUsuario = $session->getIdUsuario();
 $objCompra = new AbmCompra();
 $busquedaCompra = $objCompra->buscarCarrito($idUsuario);
 //verEstructura($busquedaCompra);
@@ -25,10 +22,7 @@ $objProducto = new AbmProducto();
 
 $listaCompraItem = $objCompraItem->buscar($idUCompra);
 //verEstructura($listaCompraItem);
-
-
 ?>
-
 
 <body>
 

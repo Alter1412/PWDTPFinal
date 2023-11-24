@@ -5,6 +5,7 @@ $datos = data_submitted();
 $nuevoUsuario = new AbmUsuario();
 $resultado = $nuevoUsuario->crearUsuario($datos);
 
+//ARMA LAS RESPUESTAS PARA LA SOLICITUD AJAX
 if ($resultado){
     $respuesta = array("resultado" => "exito", "mensaje" => "Su cuenta ha sido creada con éxito.
     \nEspere a que un administrador le asigne un rol para poder ingresar.
@@ -12,13 +13,18 @@ if ($resultado){
     \nRecuerde cambiarla en su próximo inicio de sesión.");
     
 } else {
-    $respuesta = array("resultado" => "error", "mensaje" => "No fue posible crear su cuenta.");
-    
+
+    $arregloError['usnombre'] = $datos['usnombre'];
+    $colUsuarios = $nuevoUsuario->buscar($arregloError);
+
+    if (count($colUsuarios) > 0){
+        $respuesta = array("resultado" => "error", "mensaje" => "El nombre de usuario ya se encuentra en uso.");
+    } else {
+        $respuesta = array("resultado" => "error", "mensaje" => "No fue posible crear su cuenta.");
+    }
 }
 
 echo json_encode($respuesta);
-
-
 
 /* $usnombre = $datos['usnombre'];
 $usmail = $datos['usmail'];

@@ -1,9 +1,7 @@
 <?php
-include_once "../../configuracion.php";
+include_once("../../configuracion.php");
 $tituloPagina = "Gestionar Compras";
-$menu = "Gestionar Compras";
-$direccion = "Deposito";
-include_once ("../Estructuras/headSeguro.php");
+include_once("../Estructuras/headSeguro.php");
 include_once("../Estructuras/banner.php");
 include_once("../Estructuras/navSeguro.php");
 

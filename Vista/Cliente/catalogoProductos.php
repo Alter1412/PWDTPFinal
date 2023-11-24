@@ -1,13 +1,9 @@
 <?php
 include_once "../../configuracion.php";
 $objAbmProducto = new AbmProducto();
-/**
- * Desde aqui se agregan productos al carrito
- */
+//Desde aqui se agregan productos al carrito
 
 $listaProductos = $objAbmProducto->buscar(null);
-
-
 ?>
 
 <!DOCTYPE html>

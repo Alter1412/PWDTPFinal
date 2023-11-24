@@ -3,17 +3,12 @@ include_once("../../configuracion.php");
 
 $session = new Session();
 
-//Valido logueo correcto y ademas que tenga permiso(rol)
+//Valido logueo correcto
 if ($session->validar()) {
-    $rol = $_SESSION['rol'];
-    $colRoles = $_SESSION['colroles'];
+    $rol = $session->getIdRol();
+    $colRoles = $session->getColRoles();
 } else {
-
-    if ($direccion == "Home") {
-        header("Location: home.php");
-    } else {
-        header("Location: ../Home/home.php");
-    }
+    $session->redireccionar();
 }
 
 ?>

@@ -5,11 +5,7 @@ $session = new Session();
 
 //Valido logueo correcto y ademas que tenga permiso(rol)
 if ($session->validar()) {
-    if (array_key_exists('rol', $_SESSION)) {
-        $rol = $_SESSION['rol'];
-    } else {
-        $rol = null;
-    }
+    $rol = $session->getIdRol();
 } else {
     $rol = null;
 }

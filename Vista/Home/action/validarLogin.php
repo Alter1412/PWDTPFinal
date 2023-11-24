@@ -11,6 +11,7 @@ $param['usnombre'] = $usnombre;
 $objUsuario = new AbmUsuario();
 $colUsuarios = $objUsuario->buscar($param);
 
+//ARMA LAS RESPUESTAS PARA LA SOLICITUD AJAX
 if (count($colUsuarios) == 1){
     
     $param['uspass'] = $uspass;
@@ -18,12 +19,11 @@ if (count($colUsuarios) == 1){
 
     if (count($colUsuarios) == 1){
 
-        $objSesion = new Session();
-        $objSesion->iniciar($usnombre, $uspass);
+        $session = new Session();
+        $session->iniciar($usnombre, $uspass);
 
-        if($objSesion ->validar()){
-            $rol = $objSesion->getRol();
-            $respuesta = array("resultado" => "exito", "mensaje" => "Sesión iniciada con éxito." , "rol" => "$rol");
+        if($session ->validar()){
+            $respuesta = array("resultado" => "exito", "mensaje" => "Sesion iniciada con exito.");
         }else{
             if($colUsuarios[0]->getUsDeshabilitado() != '0000-00-00 00:00:00'){
                 $respuesta = array("resultado" => "error", "mensaje" => "Su cuenta ha sido deshabilitada");

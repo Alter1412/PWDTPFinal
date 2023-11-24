@@ -1,9 +1,7 @@
 <?php
-include_once "../../configuracion.php";
+include_once("../../configuracion.php");
 $tituloPagina = "Gestionar Usuarios";
-$menu = "Gestionar Usuarios";
-$direccion = " 	Administrador";
-include_once ("../Estructuras/headSeguro.php");
+include_once("../Estructuras/headSeguro.php");
 include_once("../Estructuras/banner.php");
 include_once("../Estructuras/navSeguro.php");
 $objAbmUsuario = new AbmUsuario();

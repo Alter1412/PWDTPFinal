@@ -1,13 +1,8 @@
 <?php
-/**
- * se crea un usario al cual se le puede asignar uno de os 3 roles principales
-*/
-
-include_once ('../../configuracion.php');
+//se crea un usario al cual se le puede asignar uno de os 3 roles principales
+include_once('../../configuracion.php');
 $tituloPagina = "Crear Usuarios";
-$menu = "Crear Usuarios";
-$direccion = " 	Administrador";
-include_once ("../Estructuras/headSeguro.php");
+include_once("../Estructuras/headSeguro.php");
 include_once("../Estructuras/banner.php");
 include_once("../Estructuras/navSeguro.php");
 
@@ -18,7 +13,6 @@ $objUsuario = $listaUsuario[0];
 
 $rol = new AbmRol();
 $listaRoles = $rol->buscar(null);
-
 ?>
 
 <!--<!DOCTYPE html>
@@ -83,10 +77,6 @@ $listaRoles = $rol->buscar(null);
     </div>
 </div>
 </div>
-
-
-</body>
-</html>
 
 <?php
 include_once("../Estructuras/footer.php");

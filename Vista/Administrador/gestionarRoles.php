@@ -1,22 +1,15 @@
 <?php
-/**Este es un formulario para actualizar al usuario 
- * redirige a actualizarLogin.php
- * Gestionar Roles
-*/
- 
-include_once ('../../configuracion.php');
+//Este es un formulario para actualizar al usuario 
+//redirige a actualizarLogin.php
+include_once('../../configuracion.php');
 $tituloPagina = "Gestionar Roles";
-$menu = "Gestionar Roles";
-$direccion = " 	Administrador";
 include_once ("../Estructuras/headSeguro.php");
 include_once("../Estructuras/banner.php");
 include_once("../Estructuras/navSeguro.php");
+
 $rol = new AbmRol();
 $listaRoles = $rol->buscar(null);
 ?>
-
-<body>
-
 <div class="container mt-5 mb-5">
 <div class="row justify-content-center">
 <div class="col-md-6">
@@ -57,17 +50,9 @@ $listaRoles = $rol->buscar(null);
 </div>
 </div>
 
-
-</body>
-
-
-
-
-
 <?php
 include_once("../Estructuras/footer.php");
 ?>
-
 
 <!-- <!DOCTYPE html>
 <html lang="en">

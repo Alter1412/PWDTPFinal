@@ -1,7 +1,6 @@
 <?php
-/**Este es un formulario para actualizar al usuario 
- * redirige a actualizarLogin.php
-*/
+//Este es un formulario para actualizar al usuario 
+//redirige a actualizarLogin.php
  
 include_once ('../../configuracion.php');
 $datos['idusuario'] = 1;//data_submitted();//recibe el id de usuario desde el session, El numero es de prueba

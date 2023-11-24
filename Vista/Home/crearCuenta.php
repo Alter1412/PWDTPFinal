@@ -1,7 +1,6 @@
 <?php
 include_once("../../configuracion.php");
 $tituloPagina = "Crear Cuenta";
-$menu = "Crear Cuenta";
 include_once("../Estructuras/headInseguro.php");
 include_once("../Estructuras/banner.php");
 include_once("../Estructuras/navInseguro.php");
@@ -17,25 +16,27 @@ include_once("../Estructuras/navInseguro.php");
                 </div>
                 <div class="card-body">
                     <form name="formCrearCuenta" id="formCrearCuenta" method="POST" class="needs-validation">
+                        
                         <!-- Zona de alerta -->
-                        <div id="alertaCrearCuenta">
+                        <div id="alertaMensajes">
                         </div>
-                        <div class="form-group">
-                            <label for="username">Nombre de Usuario:</label>
-                            <input type="text" class="form-control form-control-lg mb-3" id="usnombre" required>
+
+                        <div class="form-group contenedor-dato">
+                            <!--<label for="usnombre">Nombre de Usuario:</label>-->
+                            <input type="text" class="form-control form-control-lg" id="usnombre" name="usnombre" placeholder="Nombre de Usuario" required>
                         </div>
-                        <div class="form-group">
-                            <label for="email">Correo Electrónico:</label>
-                            <input type="email" class="form-control form-control-lg mb-3" id="usmail" required>
+                        <div class="form-group contenedor-dato mt-3">
+                            <!--<label for="usmail">Correo Electrónico:</label>-->
+                            <input type="text" class="form-control form-control-lg" id="usmail" name="usmail" placeholder="Correo Electrónico" required>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-lg w-100">CREAR CUENTA</button>
+                        <button type="submit" class="btn btn-primary btn-lg w-100 mt-3">CREAR CUENTA</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<script src="../js/validacionCrearCuenta.js"></script>
+<script src="../js/validarCrearCuenta.js"></script>
 <!-- ________________________________________ FIN CONTENIDO ____________________________________ -->
 
 <?php

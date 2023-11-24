@@ -8,7 +8,7 @@ $resp = $obj->pagarCompra($datos['idusuario']);
 
 if($resp){
     header('Location: ../misCompras.php');
-    echo "se creo compra";
+    //echo "se creo compra";
 }else{
     echo "Compra no realizada";
 }

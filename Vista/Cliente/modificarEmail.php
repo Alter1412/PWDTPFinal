@@ -1,8 +1,7 @@
 <?php
-/**Este es un formulario para actualizar al usuario 
- * redirige a actualizarLogin.php
-*/
- 
+//Este es un formulario para actualizar al usuario 
+//redirige a actualizarLogin.php
+
 include_once ('../../configuracion.php');
 $datos = data_submitted();
 $abmUsuario = new AbmUsuario();

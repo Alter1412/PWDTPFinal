@@ -1,10 +1,6 @@
 <?php
 include_once("../../configuracion.php");
-
 $tituloPagina = "Inicio";
-$menu = "Inicio";
-$direccion = "Home";
-
 include_once("../Estructuras/headInseguro.php");
 include_once("../Estructuras/banner.php");
 

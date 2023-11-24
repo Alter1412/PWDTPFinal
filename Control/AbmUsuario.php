@@ -145,7 +145,6 @@ class AbmUsuario
             $objTabla->setear($param['idusuario'], $param['idrol']);
             $resp = $objTabla->eliminar();
         }
-
         return $resp;
     }
 
@@ -159,7 +158,6 @@ class AbmUsuario
                 $objUsuario->cargar();
             }
         }
-        
         return $resp;
     }
 
@@ -188,7 +186,6 @@ class AbmUsuario
 
         $obj = new Usuario();
         $arreglo = $obj->listar($where);
-
         return $arreglo;
     }
 
@@ -228,7 +225,6 @@ class AbmUsuario
         if(count($busqueda)>0){
             $resp = true;
         }
-
         return $resp;
     }
 
@@ -237,7 +233,7 @@ class AbmUsuario
         // Extraigo datos necesarios para la creación de usuario
         $usuario = $datos['usnombre'];
         $email = $datos['usmail'];
-        $passEncriptada= md5($datos['uspass']);
+        $passEncriptada = md5($datos['uspass']);
         //creo los objetos Usuario y objeto UsuarioRol
         $objUsuario = new AbmUsuario();
         //Guardo los parametros del Usuario
@@ -256,11 +252,11 @@ class AbmUsuario
             $nuevoUsuario = $objUsuario->buscar($paramUsuario2);
             $idUsuario = $nuevoUsuario[0]->getIdUsuario();
             $paramUsuarioRol['idusuario'] = $idUsuario;
-            echo $idUsuario."<br>";
+            //echo $idUsuario."<br>";
             if(array_key_exists('Cliente', $datos)){
-                echo "Entro a Cliente <br>";
+                //echo "Entro a Cliente <br>";
                 $paramUsuarioRol['idrol'] = 3;
-                verEstructura($paramUsuarioRol);
+                //verEstructura($paramUsuarioRol);
                 $objUsuarioRol->alta($paramUsuarioRol);
             }
             if(array_key_exists('Deposito', $datos)){
@@ -308,6 +304,5 @@ class AbmUsuario
         return $resp;
     }
 }
-
 
 ?>

@@ -1,13 +1,10 @@
 <?php
-/**Este es un formulario para actualizar al usuario 
- * redirige a actualizarLogin.php
-*/
- //CONTRASEÑA: <input type="text" name="uspass" id="uspass" value='<?php echo $objUsuario->getUsPass() ? >'> <br>
-include_once ('../../configuracion.php');
+//Este es un formulario para actualizar al usuario 
+//redirige a actualizarLogin.php
+//CONTRASEÑA: <input type="text" name="uspass" id="uspass" value='<?php echo $objUsuario->getUsPass() ? >'> <br>
+include_once('../../configuracion.php');
 $tituloPagina = "Gestionar Usuarios";
-$menu = "Gestionar Usuarios";
-$direccion = " 	Administrador";
-include_once ("../Estructuras/headSeguro.php");
+include_once("../Estructuras/headSeguro.php");
 include_once("../Estructuras/banner.php");
 include_once("../Estructuras/navSeguro.php");
 $datos = data_submitted();
@@ -65,12 +62,6 @@ $objUsuario = $listaUsuario[0];
 <?php
 include_once("../Estructuras/footer.php");
 ?>
-
-</body>
-</html>
-
-
-
 <!-- <!DOCTYPE html>
 <html lang="en">
 <head>

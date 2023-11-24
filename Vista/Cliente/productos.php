@@ -1,8 +1,6 @@
 <?php
 include_once("../../configuracion.php");
 $tituloPagina = "Productos";
-$menu = "Productos";
-$direccion = " 	Cliente";
 include_once("../Estructuras/headSeguro.php");
 include_once("../Estructuras/banner.php");
 include_once("../Estructuras/navSeguro.php");
