@@ -4,22 +4,20 @@ include_once ("../../../configuracion.php");
 $datos = data_submitted();//idCompra
 //verEstructura($datos);
 
-    $objEstado = new AbmCompraEstado();
-    $param['idcompra'] = $datos;
+   $objEstado = new AbmCompraEstado();
+    /*  $param['idcompra'] = $datos;
     $param['idcompraestadotipo'] = 1;
     $param['cefechafin'] = null;
-    $exito = $objEstado->buscar($param);
+    $exito = $objEstado->buscar($param); */
 
-    if($exito){
-        $cambioRealizado = $objEstado->cancelarCompra($exito);
+    
+        $cambioRealizado = $objEstado->cancelarCompra($datos);
         if($cambioRealizado){
             header('Location: ../misCompras.php');
             echo "cancelacion realizada";
-        }
-        
-    }else{
+        }else{
         echo "Algo fallo";
-    }
+     }
 
 
 
