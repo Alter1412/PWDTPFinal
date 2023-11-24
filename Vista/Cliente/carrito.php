@@ -56,11 +56,12 @@ $listaCompraItem = $objCompraItem->buscar($idUCompra);
         echo '<div class="row justify-content-center">';
         echo '<div class="col-md-6">';
         echo '<div class="card p-5">';
-        echo "<p class='alert alert-warning'>Aun no tiene productos a su carrito.</p>";
+        echo "<p class='alert alert-warning'>No tiene productos en su carrito.</p>";
         echo '</div>';
         echo '</div>';
         echo '</div>';
         echo '</div>';
+
     }
     ?>
 </div>

@@ -14,15 +14,15 @@ include_once("../Estructuras/navSeguro.php");
 
 <div class="container mt-4">
     <?php
-    
 
-     // recibe el id de usuario
-    $datos['idusuario'] = $_SESSION['idusuario']; 
+    // recibe el id de usuario
+    $datos['idusuario'] = $session->getIdUsuario();; 
     $objAbmCompra = new AbmCompra();
     $objAbmEstado = new AbmCompraEstado();
     $listaCompra = $objAbmCompra->buscar($datos);
 
-    if (count($listaCompra) > 0) {
+    if (count($listaCompra) > 1) {
+
         echo "<table class='table table-bordered'>";
         echo '<thead class="thead-dark"><tr><th>ID DE COMPRA</th><th>FECHA</th><th>ESTADO DE COMPRA</th><th>ITEMS</th><th>CANCELAR</th></tr></thead>';
         echo '<tbody>';
@@ -85,11 +85,18 @@ include_once("../Estructuras/navSeguro.php");
                 }
             }
         }
-
         echo '</tbody></table><br><br><br>';
 
     } else {
-        echo "<p>No se encontraron Compras</p>";
+        echo '<div class="container mt-5 mb-5">';
+        echo '<div class="row justify-content-center">';
+        echo '<div class="col-md-6">';
+        echo '<div class="card p-5">';
+        echo "<p class='alert alert-warning'>Historial de compras vacío.</p>";
+        echo '</div>';
+        echo '</div>';
+        echo '</div>';
+        echo '</div>';
     }
     ?>
 

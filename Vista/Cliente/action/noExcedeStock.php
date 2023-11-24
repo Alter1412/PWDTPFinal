@@ -1,14 +1,11 @@
 <?php 
 include_once("../../../configuracion.php");
-$datos = data_submitted();//Recibe idcompraitem = 0(por el autoincrement), idproducto, idcompra y cicantidad
-$session = new Session();
-$datos['idusuario'] = $session->getIdUsuario(); 
-//verEstructura($datos);
+$datos = data_submitted();
 
-$objCompraItem = new AbmCompraItem();
-$agregar = $objCompraItem->agregarProductoCarrito($datos);
+$objAbmProducto = new AbmProducto();
+$resultado = $objAbmProducto->VerificarStock();
 
-if($agregar){
+if($resultado){
    //header('Location:../productos.php');
    $respuesta = array("resultado" => "exito", "mensaje" => "Agregado al carrito con éxito");
 }else{

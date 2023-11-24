@@ -4,9 +4,12 @@ $datos = data_submitted();//Recibe idcompraitem
 //verEstructura($datos);
 $objCompraItem = new AbmCompraItem();
 $agregar = $objCompraItem->baja($datos);
+
 if($agregar){
-    header('Location:../carrito.php');
+    //header('Location:../carrito.php');
+    
 }else{
     echo "Algo Fallo";
 }
+echo json_encode($respuesta);
 ?>
