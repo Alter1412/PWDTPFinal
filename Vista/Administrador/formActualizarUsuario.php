@@ -14,54 +14,48 @@ $objUsuario = $listaUsuario[0];
 
 ?>
 
-<!--<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Actualizar Usuario</title>
-    
-</head>
-<body>-->
-
 <div class="container mt-4 mb-4">
-<div class="row justify-content-center">
+    <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="card">
                 <div class="card-header bg-dark text-white">
                     <h4 class="mb-2 mt-2 text-center">Actualizar Usuario</h4>
                 </div>
                 <div class="card-body">
-    <form action="action/actualizarUsuarios.php" method="post">
-        <div class="form-group">
-            <label for="idusuario">ID:</label>
-            <input type="text" class="form-control" id="idusuario" name="idusuario" value='<?php echo $objUsuario->getIdUsuario() ?>' readonly>
-        </div>
-        <div class="form-group">
-            <label for="usnombre">NOMBRE:</label>
-            <input type="text" class="form-control" id="usnombre" name="usnombre" value='<?php echo $objUsuario->getUsNombre() ?>'>
-        </div>
-        <div class="form-group">
-            <label for="usmail">E-MAIL:</label>
-            <input type="text" class="form-control" id="usmail" name="usmail" value='<?php echo $objUsuario->getUsMail() ?>'>
-        </div>
-        <div class="form-group">
-            <!--<label for="uspass">CONTRASEÑA:</label>-->
-            <input type="text" class="form-control" id="uspass" name="uspass" value='<?php echo $objUsuario->getUsPass() ?>' hidden>
-        </div>
-        <div class="form-group">
-            <label for="usdeshabilitado">HABILITAR:</label>
-            <input type="text" class="form-control" id="usdeshabilitado" name="usdeshabilitado" value='<?php echo $objUsuario->getUsDeshabilitado() ?>'>
-        </div>
-        <br>
-        <button type="submit" class="btn btn-primary w-100">ACTUALIZAR</button>
-    </form>
-</div>
+                    <form action="action/actualizarUsuarios.php" method="post">
+                        <div class="form-group">
+                            <label for="idusuario">ID:</label>
+                            <input type="text" class="form-control" id="idusuario" name="idusuario" value='<?php echo $objUsuario->getIdUsuario() ?>' readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="usnombre">NOMBRE:</label>
+                            <input type="text" class="form-control" id="usnombre" name="usnombre" value='<?php echo $objUsuario->getUsNombre() ?>'>
+                        </div>
+                        <div class="form-group">
+                            <label for="usmail">E-MAIL:</label>
+                            <input type="text" class="form-control" id="usmail" name="usmail" value='<?php echo $objUsuario->getUsMail() ?>'>
+                        </div>
+                        <div class="form-group">
+                            <!--<label for="uspass">CONTRASEÑA:</label>-->
+                            <input type="text" class="form-control" id="uspass" name="uspass" value='<?php echo $objUsuario->getUsPass() ?>' hidden>
+                        </div>
+                        <div class="form-group">
+                            <label for="usdeshabilitado">HABILITAR:</label>
+                            <input type="text" class="form-control" id="usdeshabilitado" name="usdeshabilitado" value='<?php echo $objUsuario->getUsDeshabilitado() ?>'>
+                        </div>
+                        <br>
+                        <button type="submit" class="btn btn-primary w-100">ACTUALIZAR</button>
+                    </form>
+                </div>
             </div>
-        </div></div></div>
+        </div>
+    </div>
+</div>
+
 <?php
 include_once("../Estructuras/footer.php");
 ?>
+
 <!-- <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -71,11 +65,16 @@ include_once("../Estructuras/footer.php");
 </head>
 <body>
     <form action="action/actualizarUsuarios.php" method="post">
-        ID: <input type="text" id="idusuario" name="idusuario" value='<?php //echo $objUsuario->getIdUsuario() ?>' readonly> <br>
-        NOMBRE: <input type="text" id="usnombre" name="usnombre" value='<?php //echo $objUsuario->getUsNombre() ?>'> <br>
-        CONTRASEÑA: <input type="text" name="uspass" id="uspass" value='<?php //echo $objUsuario->getUsPass() ?>' readonly> <br>
-        E-MAIL: <input type="text" id="usmail" name="usmail" value='<?php //echo $objUsuario->getUsMail() ?>'> <br>
-        HABILITAR: <input type="text" id="usdeshabilitado" name="usdeshabilitado" value='<?php //echo $objUsuario->getUsDeshabilitado() ?>'> <br>
+        ID: <input type="text" id="idusuario" name="idusuario" value='<?php //echo $objUsuario->getIdUsuario() 
+                                                                        ?>' readonly> <br>
+        NOMBRE: <input type="text" id="usnombre" name="usnombre" value='<?php //echo $objUsuario->getUsNombre() 
+                                                                        ?>'> <br>
+        CONTRASEÑA: <input type="text" name="uspass" id="uspass" value='<?php //echo $objUsuario->getUsPass() 
+                                                                        ?>' readonly> <br>
+        E-MAIL: <input type="text" id="usmail" name="usmail" value='<?php //echo $objUsuario->getUsMail() 
+                                                                    ?>'> <br>
+        HABILITAR: <input type="text" id="usdeshabilitado" name="usdeshabilitado" value='<?php //echo $objUsuario->getUsDeshabilitado() 
+                                                                                            ?>'> <br>
         <input type="submit"  value="Actualizar"> 
     </form>
 </body>

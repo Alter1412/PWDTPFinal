@@ -15,18 +15,7 @@ $listaUsuarios = $objAbmUsuario->buscar(null);
 //verEstructura($listaPersona);
 ?>
 
-
-<!--<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Usuarios</title>
-  
-</head>
-<body>-->
-
-<div class="container mt-4">
+<div class="container mt-4 mb-4">
 
     <?php
     if (count($listaUsuarios) > 0) {
@@ -76,13 +65,6 @@ $listaUsuarios = $objAbmUsuario->buscar(null);
     }
     ?>
 </div>
-
-<?php
- echo "<br>";
-?>
-
-</body>
-</html>
 
 <?php
 include_once("../Estructuras/footer.php");

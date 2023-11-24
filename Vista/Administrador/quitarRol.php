@@ -28,15 +28,6 @@ $listaRoles = $rol->buscar(null);*/
 
 ?>
 
-<!--<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quitar Roles</title> 
-</head>
-<body>-->
-
 <div class="container mt-4 mb-4">
     <div class="row justify-content-center">
         <div class="col-md-6">
@@ -70,7 +61,6 @@ $listaRoles = $rol->buscar(null);*/
             </div>
         </div>
     </div>
-</div>
 </div>
 
 <?php

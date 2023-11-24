@@ -76,7 +76,7 @@ $direccionPadre = $session->getDireccionPadreMenu();
                 <div class="ml-auto">
 
                     <?php
-                    if ($direccionPadre == "opcionesDeCuenta"){
+                    if ($direccionPadre == "OpcionesDeCuenta"){
                         echo '<div class="nav-item dropdown active nav-underline">';
                         echo '<a class="nav-link dropdown-toggle active nav-underline" href="#" id="nombreUsuarioActivo" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">';
                         echo $nombreUsuario;
@@ -91,7 +91,7 @@ $direccionPadre = $session->getDireccionPadreMenu();
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             
                             <?php
-                                if($direccionPadre == "opcionesDeCuenta"){
+                                if($direccionPadre == "OpcionesDeCuenta"){
                                     echo '<a class="dropdown-item" href="miPerfil.php">Mi Perfil</a>';
                                 } else {
                                     echo '<a class="dropdown-item" href="../opcionesDeCuenta/miPerfil.php">Mi Perfil</a>';
@@ -100,7 +100,7 @@ $direccionPadre = $session->getDireccionPadreMenu();
 
                             <?php
                             if(count($colRoles)>1){
-                                if($direccionPadre == "opcionesDeCuenta"){
+                                if($direccionPadre == "OpcionesDeCuenta"){
                                     echo '<a class="dropdown-item" href="cambiarRol.php">Cambiar Rol</a>';
                                 } else {
                                     echo '<a class="dropdown-item" href="../opcionesDeCuenta/cambiarRol.php">Cambiar Rol</a>';
@@ -109,7 +109,7 @@ $direccionPadre = $session->getDireccionPadreMenu();
                             ?>
                             <div class="dropdown-divider"></div>
                             <?php
-                                if($direccionPadre == "opcionesDeCuenta"){
+                                if($direccionPadre == "OpcionesDeCuenta"){
                                     echo '<a class="dropdown-item" href="cerrarSesion.php">Cerrar Sesión</a>';
                                 } else {
                                     echo '<a class="dropdown-item" href="../opcionesDeCuenta/cerrarSesion.php">Cerrar Sesión</a>';
