@@ -13,12 +13,5 @@ if($exito){
     echo "Algo fallo";
 }
 
-//este array es de prueba. Cambiar el null por $datos['imagenproducto], que recibe la direccion de la imagen
-/* $param['idproducto'] = 0;
-$param['pronombre'] = $datos['pronombre'];
-$param['prodetalle'] = $datos['prodetalle'];
-$param['procantstock'] = $datos['procantstock'];
-$param['tipo'] = $datos['tipo'];
-$param['imagenproducto'] = $datos['imagenproducto'];
-verEstructura($param); */
+
 ?>

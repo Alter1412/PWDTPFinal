@@ -61,42 +61,6 @@ $listaCompraItem = $objCompraItem->buscar($idUCompra);
 </html>
 
 
-<!-- <body>
-
-<?php	/*
-
- if( count($listaCompraItem)>0){
-    echo "<table border='1'>";//por el momento no muestro la password, no tiene sentido
-    echo '<tr><td>NOMBRE PRODUCTO</td><td>DETALLE PRODUCTO</td><td>CANTIDAD</td><td>OPCIONES</td></tr>';
-    for($i=0;$i<count($listaCompraItem);$i++) {
-        $objCompraItem = $listaCompraItem[$i];
-        $idProducto['idproducto'] = $objCompraItem->getObjProducto()->getIdProducto();
-        $busquedaProducto = $objProducto->buscar($idProducto);
-        $producto = $busquedaProducto[0];//objProducto
-        //verEstructura($objProducto);
-       
-        
-        
-    echo '<tr>
-              <td>'.$producto->getProNombre().'</td>
-              <td>'.$producto->getProDetalle().'</td>
-              <td>'.$objCompraItem->getCiCantidad().'</td>
-              <td><a href="action/quitarProductoCarrito.php?idcompraitem='.$objCompraItem->getIdCompraItem().'">Quitar Producto</a> 
-      </td>
-              </tr>';
-	}
-    echo "</table><br><br><br>";
-    echo "<a href='../altaCompra.php'>Comprar</a>";
-    
-}else{
-    echo "No se encontraron Productos";
-}
-*/
-?>
-
-</body>
-</html> -->
-
 <?php
 include_once("../Estructuras/footer.php");
 ?>

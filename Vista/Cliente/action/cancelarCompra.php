@@ -21,9 +21,7 @@ $datos = data_submitted();//idCompra
         echo "Algo fallo";
     }
 
-/* $objCompra = new AbmCompra();
-$arayCompra = $objCompra->buscar($datos);//array
-$compra = $arayCompra[0];//objCompra */
+
 
 
 ?>

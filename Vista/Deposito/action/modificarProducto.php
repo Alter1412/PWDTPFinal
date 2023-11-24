@@ -3,15 +3,7 @@ include_once ("../../../configuracion.php");
 //colocar en menu dinamico, no va un altaCompra.php
 //tiene que recibir el idusario y cofecha(o seteamos la fecha en 0000-00-00 00:00:00 ?)
 $datos = data_submitted();
-verEstructura($datos);
-/* $param['idproducto'] = $datos['idproducto'];
-$param['pronombre'] = $datos['pronombre'];
-$param['prodetalle'] = $datos['prodetalle'];
-$param['procantstock'] = $datos['procantstock'];
-$param['tipo'] = $datos['tipo'];
-$param['imagenproducto'] = $datos['imagenproducto'];
-verEstructura($param); */
-
+//verEstructura($datos);
 $objProducto = new AbmProducto();
  $exito = $objProducto->modificar($datos);
 if($exito){
