@@ -32,6 +32,9 @@ $(document).ready(function () {
         },
 
         submitHandler: function(form){
+            
+            var alertaMensajesElem = document.getElementById('alertaMensajes');
+            alertaMensajesElem.innerHTML = "";
 
             var formData = $(form).serialize()
             
@@ -100,8 +103,11 @@ jQuery.validator.addMethod("noExcedeStock", function (value, element) {
 
 function noExcedeStock(value){
 
-    var formData = {'cantidad': value};
+    var idProductoValue = document.getElementById("idproducto").value;
+    var formData = {'cantidad': value, 'idproducto': idProductoValue};
     var resultado = false;
+
+    console.log(formData);
 
     $.ajax({
 
@@ -112,8 +118,9 @@ function noExcedeStock(value){
         async: false,
 
         success: function(respuesta) {
+            //console.log(respuesta);
 
-            if (respuesta.validacion == "exito"){
+            if (respuesta.resultado == "exito"){
                 resultado = true;
             }
         }

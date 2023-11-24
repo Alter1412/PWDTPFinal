@@ -134,7 +134,7 @@ class AbmCompraItem{
         $idusuario = $datos['idusuario'];
         $objCompra = new AbmCompra();
         $busquedaCompra = $objCompra->buscarCarrito($idusuario);
-        verEstructura($busquedaCompra);
+        //verEstructura($busquedaCompra);
         $compra = $busquedaCompra[0]; 
         $producto['idcompraitem'] = 0;
         $producto['idproducto'] = $datos['idproducto'];
@@ -147,7 +147,7 @@ class AbmCompraItem{
             $resp = true;
             
         }else{
-            echo "Algo Fallo";
+            //echo "Algo Fallo";
         }
         return $resp;
     }
