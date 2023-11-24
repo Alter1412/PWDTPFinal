@@ -32,24 +32,24 @@ $producto = $busquedaProducto[0];
 
                         <form name="formAgregarProducto" id="formAgregarProducto" method="POST" class="row needs-validation">
                             <div class="col-md-6">
-                                <img class='card-img-top' style='height: 16rem; ' src='<?php echo $producto->getImagenProducto(); ?>' alt="Product Image"><br>
+                                <img class='card-img-top' style='height: 16rem; ' src='<?php echo $producto->getImagenProducto(); ?>' alt="Product Image">
                             </div>
                             <div class="col-md-6">
-                                <label for="idproducto">Codigo Producto:</label> <br>
-                                <input type="text" name="idproducto" id="idproducto" class="w-100" value='<?php echo $producto->getIdProducto(); ?>' readonly><br>
+                                <label for="idproducto">Codigo Producto:</label>
+                                <input type="text" name="idproducto" id="idproducto" class="form-control w-100" value='<?php echo $producto->getIdProducto(); ?>' readonly>
 
-                                <label for="pronombre">Nombre Producto:</label> <br>
-                                <input type="text" id="pronombre" name="pronombre" class="w-100" value='<?php echo $producto->getProNombre(); ?>' readonly> <br>
+                                <label for="pronombre">Nombre Producto:</label>
+                                <input type="text" id="pronombre" name="pronombre" class="form-control w-100" value='<?php echo $producto->getProNombre(); ?>' readonly>
 
-                                <label for="prodetalle">Precio Producto:</label> <br>
-                                <input type="text" id="prodetalle" name="prodetalle" class="w-100" value='<?php echo "$" . $producto->getProDetalle(); ?>' readonly> <br>
+                                <label for="prodetalle">Precio Producto:</label>
+                                <input type="text" id="prodetalle" name="prodetalle" class="form-control w-100" value='<?php echo "$" . $producto->getProDetalle(); ?>' readonly>
 
-                                <label for="cicantidad">Stock:</label> <br>
-                                <input type="text" id="cicantidad" name="cicantidad" class="w-100" value='<?php echo $producto->getProCantstock(); ?>' readonly> <br>
+                                <label for="cicantidad">Stock:</label>
+                                <input type="text" id="cicantidad" name="cicantidad" class="form-control w-100" value='<?php echo $producto->getProCantstock(); ?>' readonly>
 
-                                <div class="contenedor-dato">
-                                    <label for="cantidad">Cantidad a llevar:</label> <br>
-                                    <input type="text" id="cantidad" name="cantidad" class="w-100"> <br>
+                                <div class="contenedor-dato form-group">
+                                    <label for="cantidad">Cantidad a llevar:</label>
+                                    <input type="text" id="cantidad" name="cantidad" class="form-control w-100">
                                 </div>
                                 <input type="submit" class="btn btn-primary mt-3 w-100" value="Agregar al Carrito">
                             </div>
@@ -60,6 +60,7 @@ $producto = $busquedaProducto[0];
         </div>
     </div>
 <script src="../js/validarProductoCarrito.js"></script>
+
 <?php
 include_once("../Estructuras/footer.php");
 ?>

@@ -139,6 +139,33 @@ class AbmProducto
             $resp = true;
         }
         return $resp;
-    } 
+    }
+
+    /**
+     * Esta función recibe un valor que representa una cantidad y un id de producto
+     * y devuelve true si esa cantidad no excede el stock del producto o falso en caso contrario
+     * @param int $cantidad
+     * @param int $idproducto
+     * @return boolean
+     */
+    public function controlarStock($cantidad, $idproducto){
+        $resultado = false;
+        
+        $param['idproducto'] = $idproducto;
+        $producto = new AbmProducto();
+        $colProducto = $producto->buscar($param);
+
+        if(count($colProducto) > 0){
+
+            $producto = $colProducto[0];
+            $stock = $producto->getProCantstock();
+
+            if($cantidad <= $stock){
+
+                $resultado = true;
+            }
+        }
+        return $resultado;
+    }
 
 }
