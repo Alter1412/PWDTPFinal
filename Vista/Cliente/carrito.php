@@ -31,7 +31,7 @@ $listaCompraItem = $objCompraItem->buscar($idUCompra);
     $montoAPagar = 0;
     if (count($listaCompraItem) > 0) {
         echo "<table class='table table-bordered'>";
-        echo '<thead class="thead-dark"><tr><th scope="col">NOMBRE PRODUCTO</th><th scope="col">DETALLE PRODUCTO</th><th scope="col">CANTIDAD</th><th scope="col">OPCIONES</th></tr></thead><tbody>';
+        echo '<thead class="thead-dark"><tr><th scope="col">IMAGEN</th><th scope="col">NOMBRE PRODUCTO</th><th scope="col">DETALLE PRODUCTO</th><th scope="col">CANTIDAD</th><th scope="col">OPCIONES</th></tr></thead><tbody>';
         for ($i = 0; $i < count($listaCompraItem); $i++) {
             $objCompraItem = $listaCompraItem[$i];
             $idProducto['idproducto'] = $objCompraItem->getObjProducto()->getIdProducto();
@@ -39,6 +39,7 @@ $listaCompraItem = $objCompraItem->buscar($idUCompra);
             $producto = $busquedaProducto[0];//objProducto
             $montoAPagar = $montoAPagar + ($producto->getProDetalle() *  $objCompraItem->getCiCantidad());
             echo '<tr>
+              <td><img src=' . $producto->getImagenProducto() . ' width="100px"></td>
               <td>' . $producto->getProNombre() . '</td>
               <td>' . $producto->getProDetalle() . '</td>
               <td>' . $objCompraItem->getCiCantidad() . '</td>
@@ -50,7 +51,16 @@ $listaCompraItem = $objCompraItem->buscar($idUCompra);
         echo '<a href="action/pagoCompra.php?idusuario='.$idUsuario.'" class="btn btn-primary">Comprar</a>';
         
     } else {
-        echo "<p class='alert alert-warning'>No se encontraron productos en el carrito.</p>";
+
+        echo '<div class="container mt-5 mb-5">';
+        echo '<div class="row justify-content-center">';
+        echo '<div class="col-md-6">';
+        echo '<div class="card p-5">';
+        echo "<p class='alert alert-warning'>Aun no tiene productos a su carrito.</p>";
+        echo '</div>';
+        echo '</div>';
+        echo '</div>';
+        echo '</div>';
     }
     ?>
 </div>

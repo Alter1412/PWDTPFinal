@@ -41,9 +41,7 @@ include_once("../Estructuras/navSeguro.php");
                             <label for="imagenproducto">Imagen:</label>
                             <input type="text" class="form-control" name="imagenproducto" id="imagenproducto">
                         </div>
-                        <br>
-
-                        <button type="submit" class="btn btn-primary btn-lg w-100">Crear Producto</button>
+                        <button type="submit" class="btn btn-primary btn-lg w-100 mt-3">Crear Producto</button>
                     </form>
                 </div>
             </div>

@@ -310,11 +310,12 @@ class AbmCompraEstado{
      */
     public function cancelarCompra($param){
         $objEstado = new AbmCompraEstado();
-        $estado = $param[0];
         //modifico el estado inicial colocandole fecha fin
-        $idc=$estado->getObjCompra()->getIdCompra();//id de la compra
+        $idc = $param['idcompra'];//id de la compra
         $resp = false;
-        
+        $colEstado = $objEstado->buscar($idc);
+        verEstructura($colEstado);
+        $estado = $colEstado[0];
         $param['idcompraestado'] = $estado->getIdCompraEstado();
         $param['idcompra'] = $idc;
         $param['idcompraestadotipo'] = $estado->getObjCompraEstadoTipo()->getIdCompraEstadoTipo();
@@ -335,14 +336,14 @@ class AbmCompraEstado{
                 $ItemComprados = new AbmCompraItem();
                 $idCompra['idcompra'] = $idc;
                 $listaItems = $ItemComprados->buscar($idCompra);
-                verEstructura($listaItems);
+                //verEstructura($listaItems);
                 $objProducto = new AbmProducto();
                 //se modifica el stock en a base de datos
                 for ($i = 0; $i < count($listaItems); $i++){
                     $idUnItem['idproducto'] = $listaItems[$i]->getObjProducto()->getIdProducto();//id del item a comprar
                     //echo $idUnItem."<br>";
                     $productoGondola = $objProducto->buscar($idUnItem);
-                    verEstructura($productoGondola);
+                    //verEstructura($productoGondola);
                     $cantLlevar = $listaItems[$i]->getCiCantidad();
                     $stockGondola = $productoGondola[0]->getProCantstock();
                     $nuevoStock = $stockGondola + $cantLlevar;

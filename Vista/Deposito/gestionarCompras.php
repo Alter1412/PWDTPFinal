@@ -64,7 +64,7 @@ include_once("../Estructuras/navSeguro.php");
                 echo '<tr>
                         <td>' . $objCompra->getIdCompra() . '</td>
                         <td>' . $objCompra->getCoFecha() . '</td>
-                        <td>' . $tipoEstado . '</td>
+                        <td> <b>' . $tipoEstado . '</b></td>
                         <td>';
 
                 $objCompraItem = new AbmCompraItem();
@@ -74,6 +74,7 @@ include_once("../Estructuras/navSeguro.php");
                 if (count($listaCompraItem) > 0) {
                     echo '<table class="table table-bordered">
                             <tr>
+                                <th>IMAGEN</th>
                                 <th>NOMBRE PRODUCTO</th>
                                 <th>DETALLE PRODUCTO</th>
                                 <th>CANTIDAD</th>
@@ -86,6 +87,7 @@ include_once("../Estructuras/navSeguro.php");
                         $producto = $busquedaProducto[0];
 
                         echo '<tr>
+                                <td><img src=' . $producto->getImagenProducto() . ' width="100px"></td>
                                 <td>' . $producto->getProNombre() . '</td>
                                 <td> $' . $producto->getProDetalle() . '</td>
                                 <td>' . $objCompraItem->getCiCantidad() . '</td>

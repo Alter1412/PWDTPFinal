@@ -1,14 +1,15 @@
 <?php 
 include_once("../../../configuracion.php");
 $datos = data_submitted();//Recibe idcompraitem 
-verEstructura($datos);
+//verEstructura($datos);
 $objCompraItem = new AbmCompraItem();
 $agregar = $objCompraItem->baja($datos);
 if($agregar){
-    echo "Item Borrado del Carrito";
     header("Location: ../gestionarCompras.php");
+    //echo "Item Borrado del Carrito";
 }else{
-    echo "Algo Fallo";
+    header("Location: ../gestionarCompras.php");
+    //echo "Algo Fallo";
 }
 
 ?>
