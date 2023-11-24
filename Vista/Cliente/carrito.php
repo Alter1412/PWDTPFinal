@@ -9,6 +9,18 @@ $idUsuario = $session->getIdUsuario();
 $objCompra = new AbmCompra();
 $busquedaCompra = $objCompra->buscarCarrito($idUsuario);
 //verEstructura($busquedaCompra);
+
+if($busquedaCompra == null){
+
+$objAbmNuevaCompra = new AbmCompra();
+$paramCompra['idcompra'] = 0;
+$paramCompra['cofecha'] = '0000-00-00 00:00:00';
+$paramCompra['idusuario'] = $idUsuario;
+$objAbmNuevaCompra->alta($paramCompra);
+
+$busquedaCompra = $objAbmNuevaCompra->buscarCarrito($idUsuario);
+}
+
 $compra = $busquedaCompra[0]; 
 //verEstructura($datos);
 $idUCompra ['idcompra'] = $compra->getIdCompra(); 

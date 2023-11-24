@@ -90,9 +90,15 @@ include_once("../Estructuras/navSeguro.php");
                                 <td><img src=' . $producto->getImagenProducto() . ' width="100px"></td>
                                 <td>' . $producto->getProNombre() . '</td>
                                 <td> $' . $producto->getProDetalle() . '</td>
-                                <td>' . $objCompraItem->getCiCantidad() . '</td>
-                                <td><a href="action/eliminarArticuloCompra.php?idcompraitem=' . $objCompraItem->getIdCompraItem() . '" class="btn btn-warning" >Quitar Producto</a></td>
-                              </tr>';
+                                <td>' . $objCompraItem->getCiCantidad() . '</td>';
+                        
+                        if($tipoEstado == "cancelada"){
+                            echo '<td>Sin Acción</td>';
+                        } else {
+                            echo '<td><a href="action/eliminarArticuloCompra.php?idcompraitem=' . $objCompraItem->getIdCompraItem() . '" class="btn btn-warning" >Quitar Producto</a></td>';
+                        }
+                                
+                        echo'</tr>';
                     }
                     echo '</table>';
                 }
@@ -102,7 +108,7 @@ include_once("../Estructuras/navSeguro.php");
                 
                 if ($tipoEstado == 'iniciada') {
                     echo '<div class="d-block"> <a href="action/aceptarCompra.php?idcompra=' . $objCompra->getIdCompra() . '" class="btn btn-success"  mr-2 >Aceptar Compra</a> 
-                          <a href="action/cancelarCompra.php?idcompra=' . $objCompra->getIdCompra() . '" class="btn btn-primary" >Cancelar Compra</a> </div>';
+                          <a href="action/cancelarCompra.php?idcompra=' . $objCompra->getIdCompra() . '" class="btn btn-danger" >Cancelar Compra</a> </div>';
                 } elseif ($tipoEstado == 'aceptada') {
                     echo '<div class="d-block"> <a href="action/enviarCompra.php?idcompra=' . $objCompra->getIdCompra() . '" class="btn btn-success"  mr-2 >Enviar Compra</a> 
                           <a href="action/cancelarCompra.php?idcompra=' . $objCompra->getIdCompra() . '" class="btn btn-danger" >Cancelar Compra</a> </div>';
