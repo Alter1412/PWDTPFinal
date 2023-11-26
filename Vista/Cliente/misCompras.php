@@ -12,7 +12,7 @@ include_once("../Estructuras/navSeguro.php");
  */
 ?>
 
-<div class="container mt-4">
+<div class="container mt-4 mb-4">
     <?php
 
     // recibe el id de usuario
@@ -24,7 +24,7 @@ include_once("../Estructuras/navSeguro.php");
     if (count($listaCompra) > 1) {
 
         echo "<table class='table table-bordered'>";
-        echo '<thead class="thead-dark"><tr><th>ID DE COMPRA</th><th>FECHA</th><th>ESTADO DE COMPRA</th><th>ITEMS</th><th>CANCELAR</th></tr></thead>';
+        echo '<thead class="thead-dark"><tr><th>ID DE COMPRA</th><th>FECHA</th><th>ESTADO DE COMPRA</th><th>ITEMS</th><th>PROGRESO</th></tr></thead>';
         echo '<tbody>';
 
         for ($i = 0; $i < count($listaCompra); $i++) {
@@ -47,10 +47,23 @@ include_once("../Estructuras/navSeguro.php");
                 }
 
                 echo '<tr>
-                        <td>' . $objCompra->getIdCompra() . '</td>
-                        <td>' . $objCompra->getCoFecha() . '</td>
-                        <td><b>' . $tipoEstado . '</b></td>
-                        <td>';
+                <td> <div class="textoIdCompra text-center">' . $objCompra->getIdCompra() . '</div></td>
+                <td>' . $objCompra->getCoFecha() . '</td>';
+                if ($tipoEstado == "iniciada"){
+                    echo '<td> <div class="fondoAmarillo text-center">' . "Iniciada" . '</div></td>';
+
+                } else if ($tipoEstado == "aceptada"){
+                    echo '<td> <div class="fondoAzul text-center">' . "Aceptada" . '</div></td>';
+
+                } else if ($tipoEstado == "enviada"){
+                    echo '<td> <div class="fondoVerde text-center">' . "Enviada" . '</div></td>';
+
+                } else {
+                    echo '<td> <div class="fondoRojo text-center">' . "Cancelada" . '</div></td>';
+
+                }
+                
+                echo '<td>';
 
                 $objCompraItem = new AbmCompraItem();
                 $objProducto = new AbmProducto();
@@ -58,7 +71,7 @@ include_once("../Estructuras/navSeguro.php");
 
                 if (count($listaCompraItem) > 0) {
                     echo "<table class='table table-bordered'>";
-                    echo '<tr><td>IMAGEN</td><td>NOMBRE PRODUCTO</td><td>DETALLE PRODUCTO</td><td>CANTIDAD</td></tr>';
+                    echo '<tr><td>IMAGEN</td><td>NOMBRE PRODUCTO</td><td>PRECIO POR UNIDAD</td><td>CANTIDAD</td></tr>';
 
                     for ($p = 0; $p < count($listaCompraItem); $p++) {
                         $objCompraItem = $listaCompraItem[$p];
@@ -67,7 +80,7 @@ include_once("../Estructuras/navSeguro.php");
                         $producto = $busquedaProducto[0];
 
                         echo '<tr>
-                                <td><img src=' . $producto->getImagenProducto() . ' width="100px"></td>
+                                <td><img src=' . $producto->getImagenProducto() . ' width="60px"></td>
                                 <td>' . $producto->getProNombre() . '</td>
                                 <td>' . $producto->getProDetalle() . '</td>
                                 <td>' . $objCompraItem->getCiCantidad() . '</td>
@@ -79,20 +92,38 @@ include_once("../Estructuras/navSeguro.php");
                 if($tipoEstado == 'iniciada'){
                     echo '</td>
                             <td>
-                                <a href="action/cancelarCompra.php?idcompra=' . $objCompra->getIdCompra() . '" class="btn btn-danger">Cancelar Compra</a>
+                                <a href="action/cancelarCompra.php?idcompra=' . $objCompra->getIdCompra() . '" class="btn btn-danger w-100">Cancelar Compra</a>
+                            </td>
+                        </tr>';
+                } else if($tipoEstado == 'aceptada'){
+                    echo '</td>
+                            <td>
+                                La compra está siendo preparada
+                            </td>
+                        </tr>';
+                } else if($tipoEstado == 'enviada'){
+                    echo '</td>
+                            <td>
+                                La compra ha sido enviada
+                            </td>
+                        </tr>';
+                } else {
+                    echo '</td>
+                            <td>
+                                La compra ha sido cancelada
                             </td>
                         </tr>';
                 }
             }
         }
-        echo '</tbody></table><br><br><br>';
+        echo '</tbody></table>';
 
     } else {
         echo '<div class="container mt-5 mb-5">';
         echo '<div class="row justify-content-center">';
         echo '<div class="col-md-6">';
         echo '<div class="card p-5">';
-        echo "<p class='alert alert-warning'>Historial de compras vacío.</p>";
+        echo '<div class="alert alert-warning" role="alert">Historial de compras vacío.</div>';
         echo '</div>';
         echo '</div>';
         echo '</div>';

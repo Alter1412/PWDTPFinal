@@ -3,7 +3,7 @@ include_once("../../configuracion.php");
 
 $session = new Session();
 
-//Valido logueo correcto y ademas que tenga permiso(rol)
+//Verifico si hay una cuenta activa
 if ($session->validar()) {
     $rol = $session->getIdRol();
 } else {

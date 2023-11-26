@@ -145,7 +145,6 @@ class Session {
     /**
      * Retorna un string con el nombre de la carpeta padre de la dirección de menú
      * que se encuentra abierta
-     * 
      * @return string
      */
     public function getDireccionMenu(){
@@ -159,7 +158,6 @@ class Session {
     /**
      * Retorna un string con el nombre de la carpeta padre de la dirección de menú
      * que se encuentra abierta
-     * 
      * @return string
      */
     public function getDireccionPadreMenu(){

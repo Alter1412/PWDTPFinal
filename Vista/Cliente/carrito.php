@@ -42,7 +42,7 @@ $listaCompraItem = $objCompraItem->buscar($idUCompra);
     $montoAPagar = 0;
     if (count($listaCompraItem) > 0) {
         echo "<table class='table table-bordered'>";
-        echo '<thead class="thead-dark"><tr><th scope="col">IMAGEN</th><th scope="col">NOMBRE PRODUCTO</th><th scope="col">DETALLE PRODUCTO</th><th scope="col">CANTIDAD</th><th scope="col">OPCIONES</th></tr></thead><tbody>';
+        echo '<thead class="thead-dark"><tr><th scope="col">IMAGEN</th><th scope="col">NOMBRE PRODUCTO</th><th scope="col">CANTIDAD</th><th scope="col">PRECIO POR UNIDAD</th><th scope="col">OPCIONES</th></tr></thead><tbody>';
         for ($i = 0; $i < count($listaCompraItem); $i++) {
             $objCompraItem = $listaCompraItem[$i];
             $idProducto['idproducto'] = $objCompraItem->getObjProducto()->getIdProducto();
@@ -52,15 +52,15 @@ $listaCompraItem = $objCompraItem->buscar($idUCompra);
             echo '<tr>
               <td><img src=' . $producto->getImagenProducto() . ' width="100px"></td>
               <td>' . $producto->getProNombre() . '</td>
-              <td>' . $producto->getProDetalle() . '</td>
               <td>' . $objCompraItem->getCiCantidad() . '</td>
-              <td><a href="action/quitarProductoCarrito.php?idcompraitem=' . $objCompraItem->getIdCompraItem() . '" class="btn btn-danger">Quitar Producto</a></td>
+              <td>' . $producto->getProDetalle() . '</td>
+              <td><a href="action/quitarProductoCarrito.php?idcompraitem=' . $objCompraItem->getIdCompraItem() . '" class="btn btn-danger w-100">Quitar Producto</a></td>
               </tr>';
         }
-        echo "Monto a Pagar: $".$montoAPagar."<br>";
+        echo '<tr><td colspan="3"></td>';
+        echo "<td colspan='1'>TOTAL: $".$montoAPagar."</td>";
+        echo '<td colspan="1"><a href="action/pagoCompra.php?idusuario='.$idUsuario.'" class="btn btn-primary w-100">REALIZAR COMPRA</a></td></tr>';
         echo "</tbody></table><br><br>";
-        echo '<a href="action/pagoCompra.php?idusuario='.$idUsuario.'" class="btn btn-primary">Comprar</a>';
-        
     } else {
 
         echo '<div class="container mt-5 mb-5">';

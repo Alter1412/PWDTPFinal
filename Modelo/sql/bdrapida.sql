@@ -101,45 +101,45 @@ ALTER TABLE `producto`
 
 -- Volcado de datos para la tabla producto
 INSERT INTO producto (idproducto, pronombre, prodetalle, procantstock, tipo, imagenproducto) VALUES
-(01,'Mate Termico Argentina','4900', 10,"Mates","../img/Fotos/mates/mate1.png"),
-(02,'Mate Pampa Negro Afa','17999', 10,"Mates","../img//Fotos/mates/mate2.png"),
-(03,'Mate De Madera Imperial','19800', 10,"Mates","../img//Fotos/mates/mate3.png"),
+(01,'Mate Termico Argentina','4900', 10,"Mates","../img/Productos/mates/mate1.png"),
+(02,'Mate Pampa Negro Afa','17999', 10,"Mates","../img/Productos/mates/mate2.png"),
+(03,'Mate De Madera Imperial','19800', 10,"Mates","../img/Productos/mates/mate3.png"),
 /*yerbas*/
-(04,'Yerba Mate De Campo La Merced','1665', 100,"Yerbas","../img/Fotos/yerbas/yerba1.png"),
-(05,'Yerba mate Canarias sabor tradicional','4222', 100,"Yerbas","../img/Fotos/yerbas/yerba2.png"),
-(06,'Yerba Mate Grapia Milenaria','2700', 100,"Yerbas","../img/Fotos/yerbas/yerba3.png"),
+(04,'Yerba Mate De Campo La Merced','1665', 100,"Yerbas","../img/Productos/yerbas/yerba1.png"),
+(05,'Yerba mate Canarias sabor tradicional','4222', 100,"Yerbas","../img/Productos/yerbas/yerba2.png"),
+(06,'Yerba Mate Grapia Milenaria','2700', 100,"Yerbas","../img/Productos/yerbas/yerba3.png"),
 /*bombillas*/
-(08,'Bombilla Mate Pico De Loro Uruguaya Gruesa Original','3.299', 110,"Bombillas","../img/Fotos/bombillas/bombilla1.png"),
-(09,'Bombilla Acero Inoxidable - Un Mate No Se Tapa','3.997', 110,"Bombillas","../img/Fotos/bombillas/bombilla2.png"),
-(10,'Bombillon Torneado De Acero Inoxidable','7.600', 80,"Bombillas","../img/Fotos/bombillas/bombilla3.png"),
+(08,'Bombilla Mate Pico De Loro Uruguaya Gruesa Original','3.299', 110,"Bombillas","../img/Productos/bombillas/bombilla1.png"),
+(09,'Bombilla Acero Inoxidable - Un Mate No Se Tapa','3.997', 110,"Bombillas","../img/Productos/bombillas/bombilla2.png"),
+(10,'Bombillon Torneado De Acero Inoxidable','7.600', 80,"Bombillas","../img/Productos/bombillas/bombilla3.png"),
 /*termoss*/
-(11,'Termo Kushiro 1200ml Manija Y Pico Cebador 24hs Doble Capa Color Gris','22.499', 50,"Termos","../img/Fotos/termos/Termo1.png"),
-(12,'Termo Stanley Original Mate System Classic 1.2 Litros','95.863', 50,"Termos","../img/Fotos/termos/Termo2.png"),
-(13,'Termo Acero Inoxidable Discovery Antiderrame 500 Ml Color Azul','12.900', 60,"Termos","../img/Fotos/termos/Termo3.png"),
+(11,'Termo Kushiro 1200ml Manija Y Pico Cebador 24hs Doble Capa Color Gris','22.499', 50,"Termos","../img/Productos/termos/Termo1.png"),
+(12,'Termo Stanley Original Mate System Classic 1.2 Litros','95.863', 50,"Termos","../img/Productos/termos/Termo2.png"),
+(13,'Termo Acero Inoxidable Discovery Antiderrame 500 Ml Color Azul','12.900', 60,"Termos","../img/Productos/termos/Termo3.png"),
 /*Sets*/
-(14,'Set Matero Completo Termo Stanley Mate Calabaza Y Cuero','180.199', 100,"SETS","../img/Fotos/sets/set1.png"),
-(15,'Set Matero Canasta + Mate + Bombilla + Yerbero + Azucarero','18.242', 100,"SETS","../img/Fotos/sets/set2.png"),
-(16,'Set Matero Mate Térmico Acero Inox Sumate Latas Y Canasta','12.927', 100,"SETS","../img/Fotos/sets/set3.png"),
+(14,'Set Matero Completo Termo Stanley Mate Calabaza Y Cuero','180.199', 100,"SETS","../img/Productos/sets/set1.png"),
+(15,'Set Matero Canasta + Mate + Bombilla + Yerbero + Azucarero','18.242', 100,"SETS","../img/Productos/sets/set2.png"),
+(16,'Set Matero Mate Térmico Acero Inox Sumate Latas Y Canasta','12.927', 100,"SETS","../img/Productos/sets/set3.png"),
 /*Mas mates*/
-(17,'mate basico madera','5000',5,"Mates","../img/Fotos/mates/mate4.png"),
-(18,'mate de aluminio','4000',8,"Mates","../img/Fotos/mates/mate5.png"),
-(19,'mate de plastico terere','3500',10,"Mates","../img/Fotos/mates/mate6.png"),
+(17,'Mate basico madera','5000',5,"Mates","../img/Productos/mates/mate4.png"),
+(18,'Mate de aluminio','4000',8,"Mates","../img/Productos/mates/mate5.png"),
+(19,'Mate de plastico terere','3500',10,"Mates","../img/Productos/mates/mate6.png"),
 /*Mas yerbas*/
-(20,'Yerba Mate Playadito','2000',10,"Yerbas","../img/Fotos/yerbas/yerba4.png"),
-(21,'Yerba mate Amanda','3000', 5,"Yerbas","../img/Fotos/yerbas/yerba5.png"),
-(22,'Yerba Mate VerdeFlor','4000', 20,"Yerbas","../img/Fotos/yerbas/yerba6.png"),
+(20,'Yerba Mate Playadito','2000',10,"Yerbas","../img/Productos/yerbas/yerba4.png"),
+(21,'Yerba mate Amanda','3000', 5,"Yerbas","../img/Productos/yerbas/yerba5.png"),
+(22,'Yerba Mate VerdeFlor','4000', 20,"Yerbas","../img/Productos/yerbas/yerba6.png"),
 /*Mas Bombillas*/
-(23,'Bombilla Mate Pico De Loro Sincelada','3.500', 100,"Bombillas","../img/Fotos/bombillas/bombilla4.png"),
-(24,'Bombilla Stanley Acero Inoxidable','3.000', 50,"Bombillas","../img/Fotos/bombillas/bombilla5.png"),
-(25,'Bombillon De Acero Inoxidable','8.000', 80,"Bombillas","../img/Fotos/bombillas/bombilla6.png"),
+(23,'Bombilla Mate Pico De Loro Sincelada','3.500', 100,"Bombillas","../img/Productos/bombillas/bombilla4.png"),
+(24,'Bombilla Stanley Acero Inoxidable','3.000', 50,"Bombillas","../img/Productos/bombillas/bombilla5.png"),
+(25,'Bombillon De Acero Inoxidable','8.000', 80,"Bombillas","../img/Productos/bombillas/bombilla6.png"),
 /*Mas Termos*/
-(26,'Termo Media Manija Y Pico Cebador 24hs Color Gris','20.000', 50,"Termos","../img/Fotos/termos/Termo4.png"),
-(27,'Termo 1lt Termolar Color Rosa','18.000', 30,"Termos","../img/Fotos/termos/Termo5.png"),
-(28,'Termo Acero Inoxidable BOCA','30.000', 60,"Termos","../img/Fotos/termos/Termo6.png"),
+(26,'Termo Media Manija Y Pico Cebador 24hs Color Gris','20.000', 50,"Termos","../img/Productos/termos/Termo4.png"),
+(27,'Termo 1lt Termolar Color Rosa','18.000', 30,"Termos","../img/Productos/termos/Termo5.png"),
+(28,'Termo Acero Inoxidable BOCA','30.000', 60,"Termos","../img/Productos/termos/Termo6.png"),
 /*Mas sets*/
-(29,'Set Matero Bostero 0 DESCENSOS','26.000', 11,"SETS","../img/Fotos/sets/set4.png"),
-(30,'Set Matero Campero Completo','19.600', 20,"SETS","../img/Fotos/sets/set5.png"),
-(31,'Set Matero Campeones Del Mundo ','18.120', 50,"SETS","../img/Fotos/sets/set6.png");
+(29,'Set Matero Bostero 0 DESCENSOS','26.000', 11,"SETS","../img/Productos/sets/set4.png"),
+(30,'Set Matero Campero Completo','19.600', 20,"SETS","../img/Productos/sets/set5.png"),
+(31,'Set Matero Campeones Del Mundo ','18.120', 50,"SETS","../img/Productos/sets/set6.png");
 
 -- ----------------------------------------------------------------------------------
 --
@@ -377,6 +377,7 @@ ALTER TABLE `menurol`
 -- Volcado de datos para la tabla menurol
 INSERT INTO menurol (idmenu, idrol) VALUES
 
+(11, 1), -- Admin - Inicio (Home)
 (21, 1), -- Admin - Crear Usuarios
 (22, 1), -- Admin - Gestionar Usuarios
 (23, 1), -- Admin - Gestionar Roles
@@ -385,11 +386,13 @@ INSERT INTO menurol (idmenu, idrol) VALUES
 (26, 1), -- Admin - Actualizar Usuario
 (27, 1), -- Admin - Crear Rol
 
+(11, 2), -- Deposito - Inicio (Home)
 (31, 2), -- Deposito - Crear Productos
 (32, 2), -- Deposito - Gestionar Productos
 (33, 2), -- Deposito - Gestionar Compras
 (34, 2), -- Deposito - Modificar productos
 
+(11, 3), -- Cliente - Inicio (Home)
 (41, 3), -- Cliente - Productos
 (42, 3), -- Cliente - Mis Compras
 (43, 3), -- Cliente - Carrito
@@ -434,3 +437,12 @@ INSERT INTO usuariorol (idusuario, idrol) VALUES
 (9,3); -- Cliente (AdminTotal/1234)
 
 -- ----------------------------------------------------------------------------------
+
+-- INFO datos truncados al ingresar fecha '0000-00-00 00:00:00' para timestamp
+
+-- TIMESTAMP: Tiene un rango más limitado en comparación con DATETIME.
+-- En MySQL, TIMESTAMP tiene un rango de '1970-01-01 00:00:01' UTC a '2038-01-19 03:14:07' UTC.
+-- Esto se debe a que TIMESTAMP se almacena en un formato de timestamp de 32 bits.
+
+-- DATETIME: Tiene un rango mucho más amplio, desde '1000-01-01 00:00:00' 
+-- hasta '9999-12-31 23:59:59'. Se almacena en un formato de 64 bits.

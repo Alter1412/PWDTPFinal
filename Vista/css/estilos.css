@@ -1,14 +1,104 @@
-/*-------------------------------------------- BODY ------------------------------------------------*/
-/*body {
-    background-color:darkgrey;
-}*/
+/*-------------------------------------- FUENTES ---------------------------------------------*/
+@font-face {
+    font-family: 'playballregular';
+    src: url('../fonts/Playball/playball-regular-webfont.woff2') format('woff2'),
+         url('../fonts/Playball/playball-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 
+@font-face {
+    font-family: 'montserratthin';
+    src: url('../fonts/Montserrat/montserrat-variablefont_wght-webfont.woff2') format('woff2'),
+         url('../fonts/Montserrat/montserrat-variablefont_wght-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'robotolight';
+    src: url('../fonts/Roboto/roboto-light-webfont.woff2') format('woff2'),
+         url('../fonts/Roboto/roboto-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'robotobold';
+    src: url('roboto-bold-webfont.woff2') format('woff2'),
+         url('roboto-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*-------------------------------------- BODY ------------------------------------------------*/
 body {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.226),
-            rgba(0, 0, 0, 0.7)),
-        url(../img/Imagenes/fondo.png);
-    background-position: center bottom;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.226), rgba(0, 0, 0, 0.8)),
+    url(../img/ContenidoSitio/fondo2.jpg);
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+
+  font-family: 'robotolight', sans-serif;
+  font-weight:900;
+}
+
+/*-------------------------------------- FUENTE EN SITIO -------------------------------------*/
+a.dropdown-item, .card-title, .form-control, .btn {
+    font-weight: 900;
+}
+
+/*-------------------------------------- ESTILO ICONOS ---------------------------------------*/
+.color_icon_1 {
+  font-size: 2em;
+  background: linear-gradient(to right, rgb(5, 65, 32), rgb(55, 92, 4));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/*-------------------------------------- ESTILOS VARIOS --------------------------------------*/
+th {
+    font-family: 'robotoboldt', sans-serif;
+    font-weight: 900;
+}
+
+input[type="radio"] {
+    border-width: 2px; /* Puedes ajustar este valor según tus preferencias */
+    border-color: rgb(160, 148, 148);
+}
+
+td {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.botonesGestionUsuarios{
+    display:flex;
+}
+
+.fondoAmarillo, .fondoAzul, .fondoVerde, .fondoRojo, .textoIdCompra {
+    font-family: 'robotoboldt', sans-serif;
+    border-radius: 5px;
+}
+
+.fondoAmarillo {
+    background-color:rgb(228, 225, 140);
+}
+
+.fondoAzul {
+    background-color:rgb(140, 190, 228);
+}
+
+.fondoVerde {
+    background-color:rgb(140, 228, 158);
+}
+
+.fondoRojo {
+    background-color:rgb(228, 147, 140);
+}
+
+.textoIdCompra {
+    background-color:rgb(220, 220, 220);
 }

@@ -6,37 +6,6 @@ include_once("../Estructuras/banner.php");
 include_once("../Estructuras/navInseguro.php");
 ?>
 
-<!-- ________________________________________ PRUEBA TABLA _____________________________________ -->
-<div class="container">
-    <?php
-    /*$objAbmProducto = new AbmProducto();
-    $listaProductos = $objAbmProducto->buscar(null);
-
-    if( count($listaProductos)>0){
-        echo "<table border='1'>";//por el momento no muestro la password, no tiene sentido
-        echo '<tr><td>NOMBRE PRODUCTO</td><td>DETALLE PRODUCTO</td><td>STOCK</td><td>OPCIONES</td></tr>';
-        for($i=0;$i<count($listaProductos);$i++) {
-            $objProducto = $listaProductos[$i];
-            //verEstructura($objProducto);
-        
-        echo '<tr>
-                <td>'.$objProducto->getProNombre().'</td>
-                <td>'.$objProducto->getProDetalle().'</td>
-                <td>'.$objProducto->getProCantstock().'</td>
-                <td><a href="agregarProductoAlCarrito.php?idproducto='.$objProducto->getIdProducto().'">Agregar al carrito</a> 
-        </td>
-                </tr>';
-        }
-        echo "</table><br><br><br>";
-        //echo "<a href='crearCliente.php'>Crear Usuario Nuevo</a>";
-        
-    }else{
-        echo "No se encontraron Productos";
-    }
-    */?>
-</div>
-<!-- ________________________________________ FIN PRUEBA TABLA _________________________________ -->
-
 <!-- ________________________________________ INICIO CONTENIDO _________________________________ -->
 <div class="container">
     <?php

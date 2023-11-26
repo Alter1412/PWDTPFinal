@@ -1,26 +1,62 @@
 
 <!-- ________________________________________ BANNER ___________________________________________ -->
 <style>
-    /* Estilo adicional para la imagen de fondo */
-    .jumbotron {
-        background-image: url('https://cdn.pixabay.com/photo/2015/11/19/08/52/banner-1050629_1280.jpg');
-        background-size: cover;
-        color: white;
-        /* Cambia el color del texto según sea necesario para que sea legible sobre la imagen */
 
-        height: 200px;
+    /*-------------------------------------- FUENTES ---------------------------------------------*/
+    @font-face {
+    font-family: 'playballregular';
+    src: url('../fonts/Playball/playball-regular-webfont.woff2') format('woff2'),
+         url('../fonts/Playball/playball-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    }
+
+    @font-face {
+    font-family: 'montserratthin';
+    src: url('../fonts/Montserrat/montserrat-variablefont_wght-webfont.woff2') format('woff2'),
+         url('../fonts/Montserrat/montserrat-variablefont_wght-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    }
+
+    @font-face {
+    font-family: 'robotolight';
+    src: url('../fonts/Roboto/roboto-light-webfont.woff2') format('woff2'),
+         url('../fonts/Roboto/roboto-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    }
+
+    /*-------------------------------------- ESTILO h1 -------------------------------------------*/
+    .display-4 {
+        font-family: 'playballregular', sans-serif;
+        font-size: 6em;
+    }
+
+    /*-------------------------------------- ESTILO p --------------------------------------------*/
+    .lead {
+        font-family: 'robotolight', sans-serif;
+        font-weight: bold;
+        font-size: 1.3em;
+    }
+
+    /*-------------------------------------- ESTILO BANNER ---------------------------------------*/
+    .jumbotron {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.226), rgba(0, 0, 0, 0.1)),
+            url('../img/Banners/Banner2.jpg');
+        background-size: cover;
+        color: white; /*Color del texto dentro del banner*/
+        height: 300px; /*Alto del banner*/
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
     }
-    .lead {
-        margin-bottom: 0;
-    }
+
 </style>
 
 <div class="jumbotron text-center mx-auto">
-    <h1 class="display-4">TECNO-MATES</h1>
+    <h1 class="display-4">Tecno-Mates</h1>
     <p class="lead">Explora una experiencia única de mate en nuestra tienda: calidad, sabor y momentos inolvidables</p>
 </div>
 <!-- ________________________________________ FIN BANNER _______________________________________ -->

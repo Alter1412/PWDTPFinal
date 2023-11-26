@@ -20,23 +20,6 @@ $direccionPadre = $session->getDireccionPadreMenu();
             <ul class="navbar-nav ml-auto">
             <?php
 
-            if ($direccionMenu == "home.php"){
-                echo '<li class="nav-item active nav-underline">';
-                echo '  <a class="nav-link active " aria-current="page" href="#">Inicio</a>';
-                echo '</li>';
-            } else {
-                if ($direccionPadre == "Home"){
-                    echo '<li class="nav-item">';
-                    echo '  <a class="nav-link" href="home.php">Inicio</a>';
-                    echo '</li>';
-                } else {
-                    echo '<li class="nav-item">';
-                    echo '  <a class="nav-link" href="../Home/home.php">Inicio</a>';
-                    echo '</li>';
-                }
-
-            }
-
             if(count($colMenu) != 0){
 
                 for ($i=0; $i < count($colMenu); $i++){
@@ -64,24 +47,22 @@ $direccionPadre = $session->getDireccionPadreMenu();
                                 echo '  <a class="nav-link" href='.$medescripcionpadre.$medescripcion.'>'.$menombre.'</a>';
                                 echo '</li>';
                             }
-            
                         }
                     }
-    
                 }
-
             }
 
             ?>
                 <div class="ml-auto">
-
                     <?php
                     if ($direccionPadre == "opcionesDeCuenta"){
+                        //Caso para página actual (current)
                         echo '<div class="nav-item dropdown active nav-underline">';
                         echo '<a class="nav-link dropdown-toggle active nav-underline" href="#" id="nombreUsuarioActivo" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">';
                         echo $nombreUsuario;
                         echo '</a>';
                     } else {
+                        //Caso para otra página (no current)
                         echo '<div class="nav-item dropdown">';
                         echo '<a class="nav-link dropdown-toggle" href="#" id="nombreUsuarioActivo" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">';
                         echo $nombreUsuario;
