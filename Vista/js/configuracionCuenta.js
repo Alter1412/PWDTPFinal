@@ -1,39 +1,3 @@
-function actualizarDatosUsuario(){
-
-    /*var nombreUsuarioElem = document.getElementById("nombreUsuario");
-    var mailUsuarioElem = document.getElementById("mailUsuario");
-    console.log("Estoy en la función");
-
-    $.ajax({ 
-        url: "action/actualizarDatosUsuario.php",
-        type: "POST",
-        dataType: "json",
-        //data: formData,
-        async: false,
-
-        complete: function(xhr, textStatus) {
-            //se llama cuando se recibe la respuesta (no importa si es error o éxito)
-            console.log("La respuesta regreso");
-        },
-        success: function(respuesta, textStatus, xhr) {
-            //se llama cuando tiene éxito la respuesta
-            if (respuesta.resultado == "exito"){
-                nombreUsuarioElem.innerHTML = respuesta.usnombre;
-                mailUsuarioElem.innerHTML = respuesta.usmail;
-
-            } else {
-                console.log(respuesta.resultado + ", " + respuesta.mensaje);                
-            }
-
-        },
-        error: function(xhr, textStatus, errorThrown) {
-            //called when there is an error
-            console.error("Error en la solicitud Ajax: " + textStatus + " - " + errorThrown);
-            console.error(xhr.responseText);
-        }
-    });*/
-}
-
 $(document).ready(function () {
 
     $("#realizarCambios").on("click", function(event) {

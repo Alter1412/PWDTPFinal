@@ -12,14 +12,6 @@
     }
 
     @font-face {
-    font-family: 'montserratthin';
-    src: url('../fonts/Montserrat/montserrat-variablefont_wght-webfont.woff2') format('woff2'),
-         url('../fonts/Montserrat/montserrat-variablefont_wght-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-    }
-
-    @font-face {
     font-family: 'robotolight';
     src: url('../fonts/Roboto/roboto-light-webfont.woff2') format('woff2'),
          url('../fonts/Roboto/roboto-light-webfont.woff') format('woff');
@@ -42,8 +34,8 @@
 
     /*-------------------------------------- ESTILO BANNER ---------------------------------------*/
     .jumbotron {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.226), rgba(0, 0, 0, 0.1)),
-            url('../img/Banners/Banner2.jpg');
+        background-image: linear-gradient(rgba(0, 0, 0, 0.226), rgba(0, 0, 0, 0.2)),
+            url('../img/Banners/Banner10.jpg');
         background-size: cover;
         color: white; /*Color del texto dentro del banner*/
         height: 300px; /*Alto del banner*/

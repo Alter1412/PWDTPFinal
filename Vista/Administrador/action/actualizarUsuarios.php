@@ -11,7 +11,8 @@ $objUsuario = new AbmUsuario();
     if($exito){
         header('Location:../gestionarUsuarios.php');
     }else{
-        echo "Algo fallo";
+        //echo "Algo fallo";
+        header('Location:../gestionarUsuarios.php');
     }
 //}else{
     //echo "existe usuario";
