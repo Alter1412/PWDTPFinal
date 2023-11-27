@@ -8,10 +8,8 @@ $objProducto = new AbmProducto();
  $exito = $objProducto->modificar($datos);
 if($exito){
     header("Location: ../gestionarProductos.php");
-    //echo "Producto modificado";
 }else{
     header("Location: ../gestionarProductos.php");
-    //echo "Algo fallo";
 }
 
 ?>

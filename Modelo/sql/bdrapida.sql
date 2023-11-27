@@ -109,17 +109,17 @@ INSERT INTO producto (idproducto, pronombre, prodetalle, procantstock, tipo, ima
 (05,'Yerba mate Canarias sabor tradicional','4222', 100,"Yerbas","../img/Productos/yerbas/yerba2.png"),
 (06,'Yerba Mate Grapia Milenaria','2700', 100,"Yerbas","../img/Productos/yerbas/yerba3.png"),
 /*bombillas*/
-(08,'Bombilla Mate Pico De Loro Uruguaya Gruesa Original','3.299', 110,"Bombillas","../img/Productos/bombillas/bombilla1.png"),
-(09,'Bombilla Acero Inoxidable - Un Mate No Se Tapa','3.997', 110,"Bombillas","../img/Productos/bombillas/bombilla2.png"),
-(10,'Bombillon Torneado De Acero Inoxidable','7.600', 80,"Bombillas","../img/Productos/bombillas/bombilla3.png"),
+(08,'Bombilla Mate Pico De Loro Uruguaya Gruesa Original','3299', 110,"Bombillas","../img/Productos/bombillas/bombilla1.png"),
+(09,'Bombilla Acero Inoxidable - Un Mate No Se Tapa','3997', 110,"Bombillas","../img/Productos/bombillas/bombilla2.png"),
+(10,'Bombillon Torneado De Acero Inoxidable','7600', 80,"Bombillas","../img/Productos/bombillas/bombilla3.png"),
 /*termoss*/
-(11,'Termo Kushiro 1200ml Manija Y Pico Cebador 24hs Doble Capa Color Gris','22.499', 50,"Termos","../img/Productos/termos/Termo1.png"),
-(12,'Termo Stanley Original Mate System Classic 1.2 Litros','95.863', 50,"Termos","../img/Productos/termos/Termo2.png"),
-(13,'Termo Acero Inoxidable Discovery Antiderrame 500 Ml Color Azul','12.900', 60,"Termos","../img/Productos/termos/Termo3.png"),
+(11,'Termo Kushiro 1200ml Manija Y Pico Cebador 24hs Doble Capa Color Gris','22499', 50,"Termos","../img/Productos/termos/Termo1.png"),
+(12,'Termo Stanley Original Mate System Classic 1.2 Litros','95863', 50,"Termos","../img/Productos/termos/Termo2.png"),
+(13,'Termo Acero Inoxidable Discovery Antiderrame 500 Ml Color Azul','12900', 60,"Termos","../img/Productos/termos/Termo3.png"),
 /*Sets*/
-(14,'Set Matero Completo Termo Stanley Mate Calabaza Y Cuero','180.199', 100,"SETS","../img/Productos/sets/set1.png"),
-(15,'Set Matero Canasta + Mate + Bombilla + Yerbero + Azucarero','18.242', 100,"SETS","../img/Productos/sets/set2.png"),
-(16,'Set Matero Mate Térmico Acero Inox Sumate Latas Y Canasta','12.927', 100,"SETS","../img/Productos/sets/set3.png"),
+(14,'Set Matero Completo Termo Stanley Mate Calabaza Y Cuero','180199', 100,"SETS","../img/Productos/sets/set1.png"),
+(15,'Set Matero Canasta + Mate + Bombilla + Yerbero + Azucarero','18242', 100,"SETS","../img/Productos/sets/set2.png"),
+(16,'Set Matero Mate Térmico Acero Inox Sumate Latas Y Canasta','12927', 100,"SETS","../img/Productos/sets/set3.png"),
 /*Mas mates*/
 (17,'Mate basico madera','5000',5,"Mates","../img/Productos/mates/mate4.png"),
 (18,'Mate de aluminio','4000',8,"Mates","../img/Productos/mates/mate5.png"),
@@ -129,17 +129,17 @@ INSERT INTO producto (idproducto, pronombre, prodetalle, procantstock, tipo, ima
 (21,'Yerba mate Amanda','3000', 5,"Yerbas","../img/Productos/yerbas/yerba5.png"),
 (22,'Yerba Mate VerdeFlor','4000', 20,"Yerbas","../img/Productos/yerbas/yerba6.png"),
 /*Mas Bombillas*/
-(23,'Bombilla Mate Pico De Loro Sincelada','3.500', 100,"Bombillas","../img/Productos/bombillas/bombilla4.png"),
-(24,'Bombilla Stanley Acero Inoxidable','3.000', 50,"Bombillas","../img/Productos/bombillas/bombilla5.png"),
-(25,'Bombillon De Acero Inoxidable','8.000', 80,"Bombillas","../img/Productos/bombillas/bombilla6.png"),
+(23,'Bombilla Mate Pico De Loro Sincelada','3500', 100,"Bombillas","../img/Productos/bombillas/bombilla4.png"),
+(24,'Bombilla Stanley Acero Inoxidable','3000', 50,"Bombillas","../img/Productos/bombillas/bombilla5.png"),
+(25,'Bombillon De Acero Inoxidable','8000', 80,"Bombillas","../img/Productos/bombillas/bombilla6.png"),
 /*Mas Termos*/
-(26,'Termo Media Manija Y Pico Cebador 24hs Color Gris','20.000', 50,"Termos","../img/Productos/termos/Termo4.png"),
-(27,'Termo 1lt Termolar Color Rosa','18.000', 30,"Termos","../img/Productos/termos/Termo5.png"),
-(28,'Termo Acero Inoxidable BOCA','30.000', 60,"Termos","../img/Productos/termos/Termo6.png"),
+(26,'Termo Media Manija Y Pico Cebador 24hs Color Gris','20000', 50,"Termos","../img/Productos/termos/Termo4.png"),
+(27,'Termo 1lt Termolar Color Rosa','18000', 30,"Termos","../img/Productos/termos/Termo5.png"),
+(28,'Termo Acero Inoxidable BOCA','30000', 60,"Termos","../img/Productos/termos/Termo6.png"),
 /*Mas sets*/
-(29,'Set Matero Bostero 0 DESCENSOS','26.000', 11,"SETS","../img/Productos/sets/set4.png"),
-(30,'Set Matero Campero Completo','19.600', 20,"SETS","../img/Productos/sets/set5.png"),
-(31,'Set Matero Campeones Del Mundo ','18.120', 50,"SETS","../img/Productos/sets/set6.png");
+(29,'Set Matero Bostero 0 DESCENSOS','26000', 11,"SETS","../img/Productos/sets/set4.png"),
+(30,'Set Matero Campero Completo','19600', 20,"SETS","../img/Productos/sets/set5.png"),
+(31,'Set Matero Campeones Del Mundo ','18120', 50,"SETS","../img/Productos/sets/set6.png");
 
 -- ----------------------------------------------------------------------------------
 --

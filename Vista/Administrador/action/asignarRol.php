@@ -10,7 +10,7 @@ $exito = $objUsuarioRol->alta($datos);
 if($exito){
     header('Location:../gestionarUsuarios.php');
 }else{
-    echo "Algo fallo";
+    header('Location:../gestionarUsuarios.php');
 }
 
 ?>

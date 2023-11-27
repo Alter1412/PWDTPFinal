@@ -9,7 +9,6 @@ if($agregar){
     header('Location:../carrito.php'); 
 }else{
     header('Location:../carrito.php'); 
-    //echo "Algo Fallo";
+
 }
-//echo json_encode($respuesta);
 ?>

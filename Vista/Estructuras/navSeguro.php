@@ -32,22 +32,68 @@ $direccionPadre = $session->getDireccionPadreMenu();
                     $medescripcionpadre = $padreMenu->getMeDescripcion();
     
                     if ($colMenu[$i]->getMenuPadre()->getIdMenu() != 0){
-                        
-                        if ($direccionMenu == $medescripcion){
-                            echo '<li class="nav-item active nav-underline">';
-                            echo '  <a class="nav-link active " aria-current="page" href="#">'.$menombre.'</a>';
-                            echo '</li>';
-                        } else {
-                            if ($direccionPadre == $nombrePadre){
-                                echo '<li class="nav-item">';
-                                echo '  <a class="nav-link" href='.$medescripcion.'>'.$menombre.'</a>';
+
+                        if ($medescripcion !="productos.php"){
+
+                            if ($direccionMenu == $medescripcion){
+                                echo '<li class="nav-item active nav-underline">';
+                                echo '  <a class="nav-link active " aria-current="page" href="#">'.$menombre.'</a>';
                                 echo '</li>';
                             } else {
-                                echo '<li class="nav-item">';
-                                echo '  <a class="nav-link" href='.$medescripcionpadre.$medescripcion.'>'.$menombre.'</a>';
-                                echo '</li>';
+                                if ($direccionPadre == $nombrePadre){
+                                    echo '<li class="nav-item">';
+                                    echo '  <a class="nav-link" href='.$medescripcion.'>'.$menombre.'</a>';
+                                    echo '</li>';
+                                } else {
+                                    echo '<li class="nav-item">';
+                                    echo '  <a class="nav-link" href='.$medescripcionpadre.$medescripcion.'>'.$menombre.'</a>';
+                                    echo '</li>';
+                                }
                             }
+
+                        } else {
+
+                            //DROPDOWN DE PRODUCTOS
+                            if ($direccionMenu == "productos.php"){
+                                echo '<div class="ml-auto">';
+                                //Caso para página actual (current)
+                                echo '<div class="nav-item dropdown active nav-underline">';
+                                echo '<a class="nav-link dropdown-toggle active nav-underline" href="#" id="navMenuProductos" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">';
+                                echo 'Productos';
+                                echo '</a>';
+
+                                echo '<div class="dropdown-menu" aria-labelledby="navbarDropdown">';
+                                echo '<a class="dropdown-item" href="productos.php?tipo=Mates">Mates</a>';
+                                echo '<a class="dropdown-item" href="productos.php?tipo=Yerbas">Yerbas</a>';
+                                echo '<a class="dropdown-item" href="productos.php?tipo=Bombillas">Bombillas</a>';
+                                echo '<a class="dropdown-item" href="productos.php?tipo=Termos">Termos</a>';
+                                echo '<a class="dropdown-item" href="productos.php?tipo=SETS">SETS</a>';
+                                echo '</div>';
+                                echo '</div>';
+                                echo '</div>';
+                                //FIN DROPDOWN DE PRODUCTOS
+                            } else {
+                                echo '<div class="ml-auto">';
+                                //Caso para otra página (no current)
+                                echo '<div class="nav-item dropdown">';
+                                echo '<a class="nav-link dropdown-toggle" href="#" id="navMenuProductos" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">';
+                                echo 'Productos';
+                                echo '</a>';
+
+                                echo '<div class="dropdown-menu" aria-labelledby="navbarDropdown">';
+                                echo '<a class="dropdown-item" href="../Cliente/productos.php?tipo=Mates">Mates</a>';
+                                echo '<a class="dropdown-item" href="../Cliente/productos.php?tipo=Yerbas">Yerbas</a>';
+                                echo '<a class="dropdown-item" href="../Cliente/productos.php?tipo=Bombillas">Bombillas</a>';
+                                echo '<a class="dropdown-item" href="../Cliente/productos.php?tipo=Termos">Termos</a>';
+                                echo '<a class="dropdown-item" href="../Cliente/productos.php?tipo=SETS">SETS</a>';
+                                echo '</div>';
+                                echo '</div>';
+                                echo '</div>';
+                                //FIN DROPDOWN DE PRODUCTOS
+                            }
+
                         }
+                                
                     }
                 }
             }

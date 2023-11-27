@@ -8,11 +8,8 @@ $objProducto = new AbmProducto();
  $exito = $objProducto->agregarProducto($datos);
 if($exito){
     header("Location: ../crearProductos.php");
-    //echo "Producto Creado";
-    
 }else{
     header("Location: ../crearProductos.php");
-    //echo "Algo fallo";
 }
 
 

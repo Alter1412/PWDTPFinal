@@ -10,7 +10,7 @@ if(isset($datos['idusuario'])){
     if($resp){
         header('Location:../gestionarUsuarios.php');
     }else{
-        echo "No se pudo deshabilitar al usuario";
+        header('Location:../gestionarUsuarios.php');
     }
     
 }

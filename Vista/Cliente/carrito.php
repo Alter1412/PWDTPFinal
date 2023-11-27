@@ -53,12 +53,12 @@ $listaCompraItem = $objCompraItem->buscar($idUCompra);
               <td><img src=' . $producto->getImagenProducto() . ' width="100px"></td>
               <td>' . $producto->getProNombre() . '</td>
               <td>' . $objCompraItem->getCiCantidad() . '</td>
-              <td>$' . $producto->getProDetalle() . '</td>
+              <td>' . $producto->getProDetalle() . '</td>
               <td><a href="action/quitarProductoCarrito.php?idcompraitem=' . $objCompraItem->getIdCompraItem() . '" class="btn btn-danger w-100">Quitar Producto</a></td>
               </tr>';
         }
         echo '<tr><td colspan="3"></td>';
-        echo "<td colspan='1' class='robotoBold'>Total: $".$montoAPagar."</td>";
+        echo '<td colspan="1" class="robotoBold">Total: $'.$montoAPagar.'</td>';
         echo '<td colspan="1"><a href="action/pagoCompra.php?idusuario='.$idUsuario.'" class="btn btn-primary w-100">REALIZAR COMPRA</a></td></tr>';
         echo "</tbody></table><br><br>";
     } else {

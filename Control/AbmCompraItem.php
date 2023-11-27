@@ -134,7 +134,19 @@ class AbmCompraItem{
         $idusuario = $datos['idusuario'];
         $objCompra = new AbmCompra();
         $busquedaCompra = $objCompra->buscarCarrito($idusuario);
-        $compra = $busquedaCompra[0]; 
+
+        //Crea un carrito nuevo si el usuario no tiene uno
+        if(count($busquedaCompra) == 0){
+
+            $paramCompra['idcompra'] = 0;
+            $paramCompra['cofecha'] = '0000-00-00 00:00:00';
+            $paramCompra['idusuario'] = $idusuario;
+            $objCompra->alta($paramCompra);
+            
+            $busquedaCompra = $objCompra->buscarCarrito($idusuario);
+        } 
+
+        $compra = $busquedaCompra[0];
 
         $abmCompraItem = new AbmCompraItem();
         $paramCompraItem['idproducto'] = $datos['idproducto'];

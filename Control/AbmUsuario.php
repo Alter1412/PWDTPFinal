@@ -270,7 +270,7 @@ class AbmUsuario
             $nuevaCompra = new AbmCompra();
             $aux['idcompra'] = 0;
             $aux['cofecha'] = null;
-            $aux['idusuario'] = $datos['idusuario'];
+            $aux['idusuario'] = $idUsuario;
             $nuevaCompra->alta($aux);
             $resp = true;
             

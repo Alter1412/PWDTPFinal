@@ -197,9 +197,10 @@ class AbmCompra{
     }
 
     /**
-     * Recibe un id de usuario y retorna un objeto compra que no posea un estado.
+     * Recibe un id de usuario y retorna una colección de objeto 
+     * compra que no posea un estado de ese usuario.
      * @param int $idUsuario
-     * @return Compra
+     * @return array
      */
     public function buscarCarrito($idUsuario){
         $compra = new Compra();

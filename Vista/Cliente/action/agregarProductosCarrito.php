@@ -11,7 +11,7 @@ if($agregar){
    //header('Location: ../productos.php');
    $respuesta = array("resultado" => "exito", "mensaje" => "Agregado al carrito con éxito");
 }else{
-    $respuesta = array("resultado" => "error", "mensaje" => "Error, no se pudo agregar al carrito");
+    $respuesta = array("resultado" => "error", "mensaje" => "Error, cantidad máxima posible de este producto ya alcanzada en el carrito");
 }
 
 echo json_encode($respuesta);

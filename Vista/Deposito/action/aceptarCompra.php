@@ -9,7 +9,6 @@ if($compraAceptada){
     header("Location: ../gestionarCompras.php");
 }else{
     header("Location: ../gestionarCompras.php");
-    //echo "Algo fallo";
 }
 
 ?>

@@ -11,7 +11,7 @@ $exito = $objRol->baja($datos);
 if($exito){
     header('Location:../gestionarRoles.php');
 }else{
-    echo "Algo fallo";
+    header('Location:../gestionarRoles.php');
 }
 
 ?>

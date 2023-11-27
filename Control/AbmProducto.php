@@ -108,16 +108,17 @@ class AbmProducto
           if  (isset($param['idproducto']))
             $where.=" and idproducto = ".$param['idproducto']; 
         if  (isset($param['pronombre']))
-                $where.=" and pronombre ='".$param['pronombre']."'";
+                $where.=" and pronombre = '".$param['pronombre']."'";
         if  (isset($param['prodetalle']))
-                $where.=" and prodetalle ='".$param['prodetalle']."'";
+                $where.=" and prodetalle = '".$param['prodetalle']."'";
         if  (isset($param['procantstock']))
-                $where.=" and procantstock ='".$param['procantstock']."'";
+                $where.=" and procantstock = '".$param['procantstock']."'";
         if  (isset($param['tipo']))
-                $where.=" and tipo ='".$param['tipo']."'";
+                $where.=" and tipo = '".$param['tipo']."'";
         if  (isset($param['imagenproducto']))
         $where.=" and imagenproducto='".$param['imagenproducto']."'";  
         }
+
         $obj = new Producto();
         $arreglo = $obj->listar($where);
         return $arreglo;
