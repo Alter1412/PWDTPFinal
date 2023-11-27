@@ -71,22 +71,25 @@ include_once("../Estructuras/navSeguro.php");
 
                 if (count($listaCompraItem) > 0) {
                     echo "<table class='table table-bordered'>";
-                    echo '<tr><td>IMAGEN</td><td>NOMBRE PRODUCTO</td><td>PRECIO POR UNIDAD</td><td>CANTIDAD</td></tr>';
+                    echo '<tr class="robotoBold"><td>IMAGEN</td><td>PRODUCTO</td><td>PRECIO POR UNIDAD</td><td>CANTIDAD</td></tr>';
+
+                    $total = 0;
 
                     for ($p = 0; $p < count($listaCompraItem); $p++) {
                         $objCompraItem = $listaCompraItem[$p];
                         $idProducto['idproducto'] = $objCompraItem->getObjProducto()->getIdProducto();
                         $busquedaProducto = $objProducto->buscar($idProducto);
                         $producto = $busquedaProducto[0];
+                        $total = $total + ($producto->getProDetalle() * $objCompraItem->getCiCantidad());
 
                         echo '<tr>
                                 <td><img src=' . $producto->getImagenProducto() . ' width="60px"></td>
                                 <td>' . $producto->getProNombre() . '</td>
-                                <td>' . $producto->getProDetalle() . '</td>
+                                <td>$' . $producto->getProDetalle() . '</td>
                                 <td>' . $objCompraItem->getCiCantidad() . '</td>
                             </tr>';
                     }
-
+                    echo '<tr><td colspan="4" class="robotoBold">Total: $'.$total.'</td></tr>';
                     echo "</table>";
                 }
                 if($tipoEstado == 'iniciada'){

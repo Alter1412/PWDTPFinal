@@ -88,16 +88,20 @@ include_once("../Estructuras/navSeguro.php");
                     echo '<table class="table table-bordered">
                             <tr>
                                 <th>IMAGEN</th>
-                                <th>NOMBRE PRODUCTO</th>
+                                <th>NOMBRE</th>
                                 <th>PRECIO POR UNIDAD</th>
                                 <th>CANTIDAD</th>
                                 <th>OPCIONES</th>
                             </tr>';
+
+                    $total = 0;
+
                     for ($p = 0; $p < count($listaCompraItem); $p++) {
                         $objCompraItem = $listaCompraItem[$p];
                         $idProducto['idproducto'] = $objCompraItem->getObjProducto()->getIdProducto();
                         $busquedaProducto = $objProducto->buscar($idProducto);
                         $producto = $busquedaProducto[0];
+                        $total = $total + ($producto->getProDetalle() * $objCompraItem->getCiCantidad());
 
                         echo '<tr>
                                 <td><img src=' . $producto->getImagenProducto() . ' width="60px"></td>
@@ -113,6 +117,7 @@ include_once("../Estructuras/navSeguro.php");
                                 
                         echo'</tr>';
                     }
+                    echo '<tr><td colspan="5" class="robotoBold">Total: $'.$total.'</td></tr>';
                     echo '</table>';
                 }
 

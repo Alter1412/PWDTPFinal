@@ -35,7 +35,7 @@ if ($session->validar()) {
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="../img/Imagenes/mate.png">
+    <link rel="icon" type="image/x-icon" href="../img/Marca/mate.png">
 
     <!-- link a librería de jquery -->
     <script src="../../Util/librerias/jquery/jquery-3.7.1.min.js"></script>

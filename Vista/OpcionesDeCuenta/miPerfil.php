@@ -54,7 +54,7 @@ $mail = $session->getUsMail();
                         </div>
                         <div class="contenedor-dato">
                             <label for="uspass2" class="form-label">Repita su nueva contraseña</label>
-                            <input type="password" class="form-control mb-3" id="uspass2" name="uspass2">
+                            <input type="password" class="form-control mb-4" id="uspass2" name="uspass2">
                         </div>
                         <button type="submit" id="realizarCambios" class="btn btn-primary btn-lg w-100">REALIZAR CAMBIOS</button>
                 </div>
